@@ -6,22 +6,36 @@ from apps.items.models import Item
 from apps.recipes.models import Recipe
 
 
+PUBLIC_MENU_TYPES = ["menu_item", "drink", "product"]
+
+
+def public_menu_queryset():
+    return (
+        Item.objects
+        .filter(
+            status="active",
+            item_type__in=PUBLIC_MENU_TYPES,
+            media_files__is_public=True,
+        )
+        .select_related("category", "unit")
+        .prefetch_related("media_files", "labels")
+        .distinct()
+    )
+
+
 def home(request):
     if not CompanyProfile.objects.exists():
         return redirect("setupwizard:start")
 
     featured_items = (
-        Item.objects
-        .filter(status="active", is_featured=True)
-        .select_related("category", "unit")
-        .prefetch_related("media_files", "labels")[:6]
+        public_menu_queryset()
+        .filter(is_featured=True)
+        .order_by("category__sort_order", "category__name", "name")[:6]
     )
 
     public_items = (
-        Item.objects
-        .filter(status="active")
-        .select_related("category", "unit")
-        .prefetch_related("media_files", "labels")[:12]
+        public_menu_queryset()
+        .order_by("category__sort_order", "category__name", "name")[:12]
     )
 
     return render(
@@ -41,7 +55,7 @@ def dashboard_home(request):
     stock_movement_count = StockMovement.objects.count()
     recent_movements = (
         StockMovement.objects
-        .select_related("item", "location", "unit")
+        .select_related("item", "location")
         .order_by("-created_at")[:10]
     )
 

@@ -9,7 +9,7 @@ from apps.inventory.models import StockMovement, calculate_stock, item_is_availa
 from apps.inventory.services import book_stock
 from apps.recipes.models import RecipeIngredient, get_recipe_availability
 
-from .forms import ItemCreateForm
+from .forms import ItemCreateForm, ItemUpdateForm
 from .models import Category, Item, ItemImage, Label
 from .services.sorting import horeca_sort_key
 
@@ -90,7 +90,7 @@ def filter_items(queryset, request, public_only=False):
 def public_item_list(request):
     base_queryset = (
         Item.objects
-        .filter(status="active")
+        .filter(status="active", item_type__in=["menu_item", "drink", "product"], media_files__is_public=True)
         .select_related("category", "unit")
         .prefetch_related("media_files", "labels", "stock_movements")
     )
@@ -115,7 +115,7 @@ def public_item_list(request):
 
 def public_item_detail(request, slug):
     item = get_object_or_404(
-        Item.objects.filter(status="active")
+        Item.objects.filter(status="active", item_type__in=["menu_item", "drink", "product"], media_files__is_public=True)
         .select_related("category", "unit")
         .prefetch_related("media_files", "labels", "stock_movements"),
         slug=slug,
@@ -275,5 +275,77 @@ def item_create(request, item_type=None):
             "form": form,
             "title": title_map.get(item_type, "Nieuw product of ingrediënt"),
             "item_type": item_type,
+        },
+    )
+
+
+@login_required
+@permission_required("items.change_item", raise_exception=True)
+def item_update(request, item_id):
+    item = get_object_or_404(
+        Item.objects
+        .select_related("category", "unit")
+        .prefetch_related("labels", "media_files"),
+        id=item_id,
+    )
+
+    if request.method == "POST":
+        form = ItemUpdateForm(request.POST, request.FILES, instance=item)
+
+        if form.is_valid():
+            item = form.save()
+
+            uploaded_files = form.cleaned_data.get("media_files", [])
+
+            has_primary = item.media_files.filter(is_primary=True).exists()
+
+            for index, uploaded_file in enumerate(uploaded_files):
+                ItemImage.objects.create(
+                    item=item,
+                    image=uploaded_file,
+                    media_kind=detect_media_kind(uploaded_file.name),
+                    alt_text=item.name,
+                    caption=item.name,
+                    sort_order=item.media_files.count() + index,
+                    is_primary=not has_primary and index == 0,
+                    is_public=True,
+                )
+
+            messages.success(request, f"{item.name} is aangepast.")
+            return redirect("items:dashboard_list")
+    else:
+        form = ItemUpdateForm(instance=item)
+
+    stock = calculate_stock(item) if item.is_stock_tracked else None
+
+    used_in_recipe_lines = (
+        RecipeIngredient.objects
+        .filter(ingredient=item)
+        .select_related("recipe", "recipe__output_item", "recipe__output_item__category")
+        .order_by("recipe__output_item__name")
+    )
+
+    recipe_availability = None
+
+    if item.item_type in ["menu_item", "drink"]:
+        recipe_availability = get_recipe_availability(item)
+
+    recent_movements = (
+        StockMovement.objects
+        .filter(item=item)
+        .select_related("location", "unit", "created_by")
+        .order_by("-created_at")[:8]
+    )
+
+    return render(
+        request,
+        "items/item_update.html",
+        {
+            "form": form,
+            "item": item,
+            "stock": stock,
+            "used_in_recipe_lines": used_in_recipe_lines,
+            "recipe_availability": recipe_availability,
+            "recent_movements": recent_movements,
         },
     )
