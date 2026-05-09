@@ -27,3 +27,12 @@ staticfiles/
 
 # Node
 node_modules/
+
+# Lokale backupbestanden
+*.backup*
+*.bak
+*.old
+*.tmp
+backups/
+objectbeheer/backups/
+objectbeheer/db.sqlite3.backup*
