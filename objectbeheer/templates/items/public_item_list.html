@@ -1,10 +1,9 @@
 {% extends "base/base.html" %}
-{% load inventory_extras %}
 
 {% block content %}
 <section class="hero compact-hero">
-    <h1>Catalogus</h1>
-    <p>Bekijk wat beschikbaar is. Items die niet gemaakt of geleverd kunnen worden, verdwijnen automatisch.</p>
+    <h1>Menu</h1>
+    <p>Bekijk onze actuele kaart. Alles wat je hier ziet is beschikbaar om te bestellen.</p>
 </section>
 
 <div class="browse-tabs">
@@ -71,14 +70,14 @@
                         {% with media=row.item.primary_media %}
                             {% if media %}
                                 {% if media.is_video %}
-                                    <video class="card-image" muted playsinline>
+                                    <video preload="metadata" class="card-image" muted playsinline>
                                         <source src="{{ media.image.url }}">
                                     </video>
                                 {% else %}
-                                    <img class="card-image" src="{{ media.image.url }}" alt="{{ media.alt_text|default:row.item.name }}">
+                                    <img loading="lazy" decoding="async" class="card-image" src="{{ media.image.url }}" alt="{{ media.alt_text|default:row.item.name }}">
                                 {% endif %}
                             {% elif row.item.use_default_image_when_missing and branding and branding.default_item_image %}
-                                <img class="card-image" src="{{ branding.default_item_image.url }}" alt="{{ row.item.name }}">
+                                <img loading="lazy" decoding="async" class="card-image" src="{{ branding.default_item_image.url }}" alt="{{ row.item.name }}">
                             {% else %}
                                 <div class="placeholder-image">{{ row.item.name }}</div>
                             {% endif %}
@@ -95,10 +94,6 @@
 
                     {% if row.item.display_description %}
                         <p>{{ row.item.display_description|truncatewords:18 }}</p>
-                    {% endif %}
-
-                    {% if row.recipe_availability and row.recipe_availability.max_outputs != None %}
-                        <span class="badge badge-positive">Max {{ row.recipe_availability.max_outputs|smart_quantity }} beschikbaar</span>
                     {% endif %}
 
                     {% if not company_settings or company_settings.show_public_prices %}
@@ -118,7 +113,9 @@
             </a>
         {% endfor %}
     </div>
+
+    {% include "base/pagination.html" %}
 {% else %}
-    <div class="empty-state">Geen beschikbare items gevonden.</div>
+    <div class="empty-state">Geen items gevonden.</div>
 {% endif %}
 {% endblock %}

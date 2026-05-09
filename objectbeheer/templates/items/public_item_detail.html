@@ -6,7 +6,7 @@
     <a class="button secondary" href="{% url 'items:public_list' %}">Terug naar catalogus</a>
 
     {% if request.user.is_authenticated %}
-        <a class="button secondary" href="/admin/items/item/{{ item.id }}/change/">Item aanpassen</a>
+        <a class="button secondary" href="{% url 'items:update' item.id %}">Item aanpassen</a>
 
         {% if item.item_type == "menu_item" or item.item_type == "drink" %}
             <a class="button secondary" href="{% url 'recipes:manage' item.id %}">Recept beheren</a>
@@ -20,14 +20,14 @@
             {% with media=item.primary_media %}
                 {% if media %}
                     {% if media.is_video %}
-                        <video class="detail-image" controls muted playsinline>
+                        <video preload="metadata" class="detail-image" controls muted playsinline>
                             <source src="{{ media.image.url }}">
                         </video>
                     {% else %}
-                        <img class="detail-image" src="{{ media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
+                        <img loading="lazy" decoding="async" class="detail-image" src="{{ media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
                     {% endif %}
                 {% elif item.use_default_image_when_missing and branding and branding.default_item_image %}
-                    <img class="detail-image" src="{{ branding.default_item_image.url }}" alt="{{ item.name }}">
+                    <img loading="lazy" decoding="async" class="detail-image" src="{{ branding.default_item_image.url }}" alt="{{ item.name }}">
                 {% else %}
                     <div class="placeholder-image" style="aspect-ratio: 4 / 3;">{{ item.name }}</div>
                 {% endif %}
@@ -41,7 +41,7 @@
                                 {% if media.is_video %}
                                     <span>Video</span>
                                 {% else %}
-                                    <img src="{{ media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
+                                    <img loading="lazy" decoding="async" src="{{ media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
                                 {% endif %}
                             </div>
                         {% endif %}
@@ -84,14 +84,14 @@
                     <strong>{{ item.unit|default:"Geen" }}</strong>
                 </div>
 
-                {% if stock != None %}
+                {% if request.user.is_authenticated and stock != None %}
                     <div>
                         <span class="meta">Voorraad</span>
                         <strong>{{ stock|smart_quantity }} {{ item.unit }}</strong>
                     </div>
                 {% endif %}
 
-                {% if recipe_availability %}
+                {% if request.user.is_authenticated and recipe_availability %}
                     <div>
                         <span class="meta">Beschikbaarheid</span>
                         {% if recipe_availability.has_recipe %}
@@ -129,7 +129,7 @@
     </article>
 </div>
 
-{% if recipe_lines %}
+{% if request.user.is_authenticated and recipe_lines %}
     <div class="section-title">
         <div>
             <h2>Waar is dit van gemaakt?</h2>
@@ -171,7 +171,7 @@
     </div>
 {% endif %}
 
-{% if used_in_recipe_lines %}
+{% if request.user.is_authenticated and used_in_recipe_lines %}
     <div class="section-title">
         <div>
             <h2>Waar wordt dit in gebruikt?</h2>
@@ -216,7 +216,7 @@
     </div>
 {% endif %}
 
-{% if recipe_availability and recipe_availability.missing_required %}
+{% if request.user.is_authenticated and recipe_availability and recipe_availability.missing_required %}
     <div class="section-title">
         <div>
             <h2>Waarom niet beschikbaar?</h2>
@@ -238,7 +238,7 @@
     </div>
 {% endif %}
 
-{% if recipe_availability and recipe_availability.missing_optional %}
+{% if request.user.is_authenticated and recipe_availability and recipe_availability.missing_optional %}
     <div class="section-title">
         <div>
             <h2>Optioneel ontbreekt</h2>
@@ -259,7 +259,7 @@
     </div>
 {% endif %}
 
-{% if recent_movements %}
+{% if request.user.is_authenticated and recent_movements %}
     <div class="section-title">
         <div>
             <h2>Laatste voorraadmutaties</h2>

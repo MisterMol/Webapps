@@ -113,8 +113,10 @@
 <div class="item-browser-grid">
     {% for row in rows %}
         <article class="browser-card">
-            <div class="browser-card-header">
-                <div>
+            <div class="browser-card-header with-thumb">
+                {% include "items/partials/item_thumb.html" with item=row.item %}
+
+                <div class="browser-title">
                     <p class="meta">{{ row.item.get_item_type_display }}</p>
                     <h2>{{ row.item.name }}</h2>
                 </div>
@@ -174,11 +176,12 @@
                     <a class="button secondary" href="{% url 'recipes:manage' row.item.id %}">Recept</a>
                 {% endif %}
 
-                <a class="button secondary" href="/admin/items/item/{{ row.item.id }}/change/">Aanpassen</a>
+                <a class="button secondary" href="{% url 'items:update' row.item.id %}">Aanpassen</a>
             </div>
         </article>
     {% empty %}
         <div class="empty-state">Geen items gevonden met deze filters.</div>
     {% endfor %}
 </div>
+{% include "base/pagination.html" %}
 {% endblock %}

@@ -2,6 +2,7 @@ from pathlib import Path
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
+from django.core.paginator import Paginator
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 
@@ -27,6 +28,13 @@ def detect_media_kind(filename):
         return "video"
 
     return "other"
+
+
+
+def paginate_rows(rows, request, per_page=36):
+    paginator = Paginator(rows, per_page)
+    page_number = request.GET.get("page") or 1
+    return paginator.get_page(page_number)
 
 
 def filter_items(queryset, request, public_only=False):
@@ -90,18 +98,20 @@ def filter_items(queryset, request, public_only=False):
 def public_item_list(request):
     base_queryset = (
         Item.objects
-        .filter(status="active", item_type__in=["menu_item", "drink", "product"], media_files__is_public=True)
+        .filter(status="active", item_type__in=["menu_item", "drink", "product"])
         .select_related("category", "unit")
         .prefetch_related("media_files", "labels", "stock_movements")
     )
 
     rows = filter_items(base_queryset, request, public_only=True)
+    page_obj = paginate_rows(rows, request, per_page=24)
 
     return render(
         request,
         "items/public_item_list.html",
         {
-            "rows": rows,
+            "rows": page_obj.object_list,
+            "page_obj": page_obj,
             "categories": Category.objects.filter(is_active=True).order_by("sort_order", "name"),
             "labels": Label.objects.order_by("name"),
             "selected_type": request.GET.get("type", ""),
@@ -115,7 +125,7 @@ def public_item_list(request):
 
 def public_item_detail(request, slug):
     item = get_object_or_404(
-        Item.objects.filter(status="active", item_type__in=["menu_item", "drink", "product"], media_files__is_public=True)
+        Item.objects.filter(status="active", item_type__in=["menu_item", "drink", "product"])
         .select_related("category", "unit")
         .prefetch_related("media_files", "labels", "stock_movements"),
         slug=slug,
@@ -185,6 +195,7 @@ def dashboard_item_list(request):
     )
 
     rows = filter_items(base_queryset, request, public_only=False)
+    page_obj = paginate_rows(rows, request, per_page=36)
 
     counts = {
         "all": Item.objects.count(),
@@ -198,7 +209,8 @@ def dashboard_item_list(request):
         request,
         "items/dashboard_item_list.html",
         {
-            "rows": rows,
+            "rows": page_obj.object_list,
+            "page_obj": page_obj,
             "counts": counts,
             "categories": Category.objects.filter(is_active=True).order_by("sort_order", "name"),
             "labels": Label.objects.order_by("name"),
@@ -219,6 +231,11 @@ def item_create(request, item_type=None):
 
         if form.is_valid():
             item = form.save()
+
+            primary_media_id = form.cleaned_data.get("primary_media_id")
+            if primary_media_id:
+                item.media_files.update(is_primary=False)
+                item.media_files.filter(id=primary_media_id).update(is_primary=True)
 
             uploaded_files = form.cleaned_data.get("media_files", [])
 
@@ -294,6 +311,11 @@ def item_update(request, item_id):
 
         if form.is_valid():
             item = form.save()
+
+            primary_media_id = form.cleaned_data.get("primary_media_id")
+            if primary_media_id:
+                item.media_files.update(is_primary=False)
+                item.media_files.filter(id=primary_media_id).update(is_primary=True)
 
             uploaded_files = form.cleaned_data.get("media_files", [])
 

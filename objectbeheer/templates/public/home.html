@@ -1,68 +1,179 @@
 {% extends "base/base.html" %}
 
 {% block content %}
-<section class="hero">
-    <h1>
-        {% if company %}
-            {{ company }}
-        {% else %}
-            Objectbeheer
-        {% endif %}
-    </h1>
-    <p>
-        Een moderne en eenvoudige beheeromgeving voor items, gerechten, voorraad en afbeeldingen.
-    </p>
+<section class="public-hero">
+    <div class="public-hero-content">
+        <p class="eyebrow">Restaurant De GraafMol</p>
+        <h1>Robuuste gerechten, luxe snacks en cocktails met karakter.</h1>
+        <p>
+            Bekijk onze actuele kaart. Alles wat je hier ziet is beschikbaar om te bestellen.
+            Geen voorraadstanden, geen interne rommel, gewoon duidelijk.
+        </p>
 
-    {% if not company_settings or company_settings.enable_public_catalog %}
-        <a class="button" href="{% url 'items:public_list' %}">Bekijk catalogus</a>
-    {% endif %}
-</section>
+        <div class="hero-actions">
+            <a class="button" href="{% url 'items:public_list' %}">Bekijk het menu</a>
 
-{% if not company_settings or company_settings.enable_featured_items %}
-    <div class="section-title">
-        <div>
-            <h2>Uitgelicht</h2>
-            <p>Populaire of belangrijke items.</p>
+            {% if request.user.is_authenticated %}
+                <a class="button secondary dark-secondary" href="{% url 'inventory:overview' %}">Voorraad beheren</a>
+            {% endif %}
         </div>
     </div>
 
-    {% if featured_items %}
-        <div class="grid">
-            {% for item in featured_items %}
-                <a class="card interactive" href="{% url 'items:public_detail' item.slug %}">
-                    {% if item.should_show_image %}
-                        <div class="card-image-wrap">
-                            {% with image=item.primary_image %}
-                                {% if image %}
-                                    <img class="card-image" src="{{ image.image.url }}" alt="{{ image.alt_text|default:item.name }}">
-                                {% elif item.use_default_image_when_missing and branding and branding.default_item_image %}
-                                    <img class="card-image" src="{{ branding.default_item_image.url }}" alt="{{ item.name }}">
+    <div class="public-hero-media">
+        {% if branding and branding.default_item_image %}
+            <img loading="lazy" decoding="async" src="{{ branding.default_item_image.url }}" alt="Restaurant De GraafMol">
+        {% elif branding and branding.logo %}
+            <img loading="lazy" decoding="async" src="{{ branding.logo.url }}" alt="Restaurant De GraafMol">
+        {% else %}
+            <div class="hero-placeholder">
+                <span>GM</span>
+                <small>Restaurant De GraafMol</small>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<section class="public-usps">
+    <article>
+        <span>01</span>
+        <h2>Actuele kaart</h2>
+        <p>Wat op de kaart staat, kan besteld worden. Items die niet beschikbaar zijn verdwijnen automatisch.</p>
+    </article>
+
+    <article>
+        <span>02</span>
+        <h2>Snelle keuze</h2>
+        <p>Burgers, loaded fries, snacks, cocktails en dranken overzichtelijk bij elkaar.</p>
+    </article>
+
+    <article>
+        <span>03</span>
+        <h2>GraafMol stijl</h2>
+        <p>Donker, strak en professioneel. Zoals een luxe snackbar hoort te voelen.</p>
+    </article>
+</section>
+
+{% if featured_items %}
+    <div class="section-title">
+        <div>
+            <h2>Uitgelicht</h2>
+            <p>Populaire keuzes van dit moment.</p>
+        </div>
+
+        <a class="button secondary" href="{% url 'items:public_list' %}">Alles bekijken</a>
+    </div>
+
+    <div class="grid">
+        {% for item in featured_items %}
+            <a class="card interactive" href="{% url 'items:public_detail' item.slug %}">
+                {% if item.should_show_image %}
+                    <div class="card-image-wrap">
+                        {% with media=item.primary_media %}
+                            {% if media %}
+                                {% if media.is_video %}
+                                    <video preload="metadata" class="card-image" muted playsinline>
+                                        <source src="{{ media.image.url }}">
+                                    </video>
                                 {% else %}
-                                    <div class="placeholder-image">{{ item.name }}</div>
+                                    <img loading="lazy" decoding="async" class="card-image" src="{{ media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
                                 {% endif %}
-                            {% endwith %}
-                        </div>
+                            {% elif item.use_default_image_when_missing and branding and branding.default_item_image %}
+                                <img loading="lazy" decoding="async" class="card-image" src="{{ branding.default_item_image.url }}" alt="{{ item.name }}">
+                            {% else %}
+                                <div class="placeholder-image">{{ item.name }}</div>
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                {% endif %}
+
+                <div class="card-body">
+                    {% if item.category %}
+                        <p class="meta">{{ item.category.name }}</p>
                     {% endif %}
 
-                    <div class="card-body">
-                        <p class="meta">{{ item.get_item_type_display }}</p>
-                        <h3>{{ item.name }}</h3>
+                    <h2>{{ item.name }}</h2>
 
-                        {% if item.display_description %}
-                            <p>{{ item.display_description|truncatewords:16 }}</p>
-                        {% endif %}
+                    {% if item.display_description %}
+                        <p>{{ item.display_description|truncatewords:18 }}</p>
+                    {% endif %}
 
-                        {% if not company_settings or company_settings.show_public_prices %}
-                            {% if item.sale_price %}
-                                <p class="price">€ {{ item.sale_price }}</p>
+                    {% if item.sale_price %}
+                        <p class="price">€ {{ item.sale_price }}</p>
+                    {% endif %}
+
+                    {% if item.labels.all %}
+                        <div class="badges">
+                            {% for label in item.labels.all %}
+                                <span class="badge">{{ label.name }}</span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<div class="section-title">
+    <div>
+        <h2>Menu ontdekken</h2>
+        <p>Bekijk beschikbare gerechten, snacks, burgers, friet en dranken.</p>
+    </div>
+</div>
+
+{% if public_items %}
+    <div class="grid">
+        {% for item in public_items %}
+            <a class="card interactive" href="{% url 'items:public_detail' item.slug %}">
+                {% if item.should_show_image %}
+                    <div class="card-image-wrap">
+                        {% with media=item.primary_media %}
+                            {% if media %}
+                                {% if media.is_video %}
+                                    <video preload="metadata" class="card-image" muted playsinline>
+                                        <source src="{{ media.image.url }}">
+                                    </video>
+                                {% else %}
+                                    <img loading="lazy" decoding="async" class="card-image" src="{{ media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
+                                {% endif %}
+                            {% elif item.use_default_image_when_missing and branding and branding.default_item_image %}
+                                <img loading="lazy" decoding="async" class="card-image" src="{{ branding.default_item_image.url }}" alt="{{ item.name }}">
+                            {% else %}
+                                <div class="placeholder-image">{{ item.name }}</div>
                             {% endif %}
-                        {% endif %}
+                        {% endwith %}
                     </div>
-                </a>
-            {% endfor %}
-        </div>
-    {% else %}
-        <div class="empty-state">Er zijn nog geen uitgelichte items.</div>
-    {% endif %}
+                {% endif %}
+
+                <div class="card-body">
+                    {% if item.category %}
+                        <p class="meta">{{ item.category.name }}</p>
+                    {% endif %}
+
+                    <h2>{{ item.name }}</h2>
+
+                    {% if item.display_description %}
+                        <p>{{ item.display_description|truncatewords:18 }}</p>
+                    {% endif %}
+
+                    {% if item.sale_price %}
+                        <p class="price">€ {{ item.sale_price }}</p>
+                    {% endif %}
+
+                    {% if item.labels.all %}
+                        <div class="badges">
+                            {% for label in item.labels.all %}
+                                <span class="badge">{{ label.name }}</span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="empty-state">
+        Er staan op dit moment geen items op de kaart.
+    </div>
 {% endif %}
 {% endblock %}

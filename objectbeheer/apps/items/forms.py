@@ -153,6 +153,22 @@ class ItemCreateForm(forms.ModelForm):
         self.fields["is_featured"].label = "Uitgelicht tonen"
         self.fields["status"].label = "Status"
 
+        media_choices = []
+        if self.instance and self.instance.pk:
+            media_files = self.instance.media_files.filter(is_public=True).order_by("sort_order", "uploaded_at", "id")
+            media_choices = [
+                (str(media.id), media.caption or media.alt_text or media.image.name)
+                for media in media_files
+            ]
+
+            primary_media = media_files.filter(is_primary=True).first()
+            if primary_media:
+                self.fields["primary_media_id"].initial = str(primary_media.id)
+            elif media_files.count() == 1:
+                self.fields["primary_media_id"].initial = str(media_files.first().id)
+
+        self.fields["primary_media_id"].choices = media_choices
+
         self.fields["labels"].required = False
         self.fields["sku"].required = False
         self.fields["short_description"].required = False
@@ -211,5 +227,143 @@ class ItemCreateForm(forms.ModelForm):
 
         if initial_stock_quantity and not initial_stock_location:
             raise forms.ValidationError("Kies een voorraadlocatie voor de directe inkoopvoorraad.")
+
+        return cleaned_data
+
+
+class ItemUpdateForm(forms.ModelForm):
+    primary_media_id = forms.ChoiceField(
+        label="Hoofdafbeelding",
+        required=False,
+        help_text="Kies welke afbeelding standaard zichtbaar is op kaarten en detailpagina’s.",
+    )
+
+    media_files = MultipleFileField(
+        label="Nieuwe afbeeldingen, gifjes of video’s toevoegen",
+        required=False,
+        help_text="Upload extra media voor dit item. Bestaande media blijft staan. Toegestaan: jpg, png, webp, gif, mp4, webm en mov.",
+    )
+
+    class Meta:
+        model = Item
+        fields = [
+            "item_type",
+            "name",
+            "sku",
+            "category",
+            "labels",
+            "short_description",
+            "description",
+            "unit",
+            "sale_price",
+            "purchase_price",
+            "vat_rate",
+            "minimum_stock",
+            "is_stock_tracked",
+            "show_image",
+            "use_default_image_when_missing",
+            "is_featured",
+            "status",
+        ]
+        widgets = {
+            "description": forms.Textarea(attrs={"rows": 5}),
+            "short_description": forms.TextInput(),
+            "labels": forms.CheckboxSelectMultiple(),
+        }
+        help_texts = {
+            "item_type": "Bepaalt hoe het item zich gedraagt. Gerechten en dranken kunnen een recept hebben. Ingrediënten worden gebruikt in recepten.",
+            "name": "De naam die medewerkers en bezoekers zien.",
+            "sku": "Optioneel intern artikelnummer of leverancierscode.",
+            "category": "Categorie bepaalt waar het item in lijsten en filters staat.",
+            "labels": "Labels maken filteren makkelijk. Bijvoorbeeld Populair, Vegetarisch, Pittig of Premium.",
+            "short_description": "Korte tekst voor kaarten en overzichten.",
+            "description": "Langere tekst voor de detailpagina. Hier kun je sfeer, ingrediënten of uitleg kwijt.",
+            "unit": "De vaste eenheid voor voorraad. Bijvoorbeeld stuk, gram, kilogram, liter of milliliter.",
+            "sale_price": "Verkoopprijs voor klanten.",
+            "purchase_price": "Inkoopprijs per vaste eenheid. Handig voor marge later.",
+            "vat_rate": "Gebruik meestal 9 procent voor eten en non-alcoholisch, 21 procent voor alcohol. Controleer dit zelf.",
+            "minimum_stock": "Onder deze waarde wordt lage voorraad getoond.",
+            "is_stock_tracked": "Zet dit aan als je voorraad van dit item wilt bijhouden.",
+            "show_image": "Zet dit uit als je geen media wilt tonen op publieke pagina’s.",
+            "use_default_image_when_missing": "Gebruik de standaardafbeelding als er geen eigen media is.",
+            "is_featured": "Toon dit item als uitgelicht op plekken zoals de homepagina.",
+            "status": "Alleen actieve items zijn publiek zichtbaar.",
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields["category"].queryset = Category.objects.filter(is_active=True).order_by("sort_order", "name")
+        self.fields["labels"].queryset = Label.objects.order_by("name")
+        self.fields["unit"].queryset = Unit.objects.filter(is_active=True).order_by("unit_type", "name")
+
+        self.fields["item_type"].label = "Type"
+        self.fields["name"].label = "Naam"
+        self.fields["sku"].label = "Artikelcode"
+        self.fields["category"].label = "Categorie"
+        self.fields["labels"].label = "Labels"
+        self.fields["short_description"].label = "Korte omschrijving"
+        self.fields["description"].label = "Uitgebreide omschrijving"
+        self.fields["unit"].label = "Vaste eenheid"
+        self.fields["sale_price"].label = "Verkoopprijs"
+        self.fields["purchase_price"].label = "Inkoopprijs per eenheid"
+        self.fields["vat_rate"].label = "Btw percentage"
+        self.fields["minimum_stock"].label = "Minimumvoorraad"
+        self.fields["is_stock_tracked"].label = "Voorraad bijhouden"
+        self.fields["show_image"].label = "Media tonen"
+        self.fields["use_default_image_when_missing"].label = "Standaardafbeelding gebruiken als er geen media is"
+        self.fields["is_featured"].label = "Uitgelicht tonen"
+        self.fields["status"].label = "Status"
+
+        media_choices = []
+        if self.instance and self.instance.pk:
+            media_files = self.instance.media_files.filter(is_public=True).order_by("sort_order", "uploaded_at", "id")
+            media_choices = [
+                (str(media.id), media.caption or media.alt_text or media.image.name)
+                for media in media_files
+            ]
+
+            primary_media = media_files.filter(is_primary=True).first()
+            if primary_media:
+                self.fields["primary_media_id"].initial = str(primary_media.id)
+            elif media_files.count() == 1:
+                self.fields["primary_media_id"].initial = str(media_files.first().id)
+
+        self.fields["primary_media_id"].choices = media_choices
+
+        self.fields["labels"].required = False
+        self.fields["sku"].required = False
+        self.fields["short_description"].required = False
+        self.fields["description"].required = False
+        self.fields["sale_price"].required = False
+        self.fields["purchase_price"].required = False
+        self.fields["minimum_stock"].required = False
+
+    def clean_media_files(self):
+        files = self.cleaned_data.get("media_files", [])
+
+        for uploaded_file in files:
+            suffix = Path(uploaded_file.name).suffix.lower()
+
+            if suffix not in ALLOWED_MEDIA_EXTENSIONS:
+                raise forms.ValidationError(
+                    f"{uploaded_file.name} heeft een niet toegestaan bestandstype."
+                )
+
+            if uploaded_file.size > 25 * 1024 * 1024:
+                raise forms.ValidationError(
+                    f"{uploaded_file.name} is groter dan 25 MB."
+                )
+
+        return files
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        is_stock_tracked = cleaned_data.get("is_stock_tracked")
+        unit = cleaned_data.get("unit")
+
+        if is_stock_tracked and not unit:
+            raise forms.ValidationError("Kies een vaste eenheid als je voorraad wilt bijhouden.")
 
         return cleaned_data

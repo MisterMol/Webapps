@@ -1,0 +1,19 @@
+<div class="item-thumb">
+    {% with media=item.primary_media %}
+        {% if media %}
+            {% if media.is_video %}
+                <video preload="metadata" muted playsinline>
+                    <source src="{{ media.image.url }}">
+                </video>
+            {% else %}
+                <img loading="lazy" decoding="async" src="{{ media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
+            {% endif %}
+        {% elif item.use_default_image_when_missing and branding and branding.default_item_image %}
+            <img loading="lazy" decoding="async" src="{{ branding.default_item_image.url }}" alt="{{ item.name }}">
+        {% else %}
+            <div class="item-thumb-empty">
+                {{ item.name|slice:":1" }}
+            </div>
+        {% endif %}
+    {% endwith %}
+</div>
