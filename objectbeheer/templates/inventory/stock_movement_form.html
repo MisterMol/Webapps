@@ -1,0 +1,301 @@
+{% extends "base/base.html" %}
+{% load inventory_extras %}
+
+{% block content %}
+<section class="hero">
+    <h1>Voorraad aanpassen</h1>
+    <p>Kies een item en actie. Bij een telling vul je alleen in hoeveel je echt hebt geteld.</p>
+</section>
+
+<div class="stock-layout">
+    <section class="form-panel">
+        <form method="post" id="stock-form">
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="message">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+            <div class="form-row">
+                <label for="{{ form.item.id_for_label }}">{{ form.item.label }}</label>
+                {{ form.item }}
+                {% if form.item.errors %}
+                    <div class="message">{{ form.item.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-row">
+                <label>Vaste eenheid</label>
+                <input id="unit-display" type="text" value="Kies eerst een item" disabled>
+                <p class="meta">De eenheid wordt automatisch bepaald op basis van het gekozen item.</p>
+            </div>
+
+            <div class="form-row">
+                <label for="{{ form.location.id_for_label }}">{{ form.location.label }}</label>
+                {{ form.location }}
+                {% if form.location.errors %}
+                    <div class="message">{{ form.location.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-row">
+                <label for="{{ form.action.id_for_label }}">{{ form.action.label }}</label>
+                {{ form.action }}
+                {% if form.action.errors %}
+                    <div class="message">{{ form.action.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-row" id="quantity-row">
+                <label for="{{ form.quantity.id_for_label }}">{{ form.quantity.label }}</label>
+                {{ form.quantity }}
+                <p class="meta">{{ form.quantity.help_text }}</p>
+                {% if form.quantity.errors %}
+                    <div class="message">{{ form.quantity.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-row" id="counted-row">
+                <label for="{{ form.counted_quantity.id_for_label }}">{{ form.counted_quantity.label }}</label>
+                {{ form.counted_quantity }}
+                <p class="meta">{{ form.counted_quantity.help_text }}</p>
+                {% if form.counted_quantity.errors %}
+                    <div class="message">{{ form.counted_quantity.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-row">
+                <label for="{{ form.reason_code.id_for_label }}">{{ form.reason_code.label }}</label>
+                {{ form.reason_code }}
+                {% if form.reason_code.errors %}
+                    <div class="message">{{ form.reason_code.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-row">
+                <label for="{{ form.note.id_for_label }}">{{ form.note.label }}</label>
+                {{ form.note }}
+                {% if form.note.errors %}
+                    <div class="message">{{ form.note.errors }}</div>
+                {% endif %}
+            </div>
+
+            <button class="button" type="submit">Voorraad opslaan</button>
+            <a class="button secondary" href="{% url 'inventory:overview' %}">Terug naar voorraad</a>
+        </form>
+    </section>
+
+    <aside class="stock-side-card">
+        <h2>Itemstatus</h2>
+        <p class="meta">Kies een item om de huidige voorraad en laatste mutaties te zien.</p>
+
+        <div id="item-status-empty" class="empty-state">
+            Nog geen item gekozen.
+        </div>
+
+        <div id="item-status-panel" style="display: none;">
+            <h3 id="status-name"></h3>
+
+            <div class="stock-current">
+                <span class="meta">Huidige voorraad</span>
+                <strong id="status-stock"></strong>
+            </div>
+
+            <div class="stock-current">
+                <span class="meta">Minimumvoorraad</span>
+                <strong id="status-minimum"></strong>
+            </div>
+
+            <h3>Laatste 10 mutaties</h3>
+            <div id="status-mutations" class="mini-mutations"></div>
+        </div>
+    </aside>
+</div>
+
+<div class="section-title">
+    <div>
+        <h2>Laatste mutaties</h2>
+        <p>Controleer snel wat er net is aangepast.</p>
+    </div>
+</div>
+
+<div class="table-wrap">
+    <table class="table movement-table">
+        <thead>
+            <tr>
+                <th>Moment</th>
+                <th>Item</th>
+                <th>Actie</th>
+                <th>Hoeveelheid</th>
+                <th>Reden</th>
+                <th>Door</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for movement in recent_movements %}
+                <tr class="movement-row {{ movement.signed_quantity|signed_class }}">
+                    <td>{{ movement.created_at|date:"d-m-Y H:i" }}</td>
+                    <td>{{ movement.item }}</td>
+                    <td>{{ movement.get_movement_type_display }}</td>
+                    <td>
+                        <strong>
+                            {{ movement.signed_quantity|signed_prefix }}{{ movement.quantity_in_item_unit|smart_quantity }}
+                        </strong>
+                        {{ movement.item.unit }}
+                    </td>
+                    <td>{{ movement.get_reason_code_display }}</td>
+                    <td>{{ movement.created_by|default:"Systeem" }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="6">Nog geen mutaties.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{{ item_status_map|json_script:"item-status-data" }}
+
+<script>
+    const itemData = JSON.parse(document.getElementById("item-status-data").textContent);
+
+    const itemSelect = document.getElementById("id_item");
+    const actionSelect = document.getElementById("id_action");
+    const reasonSelect = document.getElementById("id_reason_code");
+    const quantityRow = document.getElementById("quantity-row");
+    const countedRow = document.getElementById("counted-row");
+    const quantityInput = document.getElementById("id_quantity");
+    const countedInput = document.getElementById("id_counted_quantity");
+    const unitDisplay = document.getElementById("unit-display");
+
+    const statusEmpty = document.getElementById("item-status-empty");
+    const statusPanel = document.getElementById("item-status-panel");
+    const statusName = document.getElementById("status-name");
+    const statusStock = document.getElementById("status-stock");
+    const statusMinimum = document.getElementById("status-minimum");
+    const statusMutations = document.getElementById("status-mutations");
+
+    const reasonLabels = {
+        purchase: "Inkoop",
+        return: "Retour",
+        correction_plus: "Correctie erbij",
+        correction_minus: "Correctie eraf",
+        sale: "Verkoop",
+        waste: "Derving",
+        expired: "Over datum",
+        breakage: "Breuk of schade",
+        donation: "Donatie",
+        internal_use: "Intern gebruik",
+        manual_count: "Voorraadtelling",
+        other: "Overig"
+    };
+
+    const reasonsByAction = {
+        purchase: ["purchase"],
+        return: ["return"],
+        stock_in: ["correction_plus", "other"],
+        stock_out: ["correction_minus", "other"],
+        sale: ["sale"],
+        waste: ["waste"],
+        expired: ["expired"],
+        breakage: ["breakage"],
+        donation: ["donation"],
+        internal_use: ["internal_use"],
+        stock_count: ["manual_count"]
+    };
+
+    function formatQuantity(value) {
+        if (value === null || value === undefined || value === "") {
+            return "";
+        }
+
+        const number = Number(value);
+
+        if (Number.isNaN(number)) {
+            return value;
+        }
+
+        if (Number.isInteger(number)) {
+            return String(number);
+        }
+
+        return number.toFixed(3).replace(/0+$/, "").replace(/\.$/, "").replace(".", ",");
+    }
+
+    function updateReasonOptions() {
+        const action = actionSelect.value;
+        const allowedReasons = reasonsByAction[action] || [];
+
+        reasonSelect.innerHTML = "";
+
+        allowedReasons.forEach(function(reasonCode) {
+            const option = document.createElement("option");
+            option.value = reasonCode;
+            option.textContent = reasonLabels[reasonCode] || reasonCode;
+            reasonSelect.appendChild(option);
+        });
+
+        const isCount = action === "stock_count";
+
+        quantityRow.style.display = isCount ? "none" : "";
+        countedRow.style.display = isCount ? "" : "none";
+
+        if (isCount) {
+            quantityInput.value = "";
+        } else {
+            countedInput.value = "";
+        }
+    }
+
+    function updateItemStatus() {
+        const itemId = itemSelect.value;
+        const data = itemData[itemId];
+
+        if (!data) {
+            statusEmpty.style.display = "";
+            statusPanel.style.display = "none";
+            unitDisplay.value = "Kies eerst een item";
+            return;
+        }
+
+        unitDisplay.value = data.unit || "Geen eenheid";
+        statusName.textContent = data.name;
+        statusStock.textContent = `${formatQuantity(data.stock)} ${data.unit}`;
+        statusMinimum.textContent = data.minimum_stock ? `${formatQuantity(data.minimum_stock)} ${data.unit}` : "Geen minimum";
+
+        statusMutations.innerHTML = "";
+
+        if (!data.mutations.length) {
+            statusMutations.innerHTML = '<div class="empty-state">Nog geen mutaties voor dit item.</div>';
+        } else {
+            data.mutations.forEach(function(mutation) {
+                const row = document.createElement("div");
+                const number = Number(mutation.signed_quantity);
+                const className = number < 0 ? "negative" : "positive";
+                const prefix = number < 0 ? "-" : "+";
+
+                row.className = `mini-mutation ${className}`;
+                row.innerHTML = `
+                    <strong>${prefix}${formatQuantity(Math.abs(number))} ${mutation.unit}</strong>
+                    <span>${mutation.created_at} · ${mutation.reason}</span>
+                    <small>${mutation.movement_type} door ${mutation.user}</small>
+                `;
+
+                statusMutations.appendChild(row);
+            });
+        }
+
+        statusEmpty.style.display = "none";
+        statusPanel.style.display = "";
+    }
+
+    actionSelect.addEventListener("change", updateReasonOptions);
+    itemSelect.addEventListener("change", updateItemStatus);
+
+    updateReasonOptions();
+    updateItemStatus();
+</script>
+{% endblock %}

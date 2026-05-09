@@ -1,0 +1,34 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<section class="form-panel">
+    <h1>Inloggen</h1>
+    <p>Log in om voorraad te beheren, producten toe te voegen en instellingen aan te passen.</p>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+            <div class="message">{{ form.non_field_errors }}</div>
+        {% endif %}
+
+        <div class="form-row">
+            <label for="{{ form.username.id_for_label }}">Gebruikersnaam</label>
+            {{ form.username }}
+            {% if form.username.errors %}
+                <div class="message">{{ form.username.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-row">
+            <label for="{{ form.password.id_for_label }}">Wachtwoord</label>
+            {{ form.password }}
+            {% if form.password.errors %}
+                <div class="message">{{ form.password.errors }}</div>
+            {% endif %}
+        </div>
+
+        <button class="button" type="submit">Inloggen</button>
+    </form>
+</section>
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "base/base.html" %}
+{% load inventory_extras %}
+
+{% block content %}
+<section class="hero compact-hero">
+    <h1>Wat kan ik maken?</h1>
+    <p>Beschikbaarheid wordt berekend op basis van verplichte ingrediënten. Optionele ingrediënten blokkeren niet.</p>
+</section>
+
+<div class="table-wrap">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Categorie</th>
+                <th>Status</th>
+                <th>Maximaal te maken</th>
+                <th>Ontbreekt verplicht</th>
+                <th>Ontbreekt optioneel</th>
+                <th>Beheer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+                <tr>
+                    <td>
+                        <a class="table-link" href="{% url 'items:public_detail' row.item.slug %}">
+                            {{ row.item.name }}
+                        </a>
+                    </td>
+                    <td>{{ row.item.category|default:"" }}</td>
+                    <td>
+                        {% if not row.availability.has_recipe %}
+                            <span class="badge badge-warning">Geen recept</span>
+                        {% elif row.availability.is_available %}
+                            <span class="badge badge-positive">Beschikbaar</span>
+                        {% else %}
+                            <span class="badge badge-negative">Niet beschikbaar</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if row.availability.max_outputs == None %}
+                            Niet berekend
+                        {% else %}
+                            {{ row.availability.max_outputs|smart_quantity }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if row.availability.missing_required %}
+                            {% for missing in row.availability.missing_required %}
+                                <div>
+                                    <a class="table-link" href="{% url 'items:public_detail' missing.ingredient.slug %}">
+                                        {{ missing.ingredient.name }}
+                                    </a>
+                                    nodig {{ missing.needed_for_one|smart_quantity }} {{ missing.unit }},
+                                    aanwezig {{ missing.stock|smart_quantity }} {{ missing.unit }}
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            Geen
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if row.availability.missing_optional %}
+                            {% for missing in row.availability.missing_optional %}
+                                <div>
+                                    <a class="table-link" href="{% url 'items:public_detail' missing.ingredient.slug %}">
+                                        {{ missing.ingredient.name }}
+                                    </a>
+                                    mist, maar is optioneel
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            Geen
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a class="button secondary" href="{% url 'recipes:manage' row.item.id %}">Recept beheren</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="7">Nog geen gerechten of dranken.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

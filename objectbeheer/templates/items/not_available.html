@@ -1,0 +1,9 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<section class="hero">
+    <h1>Niet beschikbaar</h1>
+    <p>{{ item.name }} is op dit moment niet leverbaar of niet op voorraad.</p>
+    <a class="button" href="{% url 'items:public_list' %}">Terug naar catalogus</a>
+</section>
+{% endblock %}

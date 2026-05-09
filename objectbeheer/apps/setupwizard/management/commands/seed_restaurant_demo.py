@@ -1,5 +1,7 @@
 from decimal import Decimal
 
+from django.contrib.auth.models import Group, Permission
+from django.contrib.contenttypes.models import ContentType
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 
@@ -15,7 +17,7 @@ class Command(BaseCommand):
     help = "Maakt demo-inrichting voor Restaurant De Molen."
 
     def handle(self, *args, **options):
-        company, _ = CompanyProfile.objects.get_or_create(
+        company, _ = CompanyProfile.objects.update_or_create(
             name="Restaurant De Molen",
             defaults={
                 "public_name": "Restaurant De Molen",
@@ -26,183 +28,436 @@ class Command(BaseCommand):
             },
         )
 
-        CompanySettings.objects.get_or_create(
+        CompanySettings.objects.update_or_create(
             company=company,
             defaults={
                 "enable_inventory": True,
                 "enable_recipes": True,
                 "enable_orders": False,
                 "enable_public_catalog": True,
+                "enable_prices": True,
+                "enable_item_images": True,
+                "enable_featured_items": True,
                 "allow_negative_stock": True,
                 "require_stock_reason": True,
-                "default_vat_rate": 9,
+                "default_vat_rate": Decimal("9"),
+                "show_public_prices": True,
+                "show_public_categories": True,
+                "show_public_labels": True,
             },
         )
 
-        BrandingSettings.objects.get_or_create(
+        BrandingSettings.objects.update_or_create(
             company=company,
             defaults={
                 "primary_color": "#111827",
                 "accent_color": "#f59e0b",
-                "background_color": "#f5f5f5",
-                "text_color": "#222222",
+                "background_color": "#f8fafc",
+                "text_color": "#172033",
+                "muted_text_color": "#64748b",
                 "card_color": "#ffffff",
+                "border_color": "#e5e7eb",
                 "public_title": "Restaurant De Molen",
-                "font_family": "Arial, sans-serif",
+                "font_family": "Inter, Arial, sans-serif",
+                "show_images_by_default": True,
+                "use_soft_shadows": True,
+                "rounded_corners": 18,
+                "max_page_width": 1180,
             },
         )
 
-        units = {
-            "stuk": Unit.objects.get_or_create(name="Stuk", symbol="stuk", defaults={"unit_type": "piece", "decimal_places": 0})[0],
-            "gram": Unit.objects.get_or_create(name="Gram", symbol="g", defaults={"unit_type": "weight", "decimal_places": 0})[0],
-            "kilogram": Unit.objects.get_or_create(name="Kilogram", symbol="kg", defaults={"unit_type": "weight", "decimal_places": 3})[0],
-            "liter": Unit.objects.get_or_create(name="Liter", symbol="l", defaults={"unit_type": "volume", "decimal_places": 3})[0],
-            "milliliter": Unit.objects.get_or_create(name="Milliliter", symbol="ml", defaults={"unit_type": "volume", "decimal_places": 0})[0],
-            "fles": Unit.objects.get_or_create(name="Fles", symbol="fles", defaults={"unit_type": "package", "decimal_places": 0})[0],
-            "krat": Unit.objects.get_or_create(name="Krat", symbol="krat", defaults={"unit_type": "package", "decimal_places": 0})[0],
-        }
-
-        kitchen, _ = StockLocation.objects.get_or_create(
-            name="Keuken",
-            defaults={"description": "Hoofdlocatie voor ingrediënten.", "is_default": True},
+        stuk, _ = Unit.objects.update_or_create(
+            symbol="stuk",
+            defaults={
+                "name": "Stuk",
+                "unit_type": "piece",
+                "base_unit": None,
+                "factor_to_base": Decimal("1"),
+                "decimal_places": 0,
+                "is_active": True,
+            },
         )
-        StockLocation.objects.get_or_create(name="Bar", defaults={"description": "Voorraad achter de bar."})
-        StockLocation.objects.get_or_create(name="Magazijn", defaults={"description": "Algemene opslag."})
 
-        categories = {
-            "gerechten": Category.objects.get_or_create(name="Gerechten", defaults={"sort_order": 10})[0],
-            "dranken": Category.objects.get_or_create(name="Dranken", defaults={"sort_order": 20})[0],
-            "ingredienten": Category.objects.get_or_create(name="Ingrediënten", defaults={"sort_order": 30})[0],
-        }
+        gram, _ = Unit.objects.update_or_create(
+            symbol="g",
+            defaults={
+                "name": "Gram",
+                "unit_type": "weight",
+                "base_unit": None,
+                "factor_to_base": Decimal("1"),
+                "decimal_places": 0,
+                "is_active": True,
+            },
+        )
 
-        labels = {
-            "populair": Label.objects.get_or_create(name="Populair")[0],
-            "vegetarisch": Label.objects.get_or_create(name="Vegetarisch")[0],
-        }
+        kilogram, _ = Unit.objects.update_or_create(
+            symbol="kg",
+            defaults={
+                "name": "Kilogram",
+                "unit_type": "weight",
+                "base_unit": gram,
+                "factor_to_base": Decimal("1000"),
+                "decimal_places": 3,
+                "is_active": True,
+            },
+        )
 
-        kaas, _ = Item.objects.get_or_create(
+        milliliter, _ = Unit.objects.update_or_create(
+            symbol="ml",
+            defaults={
+                "name": "Milliliter",
+                "unit_type": "volume",
+                "base_unit": None,
+                "factor_to_base": Decimal("1"),
+                "decimal_places": 0,
+                "is_active": True,
+            },
+        )
+
+        centiliter, _ = Unit.objects.update_or_create(
+            symbol="cl",
+            defaults={
+                "name": "Centiliter",
+                "unit_type": "volume",
+                "base_unit": milliliter,
+                "factor_to_base": Decimal("10"),
+                "decimal_places": 2,
+                "is_active": True,
+            },
+        )
+
+        liter, _ = Unit.objects.update_or_create(
+            symbol="l",
+            defaults={
+                "name": "Liter",
+                "unit_type": "volume",
+                "base_unit": milliliter,
+                "factor_to_base": Decimal("1000"),
+                "decimal_places": 3,
+                "is_active": True,
+            },
+        )
+
+        fles, _ = Unit.objects.update_or_create(
+            symbol="fles",
+            defaults={
+                "name": "Fles",
+                "unit_type": "package",
+                "base_unit": None,
+                "factor_to_base": Decimal("1"),
+                "decimal_places": 0,
+                "is_active": True,
+            },
+        )
+
+        krat, _ = Unit.objects.update_or_create(
+            symbol="krat",
+            defaults={
+                "name": "Krat",
+                "unit_type": "package",
+                "base_unit": None,
+                "factor_to_base": Decimal("1"),
+                "decimal_places": 0,
+                "is_active": True,
+            },
+        )
+
+        keuken, _ = StockLocation.objects.update_or_create(
+            name="Keuken",
+            defaults={
+                "description": "Hoofdlocatie voor ingrediënten.",
+                "is_default": True,
+                "is_active": True,
+            },
+        )
+
+        StockLocation.objects.update_or_create(
+            name="Bar",
+            defaults={
+                "description": "Voorraad achter de bar.",
+                "is_active": True,
+            },
+        )
+
+        StockLocation.objects.update_or_create(
+            name="Magazijn",
+            defaults={
+                "description": "Algemene opslag.",
+                "is_active": True,
+            },
+        )
+
+        gerechten, _ = Category.objects.update_or_create(
+            name="Gerechten",
+            defaults={
+                "sort_order": 10,
+                "is_active": True,
+            },
+        )
+
+        dranken, _ = Category.objects.update_or_create(
+            name="Dranken",
+            defaults={
+                "sort_order": 20,
+                "is_active": True,
+            },
+        )
+
+        ingredienten, _ = Category.objects.update_or_create(
+            name="Ingrediënten",
+            defaults={
+                "sort_order": 30,
+                "is_active": True,
+            },
+        )
+
+        populair, _ = Label.objects.get_or_create(name="Populair")
+        vegetarisch, _ = Label.objects.get_or_create(name="Vegetarisch")
+
+        kaas, _ = Item.objects.update_or_create(
             name="Jonge kaas",
             defaults={
                 "item_type": "ingredient",
-                "category": categories["ingredienten"],
-                "description": "Kaas voor broodjes en tosti's.",
-                "unit": units["gram"],
+                "category": ingredienten,
+                "short_description": "Kaas voor broodjes en tosti's.",
+                "description": "Jonge kaas voor broodjes, tosti's en andere gerechten.",
+                "unit": gram,
                 "purchase_price": Decimal("0.0080"),
                 "minimum_stock": Decimal("1000"),
                 "is_stock_tracked": True,
+                "show_image": False,
                 "status": "active",
             },
         )
 
-        broodje, _ = Item.objects.get_or_create(
+        broodje, _ = Item.objects.update_or_create(
             name="Broodje",
             defaults={
                 "item_type": "ingredient",
-                "category": categories["ingredienten"],
+                "category": ingredienten,
+                "short_description": "Basisbroodje voor lunchgerechten.",
                 "description": "Basisbroodje voor lunchgerechten.",
-                "unit": units["stuk"],
+                "unit": stuk,
                 "purchase_price": Decimal("0.3500"),
                 "minimum_stock": Decimal("20"),
                 "is_stock_tracked": True,
+                "show_image": False,
                 "status": "active",
             },
         )
 
-        tomaat, _ = Item.objects.get_or_create(
+        tomaat, _ = Item.objects.update_or_create(
             name="Tomaat",
             defaults={
                 "item_type": "ingredient",
-                "category": categories["ingredienten"],
-                "description": "Verse tomaat.",
-                "unit": units["gram"],
+                "category": ingredienten,
+                "short_description": "Verse tomaat.",
+                "description": "Verse tomaat voor broodjes en salades.",
+                "unit": gram,
                 "purchase_price": Decimal("0.0040"),
                 "minimum_stock": Decimal("1000"),
                 "is_stock_tracked": True,
+                "show_image": False,
                 "status": "active",
             },
         )
 
-        cola, _ = Item.objects.get_or_create(
+        cola, _ = Item.objects.update_or_create(
             name="Cola 330 ml",
             defaults={
                 "item_type": "product",
-                "category": categories["dranken"],
-                "description": "Flesje cola.",
-                "unit": units["stuk"],
+                "category": dranken,
+                "short_description": "Fris en koud geserveerd.",
+                "description": "Flesje cola van 330 milliliter.",
+                "unit": stuk,
                 "sale_price": Decimal("2.75"),
                 "purchase_price": Decimal("0.7000"),
                 "minimum_stock": Decimal("24"),
                 "is_stock_tracked": True,
+                "show_image": True,
+                "use_default_image_when_missing": True,
                 "is_featured": True,
                 "status": "active",
             },
         )
 
-        lunch, _ = Item.objects.get_or_create(
+        lunch, _ = Item.objects.update_or_create(
             name="Broodje gezond",
             defaults={
                 "item_type": "menu_item",
-                "category": categories["gerechten"],
-                "description": "Vers broodje met kaas, tomaat en salade.",
-                "unit": units["stuk"],
+                "category": gerechten,
+                "short_description": "Vers broodje met kaas, tomaat en salade.",
+                "description": "Een vers broodje met jonge kaas, tomaat en frisse salade.",
+                "unit": stuk,
                 "sale_price": Decimal("6.50"),
                 "vat_rate": Decimal("9"),
                 "is_stock_tracked": False,
+                "show_image": True,
+                "use_default_image_when_missing": True,
                 "is_featured": True,
                 "status": "active",
             },
         )
-        lunch.labels.add(labels["populair"])
+        lunch.labels.add(populair)
 
-        tosti, _ = Item.objects.get_or_create(
+        tosti, _ = Item.objects.update_or_create(
             name="Tosti kaas",
             defaults={
                 "item_type": "menu_item",
-                "category": categories["gerechten"],
-                "description": "Tosti met jonge kaas.",
-                "unit": units["stuk"],
+                "category": gerechten,
+                "short_description": "Knapperige tosti met jonge kaas.",
+                "description": "Een warme tosti met jonge kaas.",
+                "unit": stuk,
                 "sale_price": Decimal("4.95"),
                 "vat_rate": Decimal("9"),
                 "is_stock_tracked": False,
+                "show_image": True,
+                "use_default_image_when_missing": True,
                 "is_featured": True,
                 "status": "active",
             },
         )
-        tosti.labels.add(labels["vegetarisch"])
+        tosti.labels.add(vegetarisch)
 
-        lunch_recipe, _ = Recipe.objects.get_or_create(output_item=lunch, defaults={"servings": 1})
-        RecipeIngredient.objects.get_or_create(recipe=lunch_recipe, ingredient=broodje, defaults={"quantity": Decimal("1")})
-        RecipeIngredient.objects.get_or_create(recipe=lunch_recipe, ingredient=kaas, defaults={"quantity": Decimal("35")})
-        RecipeIngredient.objects.get_or_create(recipe=lunch_recipe, ingredient=tomaat, defaults={"quantity": Decimal("50"), "waste_percentage": Decimal("5")})
+        lunch_recipe, _ = Recipe.objects.get_or_create(
+            output_item=lunch,
+            defaults={
+                "servings": 1,
+            },
+        )
 
-        tosti_recipe, _ = Recipe.objects.get_or_create(output_item=tosti, defaults={"servings": 1})
-        RecipeIngredient.objects.get_or_create(recipe=tosti_recipe, ingredient=broodje, defaults={"quantity": Decimal("2")})
-        RecipeIngredient.objects.get_or_create(recipe=tosti_recipe, ingredient=kaas, defaults={"quantity": Decimal("50")})
+        RecipeIngredient.objects.update_or_create(
+            recipe=lunch_recipe,
+            ingredient=broodje,
+            defaults={
+                "quantity": Decimal("1"),
+            },
+        )
+
+        RecipeIngredient.objects.update_or_create(
+            recipe=lunch_recipe,
+            ingredient=kaas,
+            defaults={
+                "quantity": Decimal("35"),
+            },
+        )
+
+        RecipeIngredient.objects.update_or_create(
+            recipe=lunch_recipe,
+            ingredient=tomaat,
+            defaults={
+                "quantity": Decimal("50"),
+                "waste_percentage": Decimal("5"),
+            },
+        )
+
+        tosti_recipe, _ = Recipe.objects.get_or_create(
+            output_item=tosti,
+            defaults={
+                "servings": 1,
+            },
+        )
+
+        RecipeIngredient.objects.update_or_create(
+            recipe=tosti_recipe,
+            ingredient=broodje,
+            defaults={
+                "quantity": Decimal("2"),
+            },
+        )
+
+        RecipeIngredient.objects.update_or_create(
+            recipe=tosti_recipe,
+            ingredient=kaas,
+            defaults={
+                "quantity": Decimal("50"),
+            },
+        )
 
         starting_stock = [
-            (kaas, Decimal("5000"), "Startvoorraad kaas"),
-            (broodje, Decimal("60"), "Startvoorraad broodjes"),
-            (tomaat, Decimal("3000"), "Startvoorraad tomaten"),
-            (cola, Decimal("48"), "Startvoorraad cola"),
+            (kaas, Decimal("5000"), gram, "Startvoorraad kaas"),
+            (broodje, Decimal("60"), stuk, "Startvoorraad broodjes"),
+            (tomaat, Decimal("3000"), gram, "Startvoorraad tomaten"),
+            (cola, Decimal("48"), stuk, "Startvoorraad cola"),
         ]
 
-        for item, quantity, reason in starting_stock:
-            exists = StockMovement.objects.filter(item=item, movement_type="in", reason=reason).exists()
+        for item, quantity, unit, reason in starting_stock:
+            exists = StockMovement.objects.filter(
+                item=item,
+                movement_type="in",
+                reason=reason,
+            ).exists()
+
             if not exists:
                 StockMovement.objects.create(
                     item=item,
-                    location=kitchen,
+                    location=keuken,
                     movement_type="in",
                     quantity=quantity,
+                    unit=unit,
+                    reason_code="purchase",
                     reason=reason,
                     note="Aangemaakt via demo seed.",
                 )
 
-        SetupState.objects.get_or_create(
+        SetupState.objects.update_or_create(
+            id=1,
             defaults={
                 "is_completed": True,
                 "completed_at": timezone.now(),
-            }
+            },
         )
 
-        self.stdout.write(self.style.SUCCESS("Restaurant demo is aangemaakt."))
+        stock_content_type = ContentType.objects.get_for_model(StockMovement)
+
+        stock_permissions = Permission.objects.filter(
+            content_type=stock_content_type,
+            codename__in=[
+                "can_adjust_stock",
+                "can_view_stock_dashboard",
+                "view_stockmovement",
+                "add_stockmovement",
+            ],
+        )
+
+        medewerker_group, _ = Group.objects.get_or_create(name="Medewerker")
+        voorraad_group, _ = Group.objects.get_or_create(name="Voorraadbeheerder")
+        manager_group, _ = Group.objects.get_or_create(name="Manager")
+
+        medewerker_group.permissions.add(
+            *stock_permissions.filter(
+                codename__in=[
+                    "can_view_stock_dashboard",
+                    "view_stockmovement",
+                ]
+            )
+        )
+
+        voorraad_group.permissions.add(*stock_permissions)
+        manager_group.permissions.add(*stock_permissions)
+
+
+        item_content_type = ContentType.objects.get_for_model(Item)
+
+        item_permissions = Permission.objects.filter(
+            content_type=item_content_type,
+            codename__in=[
+                "view_item",
+                "add_item",
+                "change_item",
+                "view_category",
+                "add_category",
+                "change_category",
+                "view_label",
+                "add_label",
+                "change_label",
+            ],
+        )
+
+        medewerker_group.permissions.add(
+            *item_permissions.filter(codename__in=["view_item", "view_category", "view_label"])
+        )
+        voorraad_group.permissions.add(*item_permissions)
+        manager_group.permissions.add(*item_permissions)
+
+        self.stdout.write(self.style.SUCCESS("Restaurant demo is bijgewerkt."))

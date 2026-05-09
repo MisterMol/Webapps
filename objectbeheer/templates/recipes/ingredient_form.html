@@ -1,0 +1,45 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<section class="hero compact-hero">
+    <h1>{{ title }}</h1>
+    <p>Pas hoeveelheid, marge, optioneel/verplicht of notitie aan.</p>
+</section>
+
+<section class="form-section">
+    <div class="form-section-header">
+        <span class="step-dot">1</span>
+        <div>
+            <h2>Ingrediëntregel</h2>
+            <p>Deze wijziging bepaalt wanneer {{ item.name }} beschikbaar is en hoeveel voorraad later wordt afgeboekt.</p>
+        </div>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+            <div class="message">{{ form.non_field_errors }}</div>
+        {% endif %}
+
+        {% include "items/partials/field.html" with field=form.ingredient %}
+        {% include "items/partials/field.html" with field=form.quantity %}
+        {% include "items/partials/field.html" with field=form.waste_percentage %}
+
+        <div class="toggle-row">
+            {{ form.is_optional }}
+            <label for="{{ form.is_optional.id_for_label }}">
+                <strong>{{ form.is_optional.label }}</strong>
+                <span>{{ form.is_optional.help_text }}</span>
+            </label>
+        </div>
+
+        {% include "items/partials/field.html" with field=form.note %}
+
+        <div class="form-actions">
+            <button class="button" type="submit">Aanpassing opslaan</button>
+            <a class="button secondary" href="{% url 'recipes:manage' item.id %}">Terug naar recept</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

@@ -1,20 +1,35 @@
 {% extends "base/base.html" %}
 
 {% block content %}
-<h1>Recepten</h1>
+<section class="hero">
+    <h1>Recepten</h1>
+    <p>Bekijk welke ingrediënten nodig zijn voor gerechten en menu-items.</p>
+</section>
 
 {% if recipes %}
     <div class="grid">
         {% for recipe in recipes %}
             <div class="card">
                 <div class="card-body">
+                    <p class="meta">Recept</p>
                     <h2>{{ recipe.output_item.name }}</h2>
                     <p class="meta">Porties: {{ recipe.servings }}</p>
+
+                    {% if recipe.instructions %}
+                        <p>{{ recipe.instructions }}</p>
+                    {% endif %}
 
                     <h3>Ingrediënten</h3>
                     <ul>
                         {% for line in recipe.ingredients.all %}
-                            <li>{{ line.quantity }} {{ line.ingredient.unit }} {{ line.ingredient.name }}</li>
+                            <li>
+                                {{ line.quantity }}
+                                {{ line.ingredient.unit }}
+                                {{ line.ingredient.name }}
+                                {% if line.waste_percentage %}
+                                    met {{ line.waste_percentage }} procent verlies
+                                {% endif %}
+                            </li>
                         {% empty %}
                             <li>Geen ingrediënten ingevuld.</li>
                         {% endfor %}
@@ -24,6 +39,6 @@
         {% endfor %}
     </div>
 {% else %}
-    <p>Er zijn nog geen recepten.</p>
+    <div class="empty-state">Er zijn nog geen recepten.</div>
 {% endif %}
 {% endblock %}

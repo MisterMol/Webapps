@@ -10,33 +10,59 @@
         {% endif %}
     </h1>
     <p>
-        Bekijk onze items, gerechten en producten. Deze testomgeving gebruikt een restaurantprofiel.
+        Een moderne en eenvoudige beheeromgeving voor items, gerechten, voorraad en afbeeldingen.
     </p>
-    <a class="button" href="{% url 'items:public_list' %}">Bekijk catalogus</a>
+
+    {% if not company_settings or company_settings.enable_public_catalog %}
+        <a class="button" href="{% url 'items:public_list' %}">Bekijk catalogus</a>
+    {% endif %}
 </section>
 
-<h2>Uitgelicht</h2>
-
-{% if featured_items %}
-    <div class="grid">
-        {% for item in featured_items %}
-            <a class="card" href="{% url 'items:public_detail' item.slug %}">
-                {% with image=item.primary_image %}
-                    {% if image %}
-                        <img class="card-image" src="{{ image.image.url }}" alt="{{ image.alt_text|default:item.name }}">
-                    {% endif %}
-                {% endwith %}
-                <div class="card-body">
-                    <p class="meta">{{ item.get_item_type_display }}</p>
-                    <h3>{{ item.name }}</h3>
-                    {% if item.sale_price %}
-                        <p class="price">€ {{ item.sale_price }}</p>
-                    {% endif %}
-                </div>
-            </a>
-        {% endfor %}
+{% if not company_settings or company_settings.enable_featured_items %}
+    <div class="section-title">
+        <div>
+            <h2>Uitgelicht</h2>
+            <p>Populaire of belangrijke items.</p>
+        </div>
     </div>
-{% else %}
-    <p>Er zijn nog geen uitgelichte items.</p>
+
+    {% if featured_items %}
+        <div class="grid">
+            {% for item in featured_items %}
+                <a class="card interactive" href="{% url 'items:public_detail' item.slug %}">
+                    {% if item.should_show_image %}
+                        <div class="card-image-wrap">
+                            {% with image=item.primary_image %}
+                                {% if image %}
+                                    <img class="card-image" src="{{ image.image.url }}" alt="{{ image.alt_text|default:item.name }}">
+                                {% elif item.use_default_image_when_missing and branding and branding.default_item_image %}
+                                    <img class="card-image" src="{{ branding.default_item_image.url }}" alt="{{ item.name }}">
+                                {% else %}
+                                    <div class="placeholder-image">{{ item.name }}</div>
+                                {% endif %}
+                            {% endwith %}
+                        </div>
+                    {% endif %}
+
+                    <div class="card-body">
+                        <p class="meta">{{ item.get_item_type_display }}</p>
+                        <h3>{{ item.name }}</h3>
+
+                        {% if item.display_description %}
+                            <p>{{ item.display_description|truncatewords:16 }}</p>
+                        {% endif %}
+
+                        {% if not company_settings or company_settings.show_public_prices %}
+                            {% if item.sale_price %}
+                                <p class="price">€ {{ item.sale_price }}</p>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty-state">Er zijn nog geen uitgelichte items.</div>
+    {% endif %}
 {% endif %}
 {% endblock %}

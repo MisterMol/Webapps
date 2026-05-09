@@ -1,0 +1,180 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<section class="hero compact-hero">
+    <h1>{{ title }}</h1>
+    <p>Vul alleen in wat je nodig hebt. Je kunt later alles nog aanpassen.</p>
+</section>
+
+<section class="smart-form-shell">
+    <form method="post" enctype="multipart/form-data" class="smart-form" id="item-form">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+            <div class="message">{{ form.non_field_errors }}</div>
+        {% endif %}
+
+        <div class="form-section">
+            <div class="form-section-header">
+                <span class="step-dot">1</span>
+                <div>
+                    <h2>Basis</h2>
+                    <p>Wat voeg je toe en waar moet het onder vallen?</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                {% include "items/partials/field.html" with field=form.item_type %}
+                {% include "items/partials/field.html" with field=form.name %}
+                {% include "items/partials/field.html" with field=form.sku %}
+                {% include "items/partials/field.html" with field=form.category %}
+                {% include "items/partials/field.html" with field=form.status %}
+            </div>
+
+            <div class="form-row">
+                <label>{{ form.labels.label }}</label>
+                <p class="field-help">{{ form.labels.help_text }}</p>
+
+                <div class="label-picker">
+                    {% for checkbox in form.labels %}
+                        <label class="label-chip-option">
+                            {{ checkbox.tag }}
+                            <span>{{ checkbox.choice_label }}</span>
+                        </label>
+                    {% empty %}
+                        <p class="meta">Er zijn nog geen labels. Je kunt labels aanmaken in de admin.</p>
+                    {% endfor %}
+                </div>
+
+                {% if form.labels.errors %}
+                    <div class="message">{{ form.labels.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-section-header">
+                <span class="step-dot">2</span>
+                <div>
+                    <h2>Omschrijving</h2>
+                    <p>Maak duidelijk wat dit item is. Kort waar het kan, uitgebreider waar nodig.</p>
+                </div>
+            </div>
+
+            {% include "items/partials/field.html" with field=form.short_description %}
+            {% include "items/partials/field.html" with field=form.description %}
+        </div>
+
+        <div class="form-section">
+            <div class="form-section-header">
+                <span class="step-dot">3</span>
+                <div>
+                    <h2>Prijs en btw</h2>
+                    <p>Prijsinformatie is optioneel. Voor ingrediënten kun je verkoopprijs vaak leeg laten.</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                {% include "items/partials/field.html" with field=form.sale_price %}
+                {% include "items/partials/field.html" with field=form.purchase_price %}
+                {% include "items/partials/field.html" with field=form.vat_rate %}
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-section-header">
+                <span class="step-dot">4</span>
+                <div>
+                    <h2>Voorraad</h2>
+                    <p>Zet voorraad bijhouden alleen aan voor dingen die je echt wilt tellen.</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                {% include "items/partials/field.html" with field=form.unit %}
+                {% include "items/partials/field.html" with field=form.minimum_stock %}
+            </div>
+
+            <div class="toggle-row">
+                {{ form.is_stock_tracked }}
+                <label for="{{ form.is_stock_tracked.id_for_label }}">
+                    <strong>{{ form.is_stock_tracked.label }}</strong>
+                    <span>{{ form.is_stock_tracked.help_text }}</span>
+                </label>
+            </div>
+
+            <div class="stock-start-panel" id="stock-start-panel">
+                <h3>Direct inkopen of startvoorraad invullen</h3>
+                <p class="meta">Handig voor kroketten, cola, kaas of andere voorraad die je meteen in het systeem wilt zetten.</p>
+
+                <div class="form-grid">
+                    {% include "items/partials/field.html" with field=form.initial_stock_quantity %}
+                    {% include "items/partials/field.html" with field=form.initial_stock_location %}
+                    {% include "items/partials/field.html" with field=form.initial_stock_unit %}
+                </div>
+
+                {% include "items/partials/field.html" with field=form.initial_stock_note %}
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-section-header">
+                <span class="step-dot">5</span>
+                <div>
+                    <h2>Media</h2>
+                    <p>Upload één of meerdere afbeeldingen, gifjes of korte webvideo’s.</p>
+                </div>
+            </div>
+
+            <div class="toggle-row">
+                {{ form.show_image }}
+                <label for="{{ form.show_image.id_for_label }}">
+                    <strong>{{ form.show_image.label }}</strong>
+                    <span>{{ form.show_image.help_text }}</span>
+                </label>
+            </div>
+
+            <div class="toggle-row">
+                {{ form.use_default_image_when_missing }}
+                <label for="{{ form.use_default_image_when_missing.id_for_label }}">
+                    <strong>{{ form.use_default_image_when_missing.label }}</strong>
+                    <span>{{ form.use_default_image_when_missing.help_text }}</span>
+                </label>
+            </div>
+
+            <div class="toggle-row">
+                {{ form.is_featured }}
+                <label for="{{ form.is_featured.id_for_label }}">
+                    <strong>{{ form.is_featured.label }}</strong>
+                    <span>{{ form.is_featured.help_text }}</span>
+                </label>
+            </div>
+
+            {% include "items/partials/field.html" with field=form.media_files %}
+        </div>
+
+        <div class="form-actions sticky-actions">
+            <button class="button" type="submit">Opslaan</button>
+            <a class="button secondary" href="{% url 'items:dashboard_list' %}">Terug naar items</a>
+        </div>
+    </form>
+</section>
+
+<script>
+    const stockTrackedCheckbox = document.getElementById("id_is_stock_tracked");
+    const stockStartPanel = document.getElementById("stock-start-panel");
+
+    function updateStockPanel() {
+        if (!stockTrackedCheckbox || !stockStartPanel) {
+            return;
+        }
+
+        stockStartPanel.style.display = stockTrackedCheckbox.checked ? "" : "none";
+    }
+
+    if (stockTrackedCheckbox) {
+        stockTrackedCheckbox.addEventListener("change", updateStockPanel);
+        updateStockPanel();
+    }
+</script>
+{% endblock %}

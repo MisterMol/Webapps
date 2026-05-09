@@ -1,67 +1,119 @@
 {% extends "base/base.html" %}
 
 {% block content %}
-<section class="hero">
+<section class="hero compact-hero">
     <h1>Beheer</h1>
-    <p>Overzicht van de testomgeving voor Restaurant De Molen.</p>
+    <p>Voeg snel producten, gerechten, ingrediënten of dranken toe.</p>
 </section>
+
+<div class="quick-actions">
+    <a class="action-card" href="{% url 'items:create_typed' 'product' %}">
+        <span>Product</span>
+        <strong>Product toevoegen</strong>
+        <small>Bijvoorbeeld kroketten, snacks of losse verkoopartikelen.</small>
+    </a>
+
+    <a class="action-card" href="{% url 'items:create_typed' 'menu_item' %}">
+        <span>Gerecht</span>
+        <strong>Gerecht toevoegen</strong>
+        <small>Bijvoorbeeld broodje gezond, hamburger of dagmenu.</small>
+    </a>
+
+    <a class="action-card" href="{% url 'items:create_typed' 'ingredient' %}">
+        <span>Ingrediënt</span>
+        <strong>Ingrediënt toevoegen</strong>
+        <small>Bijvoorbeeld kaas, tomaat, broodjes of saus.</small>
+    </a>
+
+    <a class="action-card" href="{% url 'items:create_typed' 'drink' %}">
+        <span>Drank</span>
+        <strong>Drank toevoegen</strong>
+        <small>Bijvoorbeeld cola, bier, koffie of water.</small>
+    </a>
+</div>
+
+<div class="section-title">
+    <div>
+        <h2>Overzicht</h2>
+        <p>Snelle status van de applicatie.</p>
+    </div>
+</div>
 
 <div class="grid">
     <div class="card">
         <div class="card-body">
+            <p class="meta">Totaal</p>
             <h2>{{ item_count }}</h2>
-            <p>Items totaal</p>
+            <p>Items</p>
         </div>
     </div>
 
     <div class="card">
         <div class="card-body">
+            <p class="meta">Zichtbaar</p>
             <h2>{{ active_item_count }}</h2>
             <p>Actieve items</p>
         </div>
     </div>
 
-    <div class="card">
-        <div class="card-body">
-            <h2>{{ recipe_count }}</h2>
-            <p>Recepten</p>
+    {% if not company_settings or company_settings.enable_recipes %}
+        <div class="card">
+            <div class="card-body">
+                <p class="meta">Keuken</p>
+                <h2>{{ recipe_count }}</h2>
+                <p>Recepten</p>
+            </div>
         </div>
-    </div>
+    {% endif %}
 
-    <div class="card">
-        <div class="card-body">
-            <h2>{{ stock_movement_count }}</h2>
-            <p>Voorraadmutaties</p>
+    {% if not company_settings or company_settings.enable_inventory %}
+        <div class="card">
+            <div class="card-body">
+                <p class="meta">Voorraad</p>
+                <h2>{{ stock_movement_count }}</h2>
+                <p>Voorraadmutaties</p>
+            </div>
         </div>
-    </div>
+    {% endif %}
 </div>
 
-<h2>Recente voorraadmutaties</h2>
+{% if not company_settings or company_settings.enable_inventory %}
+    <div class="section-title">
+        <div>
+            <h2>Recente voorraadmutaties</h2>
+            <p>Laatste wijzigingen in de voorraad.</p>
+        </div>
+    </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Item</th>
-            <th>Locatie</th>
-            <th>Type</th>
-            <th>Hoeveelheid</th>
-            <th>Moment</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for movement in recent_movements %}
-            <tr>
-                <td>{{ movement.item }}</td>
-                <td>{{ movement.location }}</td>
-                <td>{{ movement.get_movement_type_display }}</td>
-                <td>{{ movement.quantity }}</td>
-                <td>{{ movement.created_at }}</td>
-            </tr>
-        {% empty %}
-            <tr>
-                <td colspan="5">Nog geen mutaties.</td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+    <div class="table-wrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Locatie</th>
+                    <th>Type</th>
+                    <th>Hoeveelheid</th>
+                    <th>Eenheid</th>
+                    <th>Moment</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for movement in recent_movements %}
+                    <tr>
+                        <td>{{ movement.item }}</td>
+                        <td>{{ movement.location }}</td>
+                        <td>{{ movement.get_movement_type_display }}</td>
+                        <td>{{ movement.quantity }}</td>
+                        <td>{{ movement.effective_unit|default:"" }}</td>
+                        <td>{{ movement.created_at }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="6">Nog geen mutaties.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
 {% endblock %}

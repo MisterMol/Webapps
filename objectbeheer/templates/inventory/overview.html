@@ -1,30 +1,110 @@
 {% extends "base/base.html" %}
+{% load inventory_extras %}
 
 {% block content %}
-<h1>Voorraad</h1>
+<section class="hero">
+    <h1>Voorraadbeheer</h1>
+    <p>Bekijk voorraadstanden, lage voorraad en de laatste bewegingen van vandaag.</p>
+    <a class="button" href="{% url 'inventory:movement_create' %}">Voorraad opboeken, afboeken of tellen</a>
+</section>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Item</th>
-            <th>Categorie</th>
-            <th>Voorraad</th>
-            <th>Eenheid</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for row in rows %}
+<div class="section-title">
+    <div>
+        <h2>Huidige voorraad</h2>
+        <p>Actuele stand per item.</p>
+    </div>
+</div>
+
+<div class="table-wrap">
+    <table class="table">
+        <thead>
             <tr>
-                <td>{{ row.item.name }}</td>
-                <td>{{ row.item.category|default:"" }}</td>
-                <td>{{ row.stock }}</td>
-                <td>{{ row.item.unit|default:"" }}</td>
+                <th>Item</th>
+                <th>Categorie</th>
+                <th>Voorraad</th>
+                <th>Minimum</th>
+                <th>Status</th>
             </tr>
-        {% empty %}
+        </thead>
+        <tbody>
+            {% for row in rows %}
+                <tr>
+                    <td>{{ row.item.name }}</td>
+                    <td>{{ row.item.category|default:"" }}</td>
+                    <td class="{% if row.is_low %}low-stock{% endif %}">
+                        <strong>{{ row.stock|smart_quantity }}</strong>
+                        {{ row.item.unit|default:"" }}
+                    </td>
+                    <td>
+                        {% if row.item.minimum_stock %}
+                            {{ row.item.minimum_stock|smart_quantity }} {{ row.item.unit }}
+                        {% else %}
+                            Geen minimum
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if row.available %}
+                            <span class="badge badge-positive">Beschikbaar</span>
+                        {% else %}
+                            <span class="badge badge-negative">Niet op voorraad</span>
+                        {% endif %}
+
+                        {% if row.is_low %}
+                            <span class="badge badge-warning">Lage voorraad</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">Nog geen voorraaditems.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="section-title">
+    <div>
+        <h2>Laatste voorraadmutaties</h2>
+        <p>Wat is er wanneer bijgekomen of afgegaan?</p>
+    </div>
+</div>
+
+<div class="table-wrap">
+    <table class="table movement-table">
+        <thead>
             <tr>
-                <td colspan="4">Nog geen voorraaditems.</td>
+                <th>Moment</th>
+                <th>Item</th>
+                <th>Beweging</th>
+                <th>Hoeveelheid</th>
+                <th>Reden</th>
+                <th>Locatie</th>
+                <th>Door</th>
             </tr>
-        {% endfor %}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            {% for movement in recent_movements %}
+                <tr class="movement-row {{ movement.signed_quantity|signed_class }}">
+                    <td>{{ movement.created_at|date:"d-m-Y H:i" }}</td>
+                    <td>{{ movement.item.name }}</td>
+                    <td>{{ movement.get_movement_type_display }}</td>
+                    <td>
+                        <strong>
+                            {{ movement.signed_quantity|signed_prefix }}{{ movement.quantity_in_item_unit|smart_quantity }}
+                        </strong>
+                        {{ movement.item.unit }}
+                    </td>
+                    <td>{{ movement.get_reason_code_display }}</td>
+                    <td>{{ movement.location }}</td>
+                    <td>{{ movement.created_by|default:"Systeem" }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="7">Nog geen mutaties.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
