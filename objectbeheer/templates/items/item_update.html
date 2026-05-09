@@ -1,0 +1,283 @@
+{% extends "base/base.html" %}
+{% load inventory_extras %}
+
+{% block content %}
+<section class="hero compact-hero">
+    <h1>{{ item.name }} aanpassen</h1>
+    <p>Beheer naam, tekst, categorie, labels, prijzen, zichtbaarheid en media.</p>
+
+    <div class="hero-actions">
+        <a class="button secondary" href="{% url 'items:public_detail' item.slug %}">Publieke pagina bekijken</a>
+        <a class="button secondary" href="{% url 'items:dashboard_list' %}">Terug naar items</a>
+
+        {% if item.item_type == "menu_item" or item.item_type == "drink" %}
+            <a class="button secondary" href="{% url 'recipes:manage' item.id %}">Recept beheren</a>
+        {% endif %}
+    </div>
+</section>
+
+<div class="edit-layout">
+    <aside class="edit-side-panel">
+        <div class="card">
+            <div class="card-body">
+                <p class="meta">Status</p>
+                <h2>{{ item.get_status_display }}</h2>
+
+                {% if stock != None %}
+                    <p class="meta">Voorraad</p>
+                    <h3>{{ stock|smart_quantity }} {{ item.unit }}</h3>
+                {% endif %}
+
+                {% if recipe_availability %}
+                    <p class="meta">Receptbeschikbaarheid</p>
+
+                    {% if recipe_availability.has_recipe %}
+                        {% if recipe_availability.is_available %}
+                            <span class="badge badge-positive">Kan gemaakt worden</span>
+                        {% else %}
+                            <span class="badge badge-negative">Mist ingrediënten</span>
+                        {% endif %}
+
+                        {% if recipe_availability.max_outputs != None %}
+                            <p>Maximaal te maken: <strong>{{ recipe_availability.max_outputs|smart_quantity }}</strong></p>
+                        {% endif %}
+                    {% else %}
+                        <span class="badge badge-warning">Geen recept</span>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+
+        {% if item.media_files.all %}
+            <div class="card">
+                <div class="card-body">
+                    <p class="meta">Huidige media</p>
+
+                    <div class="media-preview-grid">
+                        {% for media in item.media_files.all %}
+                            <div class="media-preview">
+                                {% if media.is_video %}
+                                    <video muted playsinline controls>
+                                        <source src="{{ media.image.url }}">
+                                    </video>
+                                {% else %}
+                                    <img src="{{ media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
+                                {% endif %}
+
+                                {% if media.is_primary %}
+                                    <span class="badge badge-positive">Hoofdmedia</span>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <p class="field-help">Media verwijderen of hoofdmedia wisselen kan voorlopig via de admin. Dat bouwen we later netter uit.</p>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if used_in_recipe_lines %}
+            <div class="card">
+                <div class="card-body">
+                    <p class="meta">Gebruikt in recepten</p>
+
+                    {% for line in used_in_recipe_lines %}
+                        <div class="mini-row">
+                            <strong>{{ line.recipe.output_item.name }}</strong>
+                            <span>{{ line.quantity|smart_quantity }} {{ item.unit }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </aside>
+
+    <section class="smart-form-shell">
+        <form method="post" enctype="multipart/form-data" class="smart-form">
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="message">{{ form.non_field_errors }}</div>
+            {% endif %}
+
+            <div class="form-section">
+                <div class="form-section-header">
+                    <span class="step-dot">1</span>
+                    <div>
+                        <h2>Basis</h2>
+                        <p>Naam, type, categorie, status en labels.</p>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    {% include "items/partials/field.html" with field=form.item_type %}
+                    {% include "items/partials/field.html" with field=form.name %}
+                    {% include "items/partials/field.html" with field=form.sku %}
+                    {% include "items/partials/field.html" with field=form.category %}
+                    {% include "items/partials/field.html" with field=form.status %}
+                </div>
+
+                <div class="form-row">
+                    <label>{{ form.labels.label }}</label>
+                    <p class="field-help">{{ form.labels.help_text }}</p>
+
+                    <div class="label-picker">
+                        {% for checkbox in form.labels %}
+                            <label class="label-chip-option">
+                                {{ checkbox.tag }}
+                                <span>{{ checkbox.choice_label }}</span>
+                            </label>
+                        {% empty %}
+                            <p class="meta">Er zijn nog geen labels.</p>
+                        {% endfor %}
+                    </div>
+
+                    {% if form.labels.errors %}
+                        <div class="message">{{ form.labels.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="form-section-header">
+                    <span class="step-dot">2</span>
+                    <div>
+                        <h2>Tekst en verhaal</h2>
+                        <p>Dit is wat klanten en medewerkers lezen.</p>
+                    </div>
+                </div>
+
+                {% include "items/partials/field.html" with field=form.short_description %}
+                {% include "items/partials/field.html" with field=form.description %}
+            </div>
+
+            <div class="form-section">
+                <div class="form-section-header">
+                    <span class="step-dot">3</span>
+                    <div>
+                        <h2>Prijs en btw</h2>
+                        <p>Gebruik dit voor verkoopprijs, inkoopprijs en btw.</p>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    {% include "items/partials/field.html" with field=form.sale_price %}
+                    {% include "items/partials/field.html" with field=form.purchase_price %}
+                    {% include "items/partials/field.html" with field=form.vat_rate %}
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="form-section-header">
+                    <span class="step-dot">4</span>
+                    <div>
+                        <h2>Voorraadinstellingen</h2>
+                        <p>Hier bepaal je of voorraad wordt bijgehouden. Voorraad zelf pas je aan via voorraadmutaties.</p>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    {% include "items/partials/field.html" with field=form.unit %}
+                    {% include "items/partials/field.html" with field=form.minimum_stock %}
+                </div>
+
+                <div class="toggle-row">
+                    {{ form.is_stock_tracked }}
+                    <label for="{{ form.is_stock_tracked.id_for_label }}">
+                        <strong>{{ form.is_stock_tracked.label }}</strong>
+                        <span>{{ form.is_stock_tracked.help_text }}</span>
+                    </label>
+                </div>
+
+                {% if item.is_stock_tracked %}
+                    <a class="button secondary" href="{% url 'inventory:movement_create' %}">
+                        Voorraad op of af boeken
+                    </a>
+                {% endif %}
+            </div>
+
+            <div class="form-section">
+                <div class="form-section-header">
+                    <span class="step-dot">5</span>
+                    <div>
+                        <h2>Media en zichtbaarheid</h2>
+                        <p>Afbeeldingen, uitgelicht tonen en standaardafbeeldingen.</p>
+                    </div>
+                </div>
+
+                <div class="toggle-row">
+                    {{ form.show_image }}
+                    <label for="{{ form.show_image.id_for_label }}">
+                        <strong>{{ form.show_image.label }}</strong>
+                        <span>{{ form.show_image.help_text }}</span>
+                    </label>
+                </div>
+
+                <div class="toggle-row">
+                    {{ form.use_default_image_when_missing }}
+                    <label for="{{ form.use_default_image_when_missing.id_for_label }}">
+                        <strong>{{ form.use_default_image_when_missing.label }}</strong>
+                        <span>{{ form.use_default_image_when_missing.help_text }}</span>
+                    </label>
+                </div>
+
+                <div class="toggle-row">
+                    {{ form.is_featured }}
+                    <label for="{{ form.is_featured.id_for_label }}">
+                        <strong>{{ form.is_featured.label }}</strong>
+                        <span>{{ form.is_featured.help_text }}</span>
+                    </label>
+                </div>
+
+                {% if form.primary_media_id.field.choices %}
+                    {% include "items/partials/field.html" with field=form.primary_media_id %}
+                {% endif %}
+
+                {% include "items/partials/field.html" with field=form.media_files %}
+            </div>
+
+            <div class="form-actions sticky-actions">
+                <button class="button" type="submit">Wijzigingen opslaan</button>
+                <a class="button secondary" href="{% url 'items:dashboard_list' %}">Annuleren</a>
+            </div>
+        </form>
+    </section>
+</div>
+
+{% if recent_movements %}
+    <div class="section-title">
+        <div>
+            <h2>Laatste voorraadmutaties</h2>
+            <p>Recente wijzigingen voor dit item.</p>
+        </div>
+    </div>
+
+    <div class="table-wrap">
+        <table class="table movement-table">
+            <thead>
+                <tr>
+                    <th>Moment</th>
+                    <th>Beweging</th>
+                    <th>Hoeveelheid</th>
+                    <th>Reden</th>
+                    <th>Locatie</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for movement in recent_movements %}
+                    <tr class="movement-row {{ movement.signed_quantity|signed_class }}">
+                        <td>{{ movement.created_at|date:"d-m-Y H:i" }}</td>
+                        <td>{{ movement.get_movement_type_display }}</td>
+                        <td>
+                            <strong>{{ movement.signed_quantity|signed_prefix }}{{ movement.quantity_in_item_unit|smart_quantity }}</strong>
+                            {{ movement.item.unit }}
+                        </td>
+                        <td>{{ movement.get_reason_code_display }}</td>
+                        <td>{{ movement.location }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+{% endblock %}

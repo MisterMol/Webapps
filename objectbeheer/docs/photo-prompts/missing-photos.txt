@@ -1,0 +1,39 @@
+Items zonder media: 38
+- Aperol Spritz (Drank) verwacht bestand: aperol-spritz.jpg
+- Chocolate Milkshake (Drank) verwacht bestand: chocolate-milkshake.jpg
+- Cola (Drank) verwacht bestand: cola.jpg
+- Cuba Libre (Drank) verwacht bestand: cuba-libre.jpg
+- Dark and Stormy (Drank) verwacht bestand: dark-and-stormy.jpg
+- Espresso Martini (Drank) verwacht bestand: espresso-martini.jpg
+- Gin Tonic (Drank) verwacht bestand: gin-tonic.jpg
+- Koffie (Drank) verwacht bestand: koffie.jpg
+- Margarita (Drank) verwacht bestand: margarita.jpg
+- Mojito (Drank) verwacht bestand: mojito.jpg
+- Negroni (Drank) verwacht bestand: negroni.jpg
+- Paloma (Drank) verwacht bestand: paloma.jpg
+- Passion Fruit Cooler (Drank) verwacht bestand: passion-fruit-cooler.jpg
+- Piña Colada (Drank) verwacht bestand: pina-colada.jpg
+- Pornstar Martini (Drank) verwacht bestand: pornstar-martini.jpg
+- Strawberry Milkshake (Drank) verwacht bestand: strawberry-milkshake.jpg
+- Tonic (Drank) verwacht bestand: tonic.jpg
+- Vanilla Milkshake (Drank) verwacht bestand: vanilla-milkshake.jpg
+- Virgin Mojito (Drank) verwacht bestand: virgin-mojito.jpg
+- Whiskey Sour (Drank) verwacht bestand: whiskey-sour.jpg
+- Bitterballen 8 stuks (Gerecht of menu-item) verwacht bestand: bitterballen-8-stuks.jpg
+- Broodje gezond (Gerecht of menu-item) verwacht bestand: broodje-gezond.jpg
+- Chicken Wings 6 stuks (Gerecht of menu-item) verwacht bestand: chicken-wings-6-stuks.jpg
+- Falafel Wrap (Gerecht of menu-item) verwacht bestand: falafel-wrap.jpg
+- Frikandel speciaal (Gerecht of menu-item) verwacht bestand: frikandel-speciaal.jpg
+- Onion Rings 8 stuks (Gerecht of menu-item) verwacht bestand: onion-rings-8-stuks.jpg
+- Pulled Chicken Wrap (Gerecht of menu-item) verwacht bestand: pulled-chicken-wrap.jpg
+- Snackmix Deluxe (Gerecht of menu-item) verwacht bestand: snackmix-deluxe.jpg
+- Tosti kaas (Gerecht of menu-item) verwacht bestand: tosti-kaas.jpg
+- Bakje joppiesaus (Product) verwacht bestand: bakje-joppiesaus.jpg
+- Bakje knoflooksaus (Product) verwacht bestand: bakje-knoflooksaus.jpg
+- Bakje samurai saus (Product) verwacht bestand: bakje-samurai-saus.jpg
+- Bakje satésaus (Product) verwacht bestand: bakje-satesaus.jpg
+- Bakje sriracha mayo (Product) verwacht bestand: bakje-sriracha-mayo.jpg
+- Bakje truffelmayonaise (Product) verwacht bestand: bakje-truffelmayonaise.jpg
+- Bakje vegan mayo (Product) verwacht bestand: bakje-vegan-mayo.jpg
+- Cola 330 ml (Product) verwacht bestand: cola-330-ml.jpg
+- Kroket los (Product) verwacht bestand: kroket-los.jpg

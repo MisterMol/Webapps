@@ -26,6 +26,28 @@ class Category(models.Model):
         return self.name
 
 
+
+class Allergen(models.Model):
+    name = models.CharField(max_length=80, unique=True)
+    slug = models.SlugField(max_length=100, unique=True, blank=True)
+    description = models.CharField(max_length=220, blank=True)
+    is_active = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = "allergeen"
+        verbose_name_plural = "allergenen"
+        ordering = ["name"]
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+
+
 class Label(models.Model):
     name = models.CharField(max_length=80, unique=True)
     slug = models.SlugField(max_length=100, unique=True, blank=True)
@@ -79,6 +101,7 @@ class Item(models.Model):
         related_name="items",
     )
     labels = models.ManyToManyField(Label, blank=True, related_name="items")
+    allergens = models.ManyToManyField("Allergen", blank=True, related_name="items")
 
     description = models.TextField(blank=True)
     short_description = models.CharField(max_length=220, blank=True)
@@ -144,8 +167,32 @@ class Item(models.Model):
     def primary_image(self):
         return self.primary_media()
 
+    def primary_thumbnail_url(self):
+        media = self.primary_media()
+
+        if not media:
+            return ""
+
+        thumb_path = Path("media") / "items" / "thumbs" / f"{self.slug}-{media.id}.webp"
+
+        if not thumb_path.exists():
+            return media.image.url
+
+        return f"/media/items/thumbs/{self.slug}-{media.id}.webp"
+
     def display_description(self):
         return self.short_description or self.description
+
+    def inherited_allergens(self):
+        allergens = set(self.allergens.filter(is_active=True))
+
+        recipe = getattr(self, "recipe", None)
+        if recipe:
+            for line in recipe.ingredients.select_related("ingredient").prefetch_related("ingredient__allergens"):
+                for allergen in line.ingredient.allergens.filter(is_active=True):
+                    allergens.add(allergen)
+
+        return sorted(allergens, key=lambda allergen: allergen.name)
 
     def should_show_image(self, company_settings=None, branding=None):
         if company_settings and not company_settings.enable_item_images:

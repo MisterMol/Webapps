@@ -3,7 +3,7 @@
 
 {% block content %}
 <p>
-    <a class="button secondary" href="{% url 'items:public_list' %}">Terug naar catalogus</a>
+    <a class="button secondary" href="{% url 'items:public_list' %}">Terug naar menu</a>
 
     {% if request.user.is_authenticated %}
         <a class="button secondary" href="{% url 'items:update' item.id %}">Item aanpassen</a>
@@ -20,14 +20,20 @@
             {% with media=item.primary_media %}
                 {% if media %}
                     {% if media.is_video %}
-                        <video preload="metadata" class="detail-image" controls muted playsinline>
+                        <video class="detail-image" controls muted playsinline>
                             <source src="{{ media.image.url }}">
                         </video>
                     {% else %}
-                        <img loading="lazy" decoding="async" class="detail-image" src="{{ media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
+                        <button class="image-zoom-trigger" type="button" data-lightbox-src="{{ media.image.url }}" data-lightbox-alt="{{ media.alt_text|default:item.name }}" aria-label="Foto van {{ item.name }} vergroten">
+                            <img class="detail-image" src="{{ media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
+                            <span class="image-zoom-hint">Foto vergroten</span>
+                        </button>
                     {% endif %}
                 {% elif item.use_default_image_when_missing and branding and branding.default_item_image %}
-                    <img loading="lazy" decoding="async" class="detail-image" src="{{ branding.default_item_image.url }}" alt="{{ item.name }}">
+                    <button class="image-zoom-trigger" type="button" data-lightbox-src="{{ branding.default_item_image.url }}" data-lightbox-alt="{{ item.name }}" aria-label="Foto van {{ item.name }} vergroten">
+                        <img class="detail-image" src="{{ branding.default_item_image.url }}" alt="{{ item.name }}">
+                        <span class="image-zoom-hint">Foto vergroten</span>
+                    </button>
                 {% else %}
                     <div class="placeholder-image" style="aspect-ratio: 4 / 3;">{{ item.name }}</div>
                 {% endif %}
@@ -41,7 +47,7 @@
                                 {% if media.is_video %}
                                     <span>Video</span>
                                 {% else %}
-                                    <img loading="lazy" decoding="async" src="{{ media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
+                                    <img src="{{ media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
                                 {% endif %}
                             </div>
                         {% endif %}
@@ -51,10 +57,10 @@
         </div>
     {% endif %}
 
-    <article class="card">
+    <article class="card item-detail-card">
         <div class="card-body">
             {% if item.category %}
-                <p class="meta">{{ item.category.name }} · {{ item.get_item_type_display }}</p>
+                <p class="meta">{{ item.category.name }}</p>
             {% endif %}
 
             <h1>{{ item.name }}</h1>
@@ -69,55 +75,6 @@
                 <p class="price">€ {{ item.sale_price }}</p>
             {% endif %}
 
-            <div class="fact-grid">
-                <div>
-                    <span class="meta">Status</span>
-                    {% if item.status == "active" %}
-                        <strong>Actief</strong>
-                    {% else %}
-                        <strong>{{ item.get_status_display }}</strong>
-                    {% endif %}
-                </div>
-
-                <div>
-                    <span class="meta">Eenheid</span>
-                    <strong>{{ item.unit|default:"Geen" }}</strong>
-                </div>
-
-                {% if request.user.is_authenticated and stock != None %}
-                    <div>
-                        <span class="meta">Voorraad</span>
-                        <strong>{{ stock|smart_quantity }} {{ item.unit }}</strong>
-                    </div>
-                {% endif %}
-
-                {% if request.user.is_authenticated and recipe_availability %}
-                    <div>
-                        <span class="meta">Beschikbaarheid</span>
-                        {% if recipe_availability.has_recipe %}
-                            {% if recipe_availability.is_available %}
-                                <strong>Kan gemaakt worden</strong>
-                            {% else %}
-                                <strong>Niet beschikbaar</strong>
-                            {% endif %}
-                        {% else %}
-                            <strong>Geen recept</strong>
-                        {% endif %}
-                    </div>
-
-                    <div>
-                        <span class="meta">Maximaal te maken</span>
-                        <strong>
-                            {% if recipe_availability.max_outputs == None %}
-                                Niet berekend
-                            {% else %}
-                                {{ recipe_availability.max_outputs|smart_quantity }}
-                            {% endif %}
-                        </strong>
-                    </div>
-                {% endif %}
-            </div>
-
             {% if item.labels.all %}
                 <div class="badges">
                     {% for label in item.labels.all %}
@@ -125,9 +82,109 @@
                     {% endfor %}
                 </div>
             {% endif %}
+
+            {% if inherited_allergens %}
+                <div class="detail-info-block">
+                    <h2>Allergenen</h2>
+                    <div class="badges">
+                        {% for allergen in inherited_allergens %}
+                            <span class="badge badge-warning">{{ allergen.name }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </article>
 </div>
+
+{% if request.user.is_authenticated %}
+    <div class="section-title">
+        <div>
+            <h2>Medewerkerinformatie</h2>
+            <p>Interne details voor voorraad, recept en beheer.</p>
+        </div>
+    </div>
+
+    <div class="fact-grid">
+        <div>
+            <span class="meta">Status</span>
+            <strong>{{ item.get_status_display }}</strong>
+        </div>
+
+        <div>
+            <span class="meta">Eenheid</span>
+            <strong>{{ item.unit|default:"Geen" }}</strong>
+        </div>
+
+        {% if stock != None %}
+            <div>
+                <span class="meta">Voorraad</span>
+                <strong>{{ stock|smart_quantity }} {{ item.unit }}</strong>
+            </div>
+        {% endif %}
+
+        {% if recipe_availability %}
+            <div>
+                <span class="meta">Beschikbaarheid</span>
+                {% if recipe_availability.has_recipe %}
+                    {% if recipe_availability.is_available %}
+                        <strong>Kan gemaakt worden</strong>
+                    {% else %}
+                        <strong>Niet beschikbaar</strong>
+                    {% endif %}
+                {% else %}
+                    <strong>Geen recept</strong>
+                {% endif %}
+            </div>
+
+            <div>
+                <span class="meta">Maximaal te maken</span>
+                <strong>
+                    {% if recipe_availability.max_outputs == None %}
+                        Niet berekend
+                    {% else %}
+                        {{ recipe_availability.max_outputs|smart_quantity }}
+                    {% endif %}
+                </strong>
+            </div>
+        {% endif %}
+
+        {% if margin %}
+            <div>
+                <span class="meta">Receptkosten</span>
+                <strong>
+                    {% if margin.cost_price %}
+                        € {{ margin.cost_price }}
+                    {% else %}
+                        Onbekend
+                    {% endif %}
+                </strong>
+            </div>
+
+            <div>
+                <span class="meta">Brutomarge</span>
+                <strong>
+                    {% if margin.gross_margin %}
+                        € {{ margin.gross_margin }}
+                    {% else %}
+                        Onbekend
+                    {% endif %}
+                </strong>
+            </div>
+
+            <div>
+                <span class="meta">Margepercentage</span>
+                <strong>
+                    {% if margin.gross_margin_percentage %}
+                        {{ margin.gross_margin_percentage }}%
+                    {% else %}
+                        Onbekend
+                    {% endif %}
+                </strong>
+            </div>
+        {% endif %}
+    </div>
+{% endif %}
 
 {% if request.user.is_authenticated and recipe_lines %}
     <div class="section-title">
@@ -151,7 +208,7 @@
                 {% for line in recipe_lines %}
                     <tr>
                         <td>
-                            <a href="{% url 'items:public_detail' line.ingredient.slug %}">
+                            <a class="table-link" href="{% url 'items:public_detail' line.ingredient.slug %}">
                                 {{ line.ingredient.name }}
                             </a>
                         </td>
@@ -175,7 +232,7 @@
     <div class="section-title">
         <div>
             <h2>Waar wordt dit in gebruikt?</h2>
-            <p>Alle gerechten en dranken waarin dit ingrediënt of product voorkomt.</p>
+            <p>Alle gerechten en dranken waarin dit item voorkomt.</p>
         </div>
     </div>
 
@@ -206,55 +263,9 @@
 
                 <div class="row-actions">
                     <a class="button secondary" href="{% url 'items:public_detail' line.recipe.output_item.slug %}">Item bekijken</a>
-
-                    {% if request.user.is_authenticated %}
-                        <a class="button secondary" href="{% url 'recipes:manage' line.recipe.output_item.id %}">Recept beheren</a>
-                    {% endif %}
+                    <a class="button secondary" href="{% url 'recipes:manage' line.recipe.output_item.id %}">Recept beheren</a>
                 </div>
             </article>
-        {% endfor %}
-    </div>
-{% endif %}
-
-{% if request.user.is_authenticated and recipe_availability and recipe_availability.missing_required %}
-    <div class="section-title">
-        <div>
-            <h2>Waarom niet beschikbaar?</h2>
-            <p>Deze verplichte ingrediënten missen.</p>
-        </div>
-    </div>
-
-    <div class="grid">
-        {% for missing in recipe_availability.missing_required %}
-            <div class="card">
-                <div class="card-body">
-                    <p class="meta">Ontbreekt verplicht</p>
-                    <h2>{{ missing.ingredient.name }}</h2>
-                    <p>Nodig: {{ missing.needed_for_one|smart_quantity }} {{ missing.unit }}</p>
-                    <p>Aanwezig: {{ missing.stock|smart_quantity }} {{ missing.unit }}</p>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-{% endif %}
-
-{% if request.user.is_authenticated and recipe_availability and recipe_availability.missing_optional %}
-    <div class="section-title">
-        <div>
-            <h2>Optioneel ontbreekt</h2>
-            <p>Dit blokkeert beschikbaarheid niet.</p>
-        </div>
-    </div>
-
-    <div class="grid">
-        {% for missing in recipe_availability.missing_optional %}
-            <div class="card">
-                <div class="card-body">
-                    <p class="meta">Optioneel mist</p>
-                    <h2>{{ missing.ingredient.name }}</h2>
-                    <p>Dit item kan alsnog gemaakt worden.</p>
-                </div>
-            </div>
         {% endfor %}
     </div>
 {% endif %}

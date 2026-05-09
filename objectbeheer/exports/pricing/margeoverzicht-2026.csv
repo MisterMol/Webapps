@@ -1,0 +1,55 @@
+type,categorie,naam,kostprijs,kostprijs_bron,verkoopprijs,marge_percentage,marge_status,btw,advies_verkoopprijs_2026
+Gerecht of menu-item,Burgers,Black Angus Deluxe,4.78,recept,14.95,68.0,goed,9.00,14.95
+Gerecht of menu-item,Burgers,Cheese Burger,2.81,recept,11.50,75.6,goed,9.00,11.50
+Gerecht of menu-item,Burgers,Classic Burger,2.65,recept,10.50,74.8,goed,9.00,10.50
+Gerecht of menu-item,Burgers,Double Smash Burger,3.13,recept,13.95,77.6,goed,9.00,13.95
+Gerecht of menu-item,Burgers,Halloumi Burger,3.37,recept,12.95,74.0,goed,9.00,12.95
+Gerecht of menu-item,Burgers,Korean Chicken Burger,2.75,recept,13.50,79.7,goed,9.00,13.50
+Gerecht of menu-item,Burgers,Spicy Jalapeño Burger,2.81,recept,12.50,77.5,goed,9.00,12.50
+Gerecht of menu-item,Burgers,Vega Truffel Burger,2.96,recept,12.00,75.3,goed,9.00,12.00
+Gerecht of menu-item,Gerechten,Broodje gezond,1.08,recept,6.95,84.5,goed,9.00,6.95
+Gerecht of menu-item,Gerechten,Tosti kaas,1.35,recept,5.25,74.3,goed,9.00,5.25
+Product,Dranken,Cola 330 ml,0.80,directe kostprijs,3.00,73.3,goed,9.00,3.00
+Gerecht of menu-item,Friet,Friet normaal,0.55,recept,3.75,85.3,goed,9.00,3.75
+Gerecht of menu-item,Friet,Friet truffel,1.04,recept,5.95,82.5,goed,9.00,5.95
+Gerecht of menu-item,Friet,Loaded fries bacon,1.87,recept,8.50,78.0,goed,9.00,8.50
+Gerecht of menu-item,Friet,Sweet Potato Fries,1.20,recept,5.95,79.9,goed,9.00,5.95
+Gerecht of menu-item,Snacks,Bitterballen 8 stuks,1.76,directe kostprijs,8.50,79.3,goed,9.00,8.50
+Gerecht of menu-item,Snacks,Chicken Wings 6 stuks,2.98,recept,8.95,66.7,goed,9.00,8.95
+Gerecht of menu-item,Snacks,Frikandel speciaal,0.79,recept,4.25,81.5,goed,9.00,4.25
+Product,Snacks,Kroket los,0.65,directe kostprijs,2.95,78.0,goed,9.00,2.95
+Gerecht of menu-item,Snacks,Onion Rings 8 stuks,0.73,recept,6.50,88.8,ruime marge,9.00,6.50
+Gerecht of menu-item,Snacks,Snackmix Deluxe,4.11,recept,14.95,72.5,goed,9.00,14.95
+Product,Sauzen,Bakje joppiesaus,0.35,recept,1.50,76.7,goed,9.00,1.50
+Product,Sauzen,Bakje knoflooksaus,0.30,recept,1.25,76.0,goed,9.00,1.25
+Product,Sauzen,Bakje samurai saus,0.40,recept,1.50,73.3,goed,9.00,1.50
+Product,Sauzen,Bakje satésaus,0.60,recept,1.75,65.7,goed,9.00,1.75
+Product,Sauzen,Bakje sriracha mayo,0.45,recept,1.50,70.0,goed,9.00,1.50
+Product,Sauzen,Bakje truffelmayonaise,0.80,recept,1.75,54.3,marge te laag,9.00,1.75
+Product,Sauzen,Bakje vegan mayo,0.45,recept,1.50,70.0,goed,9.00,1.50
+Gerecht of menu-item,Loaded Fries,Loaded Fries Korean Chicken,2.67,recept,9.95,73.2,goed,9.00,9.95
+Gerecht of menu-item,Loaded Fries,Loaded Fries Saté,1.42,recept,8.50,83.3,goed,9.00,8.50
+Gerecht of menu-item,Loaded Fries,Loaded Fries Truffle Parmesan,1.92,recept,9.50,79.8,goed,9.00,9.50
+Gerecht of menu-item,Broodjes,Falafel Wrap,1.72,recept,9.50,81.9,goed,9.00,9.50
+Gerecht of menu-item,Broodjes,Pulled Chicken Wrap,3.09,recept,10.50,70.6,goed,9.00,10.50
+Drank,Cocktails,Amaretto Sour,0.99,recept,9.00,89.0,ruime marge,21.00,9.00
+Drank,Cocktails,Aperol Spritz,1.66,recept,9.25,82.1,goed,21.00,9.25
+Drank,Cocktails,Cuba Libre,1.52,recept,9.00,83.1,goed,21.00,9.00
+Drank,Cocktails,Dark and Stormy,1.48,recept,9.50,84.5,goed,21.00,9.50
+Drank,Cocktails,Espresso Martini,1.12,recept,10.50,89.3,ruime marge,21.00,10.50
+Drank,Cocktails,Gin Tonic,1.30,recept,9.50,86.3,goed,21.00,9.50
+Drank,Cocktails,Margarita,1.35,recept,10.00,86.5,goed,21.00,10.00
+Drank,Cocktails,Mojito,1.07,recept,9.50,88.8,ruime marge,21.00,9.50
+Drank,Cocktails,Negroni,1.25,recept,10.50,88.1,ruime marge,21.00,10.50
+Drank,Cocktails,Paloma,1.47,recept,9.50,84.5,goed,21.00,9.50
+Drank,Cocktails,Piña Colada,1.37,recept,10.00,86.3,goed,21.00,10.00
+Drank,Cocktails,Pornstar Martini,1.83,recept,11.00,83.4,goed,21.00,11.00
+Drank,Cocktails,Whiskey Sour,1.23,recept,10.00,87.7,goed,21.00,10.00
+Drank,Mocktails,Passion Fruit Cooler,1.10,recept,7.25,84.9,goed,9.00,7.25
+Drank,Mocktails,Virgin Mojito,0.69,recept,7.00,90.1,ruime marge,9.00,7.00
+Drank,Frisdrank,Cola,1.00,recept,3.00,66.7,goed,9.00,3.00
+Drank,Frisdrank,Tonic,1.00,recept,3.00,66.7,goed,9.00,3.00
+Drank,Warme dranken,Koffie,0.25,directe kostprijs,2.75,90.9,ruime marge,9.00,2.75
+Drank,Milkshakes,Chocolate Milkshake,1.59,recept,5.95,73.3,goed,9.00,5.95
+Drank,Milkshakes,Strawberry Milkshake,1.47,recept,5.95,75.3,goed,9.00,5.95
+Drank,Milkshakes,Vanilla Milkshake,1.62,recept,5.75,71.8,goed,9.00,5.75

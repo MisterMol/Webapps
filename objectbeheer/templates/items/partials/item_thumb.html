@@ -6,7 +6,7 @@
                     <source src="{{ media.image.url }}">
                 </video>
             {% else %}
-                <img loading="lazy" decoding="async" src="{{ media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
+                <img loading="lazy" decoding="async" src="{{ item.primary_thumbnail_url|default:media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
             {% endif %}
         {% elif item.use_default_image_when_missing and branding and branding.default_item_image %}
             <img loading="lazy" decoding="async" src="{{ branding.default_item_image.url }}" alt="{{ item.name }}">

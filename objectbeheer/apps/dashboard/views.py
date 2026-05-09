@@ -1,8 +1,9 @@
 from django.shortcuts import redirect, render
 
 from apps.company.models import CompanyProfile
-from apps.inventory.models import StockMovement
+from apps.inventory.models import StockMovement, item_is_available
 from apps.items.models import Item
+from apps.items.services.sorting import horeca_sort_key
 from apps.recipes.models import Recipe
 
 
@@ -15,28 +16,40 @@ def public_menu_queryset():
         .filter(
             status="active",
             item_type__in=PUBLIC_MENU_TYPES,
-            media_files__is_public=True,
         )
         .select_related("category", "unit")
-        .prefetch_related("media_files", "labels")
+        .prefetch_related("media_files", "labels", "stock_movements")
         .distinct()
     )
+
+
+def get_available_public_items(limit=None, featured_only=False):
+    queryset = public_menu_queryset()
+
+    if featured_only:
+        queryset = queryset.filter(is_featured=True)
+
+    rows = []
+
+    for item in queryset:
+        if item_is_available(item):
+            rows.append({"item": item})
+
+    rows = sorted(rows, key=horeca_sort_key)
+    items = [row["item"] for row in rows]
+
+    if limit:
+        return items[:limit]
+
+    return items
 
 
 def home(request):
     if not CompanyProfile.objects.exists():
         return redirect("setupwizard:start")
 
-    featured_items = (
-        public_menu_queryset()
-        .filter(is_featured=True)
-        .order_by("category__sort_order", "category__name", "name")[:6]
-    )
-
-    public_items = (
-        public_menu_queryset()
-        .order_by("category__sort_order", "category__name", "name")[:12]
-    )
+    featured_items = get_available_public_items(limit=6, featured_only=True)
+    public_items = get_available_public_items(limit=12)
 
     return render(
         request,

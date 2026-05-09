@@ -1,0 +1,7875 @@
+[
+{
+  "model": "items.category",
+  "pk": 1,
+  "fields": {
+    "name": "Gerechten",
+    "slug": "gerechten",
+    "description": "",
+    "sort_order": 10,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 2,
+  "fields": {
+    "name": "Dranken",
+    "slug": "dranken",
+    "description": "",
+    "sort_order": 20,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 3,
+  "fields": {
+    "name": "Ingrediënten",
+    "slug": "ingredienten",
+    "description": "",
+    "sort_order": 30,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 4,
+  "fields": {
+    "name": "Burgers",
+    "slug": "burgers",
+    "description": "",
+    "sort_order": 10,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 5,
+  "fields": {
+    "name": "Friet",
+    "slug": "friet",
+    "description": "",
+    "sort_order": 20,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 6,
+  "fields": {
+    "name": "Snacks",
+    "slug": "snacks",
+    "description": "",
+    "sort_order": 30,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 7,
+  "fields": {
+    "name": "Sauzen",
+    "slug": "sauzen",
+    "description": "",
+    "sort_order": 40,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 8,
+  "fields": {
+    "name": "Cocktails",
+    "slug": "cocktails",
+    "description": "",
+    "sort_order": 50,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 9,
+  "fields": {
+    "name": "Frisdrank",
+    "slug": "frisdrank",
+    "description": "",
+    "sort_order": 60,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 10,
+  "fields": {
+    "name": "Warme dranken",
+    "slug": "warme-dranken",
+    "description": "",
+    "sort_order": 70,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 11,
+  "fields": {
+    "name": "Bier en wijn",
+    "slug": "bier-en-wijn",
+    "description": "",
+    "sort_order": 80,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 12,
+  "fields": {
+    "name": "Vlees en vis",
+    "slug": "vlees-en-vis",
+    "description": "",
+    "sort_order": 100,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 13,
+  "fields": {
+    "name": "Brood en deeg",
+    "slug": "brood-en-deeg",
+    "description": "",
+    "sort_order": 110,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 14,
+  "fields": {
+    "name": "Groente en fruit",
+    "slug": "groente-en-fruit",
+    "description": "",
+    "sort_order": 120,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 15,
+  "fields": {
+    "name": "Zuivel",
+    "slug": "zuivel",
+    "description": "",
+    "sort_order": 130,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 16,
+  "fields": {
+    "name": "Sauzen en toppings",
+    "slug": "sauzen-en-toppings",
+    "description": "",
+    "sort_order": 140,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 17,
+  "fields": {
+    "name": "Kruiden en smaakmakers",
+    "slug": "kruiden-en-smaakmakers",
+    "description": "",
+    "sort_order": 150,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 18,
+  "fields": {
+    "name": "Dranken voorraad",
+    "slug": "dranken-voorraad",
+    "description": "",
+    "sort_order": 160,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 19,
+  "fields": {
+    "name": "Verpakking",
+    "slug": "verpakking",
+    "description": "",
+    "sort_order": 170,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 20,
+  "fields": {
+    "name": "Loaded Fries",
+    "slug": "loaded-fries",
+    "description": "",
+    "sort_order": 45,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 21,
+  "fields": {
+    "name": "Broodjes",
+    "slug": "broodjes",
+    "description": "",
+    "sort_order": 48,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 22,
+  "fields": {
+    "name": "Mocktails",
+    "slug": "mocktails",
+    "description": "",
+    "sort_order": 55,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 23,
+  "fields": {
+    "name": "Milkshakes",
+    "slug": "milkshakes",
+    "description": "",
+    "sort_order": 90,
+    "is_active": true
+  }
+},
+{
+  "model": "items.category",
+  "pk": 24,
+  "fields": {
+    "name": "Desserts",
+    "slug": "desserts",
+    "description": "",
+    "sort_order": 95,
+    "is_active": true
+  }
+},
+{
+  "model": "items.label",
+  "pk": 1,
+  "fields": {
+    "name": "Populair",
+    "slug": "populair",
+    "description": "",
+    "color": "#f59e0b"
+  }
+},
+{
+  "model": "items.label",
+  "pk": 2,
+  "fields": {
+    "name": "Vegetarisch",
+    "slug": "vegetarisch",
+    "description": "",
+    "color": "#22c55e"
+  }
+},
+{
+  "model": "items.label",
+  "pk": 3,
+  "fields": {
+    "name": "Cocktail",
+    "slug": "cocktail",
+    "description": "",
+    "color": "#ec4899"
+  }
+},
+{
+  "model": "items.label",
+  "pk": 4,
+  "fields": {
+    "name": "Alcoholisch",
+    "slug": "alcoholisch",
+    "description": "",
+    "color": "#7c3aed"
+  }
+},
+{
+  "model": "items.label",
+  "pk": 5,
+  "fields": {
+    "name": "Vegan",
+    "slug": "vegan",
+    "description": "",
+    "color": "#16a34a"
+  }
+},
+{
+  "model": "items.label",
+  "pk": 6,
+  "fields": {
+    "name": "Pittig",
+    "slug": "pittig",
+    "description": "",
+    "color": "#ef4444"
+  }
+},
+{
+  "model": "items.label",
+  "pk": 7,
+  "fields": {
+    "name": "Halal mogelijk",
+    "slug": "halal-mogelijk",
+    "description": "",
+    "color": "#0ea5e9"
+  }
+},
+{
+  "model": "items.label",
+  "pk": 8,
+  "fields": {
+    "name": "Glutenvrij mogelijk",
+    "slug": "glutenvrij-mogelijk",
+    "description": "",
+    "color": "#38bdf8"
+  }
+},
+{
+  "model": "items.label",
+  "pk": 9,
+  "fields": {
+    "name": "Snack",
+    "slug": "snack",
+    "description": "",
+    "color": "#f97316"
+  }
+},
+{
+  "model": "items.label",
+  "pk": 10,
+  "fields": {
+    "name": "Hardloper",
+    "slug": "hardloper",
+    "description": "",
+    "color": "#84cc16"
+  }
+},
+{
+  "model": "items.label",
+  "pk": 11,
+  "fields": {
+    "name": "Mocktail",
+    "slug": "mocktail",
+    "description": "",
+    "color": "#06b6d4"
+  }
+},
+{
+  "model": "items.label",
+  "pk": 12,
+  "fields": {
+    "name": "Nieuw",
+    "slug": "nieuw",
+    "description": "",
+    "color": "#6366f1"
+  }
+},
+{
+  "model": "items.label",
+  "pk": 13,
+  "fields": {
+    "name": "Zoet",
+    "slug": "zoet",
+    "description": "",
+    "color": "#f472b6"
+  }
+},
+{
+  "model": "items.label",
+  "pk": 14,
+  "fields": {
+    "name": "Fris",
+    "slug": "fris",
+    "description": "",
+    "color": "#14b8a6"
+  }
+},
+{
+  "model": "items.label",
+  "pk": 15,
+  "fields": {
+    "name": "Premium",
+    "slug": "premium",
+    "description": "",
+    "color": "#111827"
+  }
+},
+{
+  "model": "items.allergen",
+  "pk": 1,
+  "fields": {
+    "name": "Gluten",
+    "slug": "gluten",
+    "description": "Komt voor in tarwe, brood, wraps, paneermeel en veel snacks.",
+    "is_active": true
+  }
+},
+{
+  "model": "items.allergen",
+  "pk": 2,
+  "fields": {
+    "name": "Melk",
+    "slug": "melk",
+    "description": "Zuivel, kaas, room, melk en boter.",
+    "is_active": true
+  }
+},
+{
+  "model": "items.allergen",
+  "pk": 3,
+  "fields": {
+    "name": "Ei",
+    "slug": "ei",
+    "description": "Ei, mayonaise, schuimlagen en sommige sauzen.",
+    "is_active": true
+  }
+},
+{
+  "model": "items.allergen",
+  "pk": 4,
+  "fields": {
+    "name": "Noten",
+    "slug": "noten",
+    "description": "Boomnoten zoals amandel, hazelnoot en walnoot.",
+    "is_active": true
+  }
+},
+{
+  "model": "items.allergen",
+  "pk": 5,
+  "fields": {
+    "name": "Pinda",
+    "slug": "pinda",
+    "description": "Pinda en pindasauzen zoals satésaus.",
+    "is_active": true
+  }
+},
+{
+  "model": "items.allergen",
+  "pk": 6,
+  "fields": {
+    "name": "Soja",
+    "slug": "soja",
+    "description": "Soja en producten op basis van soja.",
+    "is_active": true
+  }
+},
+{
+  "model": "items.allergen",
+  "pk": 7,
+  "fields": {
+    "name": "Vis",
+    "slug": "vis",
+    "description": "Vis en visproducten.",
+    "is_active": true
+  }
+},
+{
+  "model": "items.allergen",
+  "pk": 8,
+  "fields": {
+    "name": "Schaaldieren",
+    "slug": "schaaldieren",
+    "description": "Garnalen, krab en vergelijkbare producten.",
+    "is_active": true
+  }
+},
+{
+  "model": "items.allergen",
+  "pk": 9,
+  "fields": {
+    "name": "Selderij",
+    "slug": "selderij",
+    "description": "Selderij en selderijhoudende kruidenmixen.",
+    "is_active": true
+  }
+},
+{
+  "model": "items.allergen",
+  "pk": 10,
+  "fields": {
+    "name": "Mosterd",
+    "slug": "mosterd",
+    "description": "Mosterd en mosterdhoudende sauzen.",
+    "is_active": true
+  }
+},
+{
+  "model": "items.allergen",
+  "pk": 11,
+  "fields": {
+    "name": "Sesam",
+    "slug": "sesam",
+    "description": "Sesamzaad en sesamolie.",
+    "is_active": true
+  }
+},
+{
+  "model": "items.allergen",
+  "pk": 12,
+  "fields": {
+    "name": "Sulfiet",
+    "slug": "sulfiet",
+    "description": "Kan voorkomen in wijn, gedroogd fruit en sommige sauzen.",
+    "is_active": true
+  }
+},
+{
+  "model": "items.allergen",
+  "pk": 13,
+  "fields": {
+    "name": "Lupine",
+    "slug": "lupine",
+    "description": "Lupine en producten op basis van lupine.",
+    "is_active": true
+  }
+},
+{
+  "model": "items.allergen",
+  "pk": 14,
+  "fields": {
+    "name": "Weekdieren",
+    "slug": "weekdieren",
+    "description": "Mosselen, oesters, inktvis en vergelijkbare producten.",
+    "is_active": true
+  }
+},
+{
+  "model": "items.item",
+  "pk": 1,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Jonge kaas",
+    "slug": "jonge-kaas",
+    "sku": "",
+    "category": 3,
+    "description": "Jonge kaas voor broodjes, tosti's en andere gerechten.",
+    "short_description": "Kaas voor broodjes en tosti's.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0080",
+    "vat_rate": "9.00",
+    "minimum_stock": "1000.000",
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T13:53:41.892Z",
+    "updated_at": "2026-05-09T14:50:52.640Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 2,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Broodje",
+    "slug": "broodje",
+    "sku": "",
+    "category": 3,
+    "description": "Basisbroodje voor lunchgerechten.",
+    "short_description": "Basisbroodje voor lunchgerechten.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.3500",
+    "vat_rate": "9.00",
+    "minimum_stock": "20.000",
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T13:53:41.907Z",
+    "updated_at": "2026-05-09T14:50:52.653Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 3,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Tomaat",
+    "slug": "tomaat",
+    "sku": "",
+    "category": 14,
+    "description": "Verse tomaat.",
+    "short_description": "Verse tomaat.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": "1000.000",
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T13:53:41.923Z",
+    "updated_at": "2026-05-09T15:27:13.153Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 4,
+  "fields": {
+    "item_type": "product",
+    "name": "Cola 330 ml",
+    "slug": "cola-330-ml",
+    "sku": "",
+    "category": 2,
+    "description": "Flesje cola van 330 milliliter.",
+    "short_description": "Fris en koud geserveerd.",
+    "unit": 1,
+    "sale_price": "2.75",
+    "purchase_price": "0.7000",
+    "vat_rate": "9.00",
+    "minimum_stock": "24.000",
+    "is_stock_tracked": true,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T13:53:41.940Z",
+    "updated_at": "2026-05-09T17:16:39.882Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 5,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Broodje gezond",
+    "slug": "broodje-gezond",
+    "sku": "",
+    "category": 1,
+    "description": "Een vers broodje met jonge kaas, tomaat en frisse salade.",
+    "short_description": "Vers broodje met kaas, tomaat en salade.",
+    "unit": 1,
+    "sale_price": "6.50",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T13:53:41.956Z",
+    "updated_at": "2026-05-09T17:05:10.361Z",
+    "labels": [
+      1
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 6,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Tosti kaas",
+    "slug": "tosti-kaas",
+    "sku": "",
+    "category": 1,
+    "description": "Een warme tosti met jonge kaas.",
+    "short_description": "Knapperige tosti met jonge kaas.",
+    "unit": 1,
+    "sale_price": "4.95",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T13:53:41.980Z",
+    "updated_at": "2026-05-09T17:05:21.780Z",
+    "labels": [
+      2
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 7,
+  "fields": {
+    "item_type": "drink",
+    "name": "Amaretto Sour",
+    "slug": "amaretto-sour",
+    "sku": "DRK-AMARETTO-SOUR",
+    "category": 8,
+    "description": "Amaretto, citroen en suikersiroop. Cocktailkers optioneel.",
+    "short_description": "Amaretto, citroen en suikersiroop. Cocktailkers optioneel.",
+    "unit": 1,
+    "sale_price": "8.50",
+    "purchase_price": null,
+    "vat_rate": "21.00",
+    "minimum_stock": "5.000",
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:06:19.404Z",
+    "updated_at": "2026-05-09T15:27:15.029Z",
+    "labels": [
+      4,
+      3,
+      1
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 8,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Amaretto",
+    "slug": "amaretto",
+    "sku": "",
+    "category": 18,
+    "description": "Amaretto likeur.",
+    "short_description": "Amaretto likeur.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": "500.000",
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:12:04.874Z",
+    "updated_at": "2026-05-09T15:27:13.928Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 9,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Citroensap",
+    "slug": "citroensap",
+    "sku": "",
+    "category": 18,
+    "description": "Citroensap.",
+    "short_description": "Citroensap.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": "250.000",
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:12:04.896Z",
+    "updated_at": "2026-05-09T15:27:14.124Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 10,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Suikersiroop",
+    "slug": "suikersiroop",
+    "sku": "",
+    "category": 18,
+    "description": "Suikersiroop.",
+    "short_description": "Suikersiroop.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": "250.000",
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:12:04.916Z",
+    "updated_at": "2026-05-09T15:27:14.221Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 11,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Cocktailkers",
+    "slug": "cocktailkers",
+    "sku": "",
+    "category": 16,
+    "description": "Optionele garnering.",
+    "short_description": "Optionele garnering.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": "10.000",
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:12:04.937Z",
+    "updated_at": "2026-05-09T15:27:14.481Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 12,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Brioche burger bun",
+    "slug": "brioche-burger-bun",
+    "sku": "",
+    "category": 13,
+    "description": "Broodje voor burgers.",
+    "short_description": "Broodje voor burgers.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:12.883Z",
+    "updated_at": "2026-05-09T15:27:12.883Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 13,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Runderburger 150g",
+    "slug": "runderburger-150g",
+    "sku": "",
+    "category": 12,
+    "description": "Burgerpatty van rundvlees.",
+    "short_description": "Burgerpatty van rundvlees.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:12.921Z",
+    "updated_at": "2026-05-09T15:27:12.922Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 14,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Kipburger krokant",
+    "slug": "kipburger-krokant",
+    "sku": "",
+    "category": 12,
+    "description": "Krokante kipburger.",
+    "short_description": "Krokante kipburger.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:12.971Z",
+    "updated_at": "2026-05-09T15:27:12.971Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 15,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Vega burger",
+    "slug": "vega-burger",
+    "sku": "",
+    "category": 12,
+    "description": "Vegetarische burger.",
+    "short_description": "Vegetarische burger.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.012Z",
+    "updated_at": "2026-05-09T15:27:13.012Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 16,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Cheddar plak",
+    "slug": "cheddar-plak",
+    "sku": "",
+    "category": 15,
+    "description": "Plak cheddar.",
+    "short_description": "Plak cheddar.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.056Z",
+    "updated_at": "2026-05-09T15:27:13.056Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 17,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "IJsbergsla",
+    "slug": "ijsbergsla",
+    "sku": "",
+    "category": 14,
+    "description": "Frisse sla.",
+    "short_description": "Frisse sla.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.118Z",
+    "updated_at": "2026-05-09T15:27:13.118Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 18,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Rode ui",
+    "slug": "rode-ui",
+    "sku": "",
+    "category": 14,
+    "description": "Rode ui.",
+    "short_description": "Rode ui.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.189Z",
+    "updated_at": "2026-05-09T15:27:13.189Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 19,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Augurk",
+    "slug": "augurk",
+    "sku": "",
+    "category": 16,
+    "description": "Augurkenschijfjes.",
+    "short_description": "Augurkenschijfjes.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.240Z",
+    "updated_at": "2026-05-09T15:27:13.240Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 20,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Jalapeño",
+    "slug": "jalapeno",
+    "sku": "",
+    "category": 16,
+    "description": "Pittige jalapeño.",
+    "short_description": "Pittige jalapeño.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.282Z",
+    "updated_at": "2026-05-09T15:27:13.282Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 21,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Friet aardappel",
+    "slug": "friet-aardappel",
+    "sku": "",
+    "category": 5,
+    "description": "Frietvoorraad.",
+    "short_description": "Frietvoorraad.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.322Z",
+    "updated_at": "2026-05-09T15:27:13.322Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 22,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Zoete aardappel friet",
+    "slug": "zoete-aardappel-friet",
+    "sku": "",
+    "category": 5,
+    "description": "Zoete aardappel friet.",
+    "short_description": "Zoete aardappel friet.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.364Z",
+    "updated_at": "2026-05-09T15:27:13.364Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 23,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Loaded fries topping spek",
+    "slug": "loaded-fries-topping-spek",
+    "sku": "",
+    "category": 12,
+    "description": "Spek topping.",
+    "short_description": "Spek topping.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.403Z",
+    "updated_at": "2026-05-09T15:27:13.403Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 24,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Truffelmayonaise",
+    "slug": "truffelmayonaise",
+    "sku": "",
+    "category": 16,
+    "description": "Truffelmayonaise.",
+    "short_description": "Truffelmayonaise.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.446Z",
+    "updated_at": "2026-05-09T15:27:13.446Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 25,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Knoflooksaus",
+    "slug": "knoflooksaus",
+    "sku": "",
+    "category": 16,
+    "description": "Knoflooksaus.",
+    "short_description": "Knoflooksaus.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.491Z",
+    "updated_at": "2026-05-09T15:27:13.491Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 26,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Sambalsaus",
+    "slug": "sambalsaus",
+    "sku": "",
+    "category": 16,
+    "description": "Pittige sambalsaus.",
+    "short_description": "Pittige sambalsaus.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.526Z",
+    "updated_at": "2026-05-09T15:27:13.526Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 27,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Mayonaise",
+    "slug": "mayonaise",
+    "sku": "",
+    "category": 16,
+    "description": "Mayonaise.",
+    "short_description": "Mayonaise.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.558Z",
+    "updated_at": "2026-05-09T15:27:13.558Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 28,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Ketchup",
+    "slug": "ketchup",
+    "sku": "",
+    "category": 16,
+    "description": "Ketchup.",
+    "short_description": "Ketchup.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.597Z",
+    "updated_at": "2026-05-09T15:27:13.597Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 29,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Zout",
+    "slug": "zout",
+    "sku": "",
+    "category": 17,
+    "description": "Zout.",
+    "short_description": "Zout.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.635Z",
+    "updated_at": "2026-05-09T15:27:13.635Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 30,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Paprikapoeder",
+    "slug": "paprikapoeder",
+    "sku": "",
+    "category": 17,
+    "description": "Paprikapoeder.",
+    "short_description": "Paprikapoeder.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.677Z",
+    "updated_at": "2026-05-09T15:27:13.677Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 31,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Suiker",
+    "slug": "suiker",
+    "sku": "",
+    "category": 17,
+    "description": "Suiker.",
+    "short_description": "Suiker.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.741Z",
+    "updated_at": "2026-05-09T15:27:13.741Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 32,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Kroket",
+    "slug": "kroket",
+    "sku": "",
+    "category": 6,
+    "description": "Kroketten.",
+    "short_description": "Kroketten.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.775Z",
+    "updated_at": "2026-05-09T15:27:13.775Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 33,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Frikandel",
+    "slug": "frikandel",
+    "sku": "",
+    "category": 6,
+    "description": "Frikandellen.",
+    "short_description": "Frikandellen.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.818Z",
+    "updated_at": "2026-05-09T15:27:13.818Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 34,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Kaassoufflé",
+    "slug": "kaassouffle",
+    "sku": "",
+    "category": 6,
+    "description": "Kaassoufflés.",
+    "short_description": "Kaassoufflés.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.857Z",
+    "updated_at": "2026-05-09T15:27:13.857Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 35,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Bitterbal",
+    "slug": "bitterbal",
+    "sku": "",
+    "category": 6,
+    "description": "Bitterballen.",
+    "short_description": "Bitterballen.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.895Z",
+    "updated_at": "2026-05-09T15:27:13.895Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 36,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Vodka",
+    "slug": "vodka",
+    "sku": "",
+    "category": 18,
+    "description": "Vodka.",
+    "short_description": "Vodka.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:13.970Z",
+    "updated_at": "2026-05-09T15:27:13.970Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 37,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Rum",
+    "slug": "rum",
+    "sku": "",
+    "category": 18,
+    "description": "Rum.",
+    "short_description": "Rum.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:14.017Z",
+    "updated_at": "2026-05-09T15:27:14.017Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 38,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Gin",
+    "slug": "gin",
+    "sku": "",
+    "category": 18,
+    "description": "Gin.",
+    "short_description": "Gin.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:14.076Z",
+    "updated_at": "2026-05-09T15:27:14.076Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 39,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Limoensap",
+    "slug": "limoensap",
+    "sku": "",
+    "category": 18,
+    "description": "Limoensap.",
+    "short_description": "Limoensap.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:14.179Z",
+    "updated_at": "2026-05-09T15:27:14.179Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 40,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Cola siroop of fles",
+    "slug": "cola-siroop-of-fles",
+    "sku": "",
+    "category": 18,
+    "description": "Cola voorraad.",
+    "short_description": "Cola voorraad.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:14.264Z",
+    "updated_at": "2026-05-09T15:27:14.264Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 41,
+  "fields": {
+    "item_type": "drink",
+    "name": "Tonic",
+    "slug": "tonic",
+    "sku": "",
+    "category": 9,
+    "description": "Tonic.",
+    "short_description": "Tonic.",
+    "unit": 1,
+    "sale_price": "2.75",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:14.306Z",
+    "updated_at": "2026-05-09T17:16:56.924Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 42,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Munt",
+    "slug": "munt",
+    "sku": "",
+    "category": 14,
+    "description": "Munt.",
+    "short_description": "Munt.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:14.434Z",
+    "updated_at": "2026-05-09T15:27:14.434Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 43,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Classic Burger",
+    "slug": "classic-burger",
+    "sku": "",
+    "category": 4,
+    "description": "Brioche bun, runderburger, sla, tomaat, ui en burgersaus.",
+    "short_description": "Brioche bun, runderburger, sla, tomaat, ui en burgersaus.",
+    "unit": 1,
+    "sale_price": "9.50",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:14.502Z",
+    "updated_at": "2026-05-09T16:11:49.440Z",
+    "labels": [
+      1
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 44,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Cheese Burger",
+    "slug": "cheese-burger",
+    "sku": "",
+    "category": 4,
+    "description": "Classic burger met cheddar.",
+    "short_description": "Classic burger met cheddar.",
+    "unit": 1,
+    "sale_price": "10.50",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:14.555Z",
+    "updated_at": "2026-05-09T16:11:33.339Z",
+    "labels": [
+      1
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 45,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Spicy Jalapeño Burger",
+    "slug": "spicy-jalapeno-burger",
+    "sku": "",
+    "category": 4,
+    "description": "Burger met jalapeño en sambalsaus.",
+    "short_description": "Burger met jalapeño en sambalsaus.",
+    "unit": 1,
+    "sale_price": "11.50",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:14.637Z",
+    "updated_at": "2026-05-09T16:12:38.626Z",
+    "labels": [
+      6
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 46,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Vega Truffel Burger",
+    "slug": "vega-truffel-burger",
+    "sku": "",
+    "category": 4,
+    "description": "Vega burger met truffelmayonaise.",
+    "short_description": "Vega burger met truffelmayonaise.",
+    "unit": 1,
+    "sale_price": "11.00",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:14.674Z",
+    "updated_at": "2026-05-09T16:12:54.621Z",
+    "labels": [
+      2
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 47,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Friet normaal",
+    "slug": "friet-normaal",
+    "sku": "",
+    "category": 5,
+    "description": "Krokante friet met zout.",
+    "short_description": "Krokante friet met zout.",
+    "unit": 1,
+    "sale_price": "3.50",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:14.713Z",
+    "updated_at": "2026-05-09T16:35:16.813Z",
+    "labels": [
+      10
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 48,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Friet truffel",
+    "slug": "friet-truffel",
+    "sku": "",
+    "category": 5,
+    "description": "Friet met truffelmayonaise en kruiden.",
+    "short_description": "Friet met truffelmayonaise en kruiden.",
+    "unit": 1,
+    "sale_price": "5.50",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:14.766Z",
+    "updated_at": "2026-05-09T16:35:33.189Z",
+    "labels": [
+      2
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 49,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Loaded fries bacon",
+    "slug": "loaded-fries-bacon",
+    "sku": "",
+    "category": 5,
+    "description": "Friet met cheddar en spek topping.",
+    "short_description": "Friet met cheddar en spek topping.",
+    "unit": 1,
+    "sale_price": "7.50",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:14.810Z",
+    "updated_at": "2026-05-09T16:35:55.028Z",
+    "labels": [
+      1
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 50,
+  "fields": {
+    "item_type": "product",
+    "name": "Kroket los",
+    "slug": "kroket-los",
+    "sku": "",
+    "category": 6,
+    "description": "Losse kroket.",
+    "short_description": "Losse kroket.",
+    "unit": 1,
+    "sale_price": "2.75",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:14.855Z",
+    "updated_at": "2026-05-09T15:27:14.855Z",
+    "labels": [
+      9
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 51,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Frikandel speciaal",
+    "slug": "frikandel-speciaal",
+    "sku": "",
+    "category": 6,
+    "description": "Frikandel met saus en ui.",
+    "short_description": "Frikandel met saus en ui.",
+    "unit": 1,
+    "sale_price": "3.75",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:14.893Z",
+    "updated_at": "2026-05-09T16:53:15.236Z",
+    "labels": [
+      9
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 52,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Bitterballen 8 stuks",
+    "slug": "bitterballen-8-stuks",
+    "sku": "",
+    "category": 6,
+    "description": "Portie bitterballen.",
+    "short_description": "Portie bitterballen.",
+    "unit": 1,
+    "sale_price": "7.95",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:14.934Z",
+    "updated_at": "2026-05-09T16:54:08.488Z",
+    "labels": [
+      1,
+      9
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 53,
+  "fields": {
+    "item_type": "product",
+    "name": "Bakje truffelmayonaise",
+    "slug": "bakje-truffelmayonaise",
+    "sku": "",
+    "category": 7,
+    "description": "Los bakje truffelmayonaise.",
+    "short_description": "Los bakje truffelmayonaise.",
+    "unit": 1,
+    "sale_price": "1.25",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:14.967Z",
+    "updated_at": "2026-05-09T15:27:14.967Z",
+    "labels": [
+      2
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 54,
+  "fields": {
+    "item_type": "product",
+    "name": "Bakje knoflooksaus",
+    "slug": "bakje-knoflooksaus",
+    "sku": "",
+    "category": 7,
+    "description": "Los bakje knoflooksaus.",
+    "short_description": "Los bakje knoflooksaus.",
+    "unit": 1,
+    "sale_price": "1.00",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:15.004Z",
+    "updated_at": "2026-05-09T15:27:15.004Z",
+    "labels": [
+      2
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 55,
+  "fields": {
+    "item_type": "drink",
+    "name": "Mojito",
+    "slug": "mojito",
+    "sku": "",
+    "category": 8,
+    "description": "Rum, limoen, munt en suiker.",
+    "short_description": "Rum, limoen, munt en suiker.",
+    "unit": 1,
+    "sale_price": "9.00",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:15.056Z",
+    "updated_at": "2026-05-09T17:11:36.875Z",
+    "labels": [
+      4,
+      3
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 56,
+  "fields": {
+    "item_type": "drink",
+    "name": "Gin Tonic",
+    "slug": "gin-tonic",
+    "sku": "",
+    "category": 8,
+    "description": "Gin met tonic.",
+    "short_description": "Gin met tonic.",
+    "unit": 1,
+    "sale_price": "8.75",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:15.132Z",
+    "updated_at": "2026-05-09T17:11:14.367Z",
+    "labels": [
+      4,
+      3
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 57,
+  "fields": {
+    "item_type": "drink",
+    "name": "Cola",
+    "slug": "cola",
+    "sku": "",
+    "category": 9,
+    "description": "Cola met ijs.",
+    "short_description": "Cola met ijs.",
+    "unit": 1,
+    "sale_price": "2.75",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:15.159Z",
+    "updated_at": "2026-05-09T17:16:27.390Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 58,
+  "fields": {
+    "item_type": "drink",
+    "name": "Koffie",
+    "slug": "koffie",
+    "sku": "",
+    "category": 10,
+    "description": "Verse koffie.",
+    "short_description": "Verse koffie.",
+    "unit": 1,
+    "sale_price": "2.50",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:27:15.187Z",
+    "updated_at": "2026-05-09T17:16:03.864Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 59,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Black Angus burger 180g",
+    "slug": "black-angus-burger-180g",
+    "sku": "",
+    "category": 12,
+    "description": "Premium runderburger.",
+    "short_description": "Premium runderburger.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:47.512Z",
+    "updated_at": "2026-05-09T15:34:47.512Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 60,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Smash burger patty",
+    "slug": "smash-burger-patty",
+    "sku": "",
+    "category": 12,
+    "description": "Dunne burgerpatty voor smash burgers.",
+    "short_description": "Dunne burgerpatty voor smash burgers.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:47.552Z",
+    "updated_at": "2026-05-09T15:34:47.552Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 61,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Pulled chicken",
+    "slug": "pulled-chicken",
+    "sku": "",
+    "category": 12,
+    "description": "Gegaarde pulled chicken.",
+    "short_description": "Gegaarde pulled chicken.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:47.597Z",
+    "updated_at": "2026-05-09T15:34:47.597Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 62,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Krokante kipstukjes",
+    "slug": "krokante-kipstukjes",
+    "sku": "",
+    "category": 12,
+    "description": "Kipstukjes voor loaded fries en wraps.",
+    "short_description": "Kipstukjes voor loaded fries en wraps.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:47.642Z",
+    "updated_at": "2026-05-09T15:34:47.642Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 63,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Falafel",
+    "slug": "falafel",
+    "sku": "",
+    "category": 12,
+    "description": "Vegetarische falafel.",
+    "short_description": "Vegetarische falafel.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:47.690Z",
+    "updated_at": "2026-05-09T15:34:47.690Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 64,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Halloumi",
+    "slug": "halloumi",
+    "sku": "",
+    "category": 15,
+    "description": "Halloumi voor burgers en bowls.",
+    "short_description": "Halloumi voor burgers en bowls.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:47.733Z",
+    "updated_at": "2026-05-09T15:34:47.733Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 65,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Bacon",
+    "slug": "bacon",
+    "sku": "",
+    "category": 12,
+    "description": "Bacon topping.",
+    "short_description": "Bacon topping.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:47.781Z",
+    "updated_at": "2026-05-09T15:34:47.781Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 66,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Brioche bol zwart sesam",
+    "slug": "brioche-bol-zwart-sesam",
+    "sku": "",
+    "category": 13,
+    "description": "Premium brioche bol.",
+    "short_description": "Premium brioche bol.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:47.812Z",
+    "updated_at": "2026-05-09T15:34:47.812Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 67,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Wrap tortilla",
+    "slug": "wrap-tortilla",
+    "sku": "",
+    "category": 13,
+    "description": "Tortilla wraps.",
+    "short_description": "Tortilla wraps.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:47.850Z",
+    "updated_at": "2026-05-09T15:34:47.850Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 68,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Pitabrood",
+    "slug": "pitabrood",
+    "sku": "",
+    "category": 13,
+    "description": "Pitabroodjes.",
+    "short_description": "Pitabroodjes.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:47.897Z",
+    "updated_at": "2026-05-09T15:34:47.897Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 69,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Rucola",
+    "slug": "rucola",
+    "sku": "",
+    "category": 14,
+    "description": "Rucola.",
+    "short_description": "Rucola.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:47.945Z",
+    "updated_at": "2026-05-09T15:34:47.945Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 70,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Komkommer",
+    "slug": "komkommer",
+    "sku": "",
+    "category": 14,
+    "description": "Komkommer.",
+    "short_description": "Komkommer.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.072Z",
+    "updated_at": "2026-05-09T15:34:48.072Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 71,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Avocado",
+    "slug": "avocado",
+    "sku": "",
+    "category": 14,
+    "description": "Avocado.",
+    "short_description": "Avocado.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.108Z",
+    "updated_at": "2026-05-09T15:34:48.108Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 72,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Champignons",
+    "slug": "champignons",
+    "sku": "",
+    "category": 14,
+    "description": "Champignons.",
+    "short_description": "Champignons.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.145Z",
+    "updated_at": "2026-05-09T15:34:48.145Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 73,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Gebakken ui",
+    "slug": "gebakken-ui",
+    "sku": "",
+    "category": 16,
+    "description": "Gebakken ui topping.",
+    "short_description": "Gebakken ui topping.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.184Z",
+    "updated_at": "2026-05-09T15:34:48.184Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 74,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Krokante uitjes",
+    "slug": "krokante-uitjes",
+    "sku": "",
+    "category": 16,
+    "description": "Krokante uitjes.",
+    "short_description": "Krokante uitjes.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.230Z",
+    "updated_at": "2026-05-09T15:34:48.230Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 75,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Nacho crumble",
+    "slug": "nacho-crumble",
+    "sku": "",
+    "category": 16,
+    "description": "Crunch topping.",
+    "short_description": "Crunch topping.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.267Z",
+    "updated_at": "2026-05-09T15:34:48.267Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 76,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Kimchi",
+    "slug": "kimchi",
+    "sku": "",
+    "category": 16,
+    "description": "Kimchi topping.",
+    "short_description": "Kimchi topping.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.302Z",
+    "updated_at": "2026-05-09T15:34:48.302Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 77,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "BBQ saus",
+    "slug": "bbq-saus",
+    "sku": "",
+    "category": 16,
+    "description": "BBQ saus.",
+    "short_description": "BBQ saus.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.361Z",
+    "updated_at": "2026-05-09T15:34:48.361Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 78,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Burger relish",
+    "slug": "burger-relish",
+    "sku": "",
+    "category": 16,
+    "description": "Relish voor burgers.",
+    "short_description": "Relish voor burgers.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.399Z",
+    "updated_at": "2026-05-09T15:34:48.399Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 79,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Sriracha mayo",
+    "slug": "sriracha-mayo",
+    "sku": "",
+    "category": 16,
+    "description": "Pittige mayonaise.",
+    "short_description": "Pittige mayonaise.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.445Z",
+    "updated_at": "2026-05-09T15:34:48.445Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 80,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Andalouse saus",
+    "slug": "andalouse-saus",
+    "sku": "",
+    "category": 16,
+    "description": "Andalouse saus.",
+    "short_description": "Andalouse saus.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.488Z",
+    "updated_at": "2026-05-09T15:34:48.488Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 81,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Samurai saus",
+    "slug": "samurai-saus",
+    "sku": "",
+    "category": 16,
+    "description": "Pittige samurai saus.",
+    "short_description": "Pittige samurai saus.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.523Z",
+    "updated_at": "2026-05-09T15:34:48.523Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 82,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Satésaus",
+    "slug": "satesaus",
+    "sku": "",
+    "category": 16,
+    "description": "Satésaus.",
+    "short_description": "Satésaus.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.563Z",
+    "updated_at": "2026-05-09T15:34:48.563Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 83,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Joppiesaus",
+    "slug": "joppiesaus",
+    "sku": "",
+    "category": 16,
+    "description": "Joppiesaus.",
+    "short_description": "Joppiesaus.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.613Z",
+    "updated_at": "2026-05-09T15:34:48.613Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 84,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Cheddarsaus",
+    "slug": "cheddarsaus",
+    "sku": "",
+    "category": 16,
+    "description": "Cheddarsaus.",
+    "short_description": "Cheddarsaus.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.712Z",
+    "updated_at": "2026-05-09T15:34:48.712Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 85,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Aioli",
+    "slug": "aioli",
+    "sku": "",
+    "category": 16,
+    "description": "Aioli.",
+    "short_description": "Aioli.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.764Z",
+    "updated_at": "2026-05-09T15:34:48.764Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 86,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Vegan mayo",
+    "slug": "vegan-mayo",
+    "sku": "",
+    "category": 16,
+    "description": "Vegan mayonaise.",
+    "short_description": "Vegan mayonaise.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.811Z",
+    "updated_at": "2026-05-09T15:34:48.811Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 87,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Knoflook kruidenmix",
+    "slug": "knoflook-kruidenmix",
+    "sku": "",
+    "category": 17,
+    "description": "Knoflook kruidenmix.",
+    "short_description": "Knoflook kruidenmix.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.857Z",
+    "updated_at": "2026-05-09T15:34:48.857Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 88,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Cajun kruiden",
+    "slug": "cajun-kruiden",
+    "sku": "",
+    "category": 17,
+    "description": "Cajun kruiden.",
+    "short_description": "Cajun kruiden.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.897Z",
+    "updated_at": "2026-05-09T15:34:48.897Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 89,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Ras el hanout",
+    "slug": "ras-el-hanout",
+    "sku": "",
+    "category": 17,
+    "description": "Ras el hanout.",
+    "short_description": "Ras el hanout.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.934Z",
+    "updated_at": "2026-05-09T15:34:48.935Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 90,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Parmezaan",
+    "slug": "parmezaan",
+    "sku": "",
+    "category": 15,
+    "description": "Geraspte parmezaan.",
+    "short_description": "Geraspte parmezaan.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:48.979Z",
+    "updated_at": "2026-05-09T15:34:48.979Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 91,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Mozzarella",
+    "slug": "mozzarella",
+    "sku": "",
+    "category": 15,
+    "description": "Mozzarella.",
+    "short_description": "Mozzarella.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.022Z",
+    "updated_at": "2026-05-09T15:34:49.022Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 92,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Slagroom",
+    "slug": "slagroom",
+    "sku": "",
+    "category": 15,
+    "description": "Slagroom.",
+    "short_description": "Slagroom.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.059Z",
+    "updated_at": "2026-05-09T15:34:49.059Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 93,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Vanille ijs",
+    "slug": "vanille-ijs",
+    "sku": "",
+    "category": 15,
+    "description": "Vanille ijs.",
+    "short_description": "Vanille ijs.",
+    "unit": 2,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.095Z",
+    "updated_at": "2026-05-09T15:34:49.095Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 94,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Chocoladesaus",
+    "slug": "chocoladesaus",
+    "sku": "",
+    "category": 16,
+    "description": "Chocoladesaus.",
+    "short_description": "Chocoladesaus.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.137Z",
+    "updated_at": "2026-05-09T15:34:49.137Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 95,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Karamelsaus",
+    "slug": "karamelsaus",
+    "sku": "",
+    "category": 16,
+    "description": "Karamelsaus.",
+    "short_description": "Karamelsaus.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.180Z",
+    "updated_at": "2026-05-09T15:34:49.180Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 96,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Tequila",
+    "slug": "tequila",
+    "sku": "",
+    "category": 18,
+    "description": "Tequila.",
+    "short_description": "Tequila.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.220Z",
+    "updated_at": "2026-05-09T15:34:49.220Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 97,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Triple sec",
+    "slug": "triple-sec",
+    "sku": "",
+    "category": 18,
+    "description": "Sinaasappellikeur.",
+    "short_description": "Sinaasappellikeur.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.268Z",
+    "updated_at": "2026-05-09T15:34:49.268Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 98,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Cointreau",
+    "slug": "cointreau",
+    "sku": "",
+    "category": 18,
+    "description": "Premium sinaasappellikeur.",
+    "short_description": "Premium sinaasappellikeur.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.390Z",
+    "updated_at": "2026-05-09T15:34:49.390Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 99,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Campari",
+    "slug": "campari",
+    "sku": "",
+    "category": 18,
+    "description": "Campari.",
+    "short_description": "Campari.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.452Z",
+    "updated_at": "2026-05-09T15:34:49.452Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 100,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Aperol",
+    "slug": "aperol",
+    "sku": "",
+    "category": 18,
+    "description": "Aperol.",
+    "short_description": "Aperol.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.512Z",
+    "updated_at": "2026-05-09T15:34:49.512Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 101,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Prosecco",
+    "slug": "prosecco",
+    "sku": "",
+    "category": 18,
+    "description": "Prosecco.",
+    "short_description": "Prosecco.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.574Z",
+    "updated_at": "2026-05-09T15:34:49.579Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 102,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Bourbon",
+    "slug": "bourbon",
+    "sku": "",
+    "category": 18,
+    "description": "Bourbon whiskey.",
+    "short_description": "Bourbon whiskey.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.644Z",
+    "updated_at": "2026-05-09T15:34:49.644Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 103,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Whiskey",
+    "slug": "whiskey",
+    "sku": "",
+    "category": 18,
+    "description": "Whiskey.",
+    "short_description": "Whiskey.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.704Z",
+    "updated_at": "2026-05-09T15:34:49.704Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 104,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Rode vermouth",
+    "slug": "rode-vermouth",
+    "sku": "",
+    "category": 18,
+    "description": "Rode vermouth.",
+    "short_description": "Rode vermouth.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.755Z",
+    "updated_at": "2026-05-09T15:34:49.755Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 105,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Koffielikeur",
+    "slug": "koffielikeur",
+    "sku": "",
+    "category": 18,
+    "description": "Koffielikeur.",
+    "short_description": "Koffielikeur.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.809Z",
+    "updated_at": "2026-05-09T15:34:49.809Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 106,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Espresso",
+    "slug": "espresso",
+    "sku": "",
+    "category": 18,
+    "description": "Espresso voorraad.",
+    "short_description": "Espresso voorraad.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.865Z",
+    "updated_at": "2026-05-09T15:34:49.865Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 107,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Cranberrysap",
+    "slug": "cranberrysap",
+    "sku": "",
+    "category": 18,
+    "description": "Cranberrysap.",
+    "short_description": "Cranberrysap.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.931Z",
+    "updated_at": "2026-05-09T15:34:49.931Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 108,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Sinaasappelsap",
+    "slug": "sinaasappelsap",
+    "sku": "",
+    "category": 18,
+    "description": "Sinaasappelsap.",
+    "short_description": "Sinaasappelsap.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:49.973Z",
+    "updated_at": "2026-05-09T15:34:49.973Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 109,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Ananassap",
+    "slug": "ananassap",
+    "sku": "",
+    "category": 18,
+    "description": "Ananassap.",
+    "short_description": "Ananassap.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.016Z",
+    "updated_at": "2026-05-09T15:34:50.017Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 110,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Kokosroom",
+    "slug": "kokosroom",
+    "sku": "",
+    "category": 18,
+    "description": "Kokosroom.",
+    "short_description": "Kokosroom.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.089Z",
+    "updated_at": "2026-05-09T15:34:50.089Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 111,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Ginger beer",
+    "slug": "ginger-beer",
+    "sku": "",
+    "category": 18,
+    "description": "Ginger beer.",
+    "short_description": "Ginger beer.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.173Z",
+    "updated_at": "2026-05-09T15:34:50.173Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 112,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Grapefruit soda",
+    "slug": "grapefruit-soda",
+    "sku": "",
+    "category": 18,
+    "description": "Grapefruit soda.",
+    "short_description": "Grapefruit soda.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.269Z",
+    "updated_at": "2026-05-09T15:34:50.269Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 113,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Bruiswater",
+    "slug": "bruiswater",
+    "sku": "",
+    "category": 18,
+    "description": "Bruiswater.",
+    "short_description": "Bruiswater.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.302Z",
+    "updated_at": "2026-05-09T15:34:50.302Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 114,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Passievrucht puree",
+    "slug": "passievrucht-puree",
+    "sku": "",
+    "category": 18,
+    "description": "Passievrucht puree.",
+    "short_description": "Passievrucht puree.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.346Z",
+    "updated_at": "2026-05-09T15:34:50.346Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 115,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Vanillesiroop",
+    "slug": "vanillesiroop",
+    "sku": "",
+    "category": 18,
+    "description": "Vanillesiroop.",
+    "short_description": "Vanillesiroop.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.391Z",
+    "updated_at": "2026-05-09T15:34:50.391Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 116,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Grenadine",
+    "slug": "grenadine",
+    "sku": "",
+    "category": 18,
+    "description": "Grenadine.",
+    "short_description": "Grenadine.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.424Z",
+    "updated_at": "2026-05-09T15:34:50.424Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 117,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Eiwit of aquafaba",
+    "slug": "eiwit-of-aquafaba",
+    "sku": "",
+    "category": 18,
+    "description": "Schuimlaag voor sours.",
+    "short_description": "Schuimlaag voor sours.",
+    "unit": 5,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.470Z",
+    "updated_at": "2026-05-09T15:34:50.470Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 118,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Limoenpartjes",
+    "slug": "limoenpartjes",
+    "sku": "",
+    "category": 14,
+    "description": "Garnering.",
+    "short_description": "Garnering.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.518Z",
+    "updated_at": "2026-05-09T15:34:50.519Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 119,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Sinaasappelschijf",
+    "slug": "sinaasappelschijf",
+    "sku": "",
+    "category": 14,
+    "description": "Garnering.",
+    "short_description": "Garnering.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.550Z",
+    "updated_at": "2026-05-09T15:34:50.550Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 120,
+  "fields": {
+    "item_type": "ingredient",
+    "name": "Citroenschijf",
+    "slug": "citroenschijf",
+    "sku": "",
+    "category": 14,
+    "description": "Garnering.",
+    "short_description": "Garnering.",
+    "unit": 1,
+    "sale_price": null,
+    "purchase_price": "0.0100",
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": true,
+    "show_image": false,
+    "use_default_image_when_missing": true,
+    "is_featured": false,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.597Z",
+    "updated_at": "2026-05-09T15:34:50.597Z",
+    "labels": [],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 121,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Black Angus Deluxe",
+    "slug": "black-angus-deluxe",
+    "sku": "",
+    "category": 4,
+    "description": "Premium burger met Black Angus, cheddar, bacon, relish en brioche.",
+    "short_description": "Premium burger met Black Angus, cheddar, bacon, relish en brioche.",
+    "unit": 1,
+    "sale_price": "13.50",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.647Z",
+    "updated_at": "2026-05-09T16:11:15.088Z",
+    "labels": [
+      1,
+      15
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 122,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Double Smash Burger",
+    "slug": "double-smash-burger",
+    "sku": "",
+    "category": 4,
+    "description": "Dubbele smash burger met cheddar, augurk en burgersaus.",
+    "short_description": "Dubbele smash burger met cheddar, augurk en burgersaus.",
+    "unit": 1,
+    "sale_price": "12.95",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.677Z",
+    "updated_at": "2026-05-09T16:12:02.639Z",
+    "labels": [
+      1
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 123,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Korean Chicken Burger",
+    "slug": "korean-chicken-burger",
+    "sku": "",
+    "category": 4,
+    "description": "Krokante kipburger met kimchi en sriracha mayo.",
+    "short_description": "Krokante kipburger met kimchi en sriracha mayo.",
+    "unit": 1,
+    "sale_price": "12.50",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.718Z",
+    "updated_at": "2026-05-09T16:12:25.996Z",
+    "labels": [
+      12,
+      6
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 124,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Halloumi Burger",
+    "slug": "halloumi-burger",
+    "sku": "",
+    "category": 4,
+    "description": "Halloumi burger met rucola, tomaat en aioli.",
+    "short_description": "Halloumi burger met rucola, tomaat en aioli.",
+    "unit": 1,
+    "sale_price": "11.95",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.754Z",
+    "updated_at": "2026-05-09T16:12:14.279Z",
+    "labels": [
+      2
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 125,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Falafel Wrap",
+    "slug": "falafel-wrap",
+    "sku": "",
+    "category": 21,
+    "description": "Wrap met falafel, komkommer, sla en vegan mayo.",
+    "short_description": "Wrap met falafel, komkommer, sla en vegan mayo.",
+    "unit": 1,
+    "sale_price": "8.95",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.793Z",
+    "updated_at": "2026-05-09T17:04:45.268Z",
+    "labels": [
+      5,
+      2
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 126,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Pulled Chicken Wrap",
+    "slug": "pulled-chicken-wrap",
+    "sku": "",
+    "category": 21,
+    "description": "Wrap met pulled chicken, BBQ saus en rucola.",
+    "short_description": "Wrap met pulled chicken, BBQ saus en rucola.",
+    "unit": 1,
+    "sale_price": "9.95",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.888Z",
+    "updated_at": "2026-05-09T17:05:00.763Z",
+    "labels": [
+      1
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 127,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Loaded Fries Korean Chicken",
+    "slug": "loaded-fries-korean-chicken",
+    "sku": "",
+    "category": 20,
+    "description": "Friet met krokante kip, kimchi, sriracha mayo en krokante uitjes.",
+    "short_description": "Friet met krokante kip, kimchi, sriracha mayo en krokante uitjes.",
+    "unit": 1,
+    "sale_price": "8.95",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.928Z",
+    "updated_at": "2026-05-09T16:36:26.572Z",
+    "labels": [
+      12,
+      6
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 128,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Loaded Fries Truffle Parmesan",
+    "slug": "loaded-fries-truffle-parmesan",
+    "sku": "",
+    "category": 20,
+    "description": "Friet met truffelmayonaise, parmezaan en rucola.",
+    "short_description": "Friet met truffelmayonaise, parmezaan en rucola.",
+    "unit": 1,
+    "sale_price": "8.50",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:50.968Z",
+    "updated_at": "2026-05-09T16:36:52.577Z",
+    "labels": [
+      15,
+      2
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 129,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Loaded Fries Saté",
+    "slug": "loaded-fries-sate",
+    "sku": "",
+    "category": 20,
+    "description": "Friet met satésaus, krokante uitjes en kruiden.",
+    "short_description": "Friet met satésaus, krokante uitjes en kruiden.",
+    "unit": 1,
+    "sale_price": "7.95",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.008Z",
+    "updated_at": "2026-05-09T16:36:39.217Z",
+    "labels": [
+      1
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 130,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Sweet Potato Fries",
+    "slug": "sweet-potato-fries",
+    "sku": "",
+    "category": 5,
+    "description": "Zoete aardappel friet met aioli.",
+    "short_description": "Zoete aardappel friet met aioli.",
+    "unit": 1,
+    "sale_price": "5.25",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.048Z",
+    "updated_at": "2026-05-09T16:36:07.819Z",
+    "labels": [
+      2
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 131,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Chicken Wings 6 stuks",
+    "slug": "chicken-wings-6-stuks",
+    "sku": "",
+    "category": 6,
+    "description": "Krokante chicken wings met BBQ saus.",
+    "short_description": "Krokante chicken wings met BBQ saus.",
+    "unit": 1,
+    "sale_price": "7.50",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.084Z",
+    "updated_at": "2026-05-09T16:53:31.435Z",
+    "labels": [
+      6,
+      9
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 132,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Onion Rings 8 stuks",
+    "slug": "onion-rings-8-stuks",
+    "sku": "",
+    "category": 6,
+    "description": "Krokante onion rings met aioli.",
+    "short_description": "Krokante onion rings met aioli.",
+    "unit": 1,
+    "sale_price": "5.95",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.117Z",
+    "updated_at": "2026-05-09T16:53:47.841Z",
+    "labels": [
+      9,
+      2
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 133,
+  "fields": {
+    "item_type": "menu_item",
+    "name": "Snackmix Deluxe",
+    "slug": "snackmix-deluxe",
+    "sku": "",
+    "category": 6,
+    "description": "Mix van bitterballen, kaassoufflé, onion rings en kroketstukjes.",
+    "short_description": "Mix van bitterballen, kaassoufflé, onion rings en kroketstukjes.",
+    "unit": 1,
+    "sale_price": "13.95",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.148Z",
+    "updated_at": "2026-05-09T16:45:26.989Z",
+    "labels": [
+      1,
+      9
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 134,
+  "fields": {
+    "item_type": "product",
+    "name": "Bakje sriracha mayo",
+    "slug": "bakje-sriracha-mayo",
+    "sku": "",
+    "category": 7,
+    "description": "Los bakje sriracha mayo.",
+    "short_description": "Los bakje sriracha mayo.",
+    "unit": 1,
+    "sale_price": "1.25",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.182Z",
+    "updated_at": "2026-05-09T15:34:51.182Z",
+    "labels": [
+      6
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 135,
+  "fields": {
+    "item_type": "product",
+    "name": "Bakje samurai saus",
+    "slug": "bakje-samurai-saus",
+    "sku": "",
+    "category": 7,
+    "description": "Los bakje samurai saus.",
+    "short_description": "Los bakje samurai saus.",
+    "unit": 1,
+    "sale_price": "1.25",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.219Z",
+    "updated_at": "2026-05-09T15:34:51.219Z",
+    "labels": [
+      6
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 136,
+  "fields": {
+    "item_type": "product",
+    "name": "Bakje satésaus",
+    "slug": "bakje-satesaus",
+    "sku": "",
+    "category": 7,
+    "description": "Los bakje satésaus.",
+    "short_description": "Los bakje satésaus.",
+    "unit": 1,
+    "sale_price": "1.50",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.253Z",
+    "updated_at": "2026-05-09T15:34:51.253Z",
+    "labels": [
+      2
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 137,
+  "fields": {
+    "item_type": "product",
+    "name": "Bakje joppiesaus",
+    "slug": "bakje-joppiesaus",
+    "sku": "",
+    "category": 7,
+    "description": "Los bakje joppiesaus.",
+    "short_description": "Los bakje joppiesaus.",
+    "unit": 1,
+    "sale_price": "1.25",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.294Z",
+    "updated_at": "2026-05-09T15:34:51.294Z",
+    "labels": [
+      2
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 138,
+  "fields": {
+    "item_type": "product",
+    "name": "Bakje vegan mayo",
+    "slug": "bakje-vegan-mayo",
+    "sku": "",
+    "category": 7,
+    "description": "Los bakje vegan mayo.",
+    "short_description": "Los bakje vegan mayo.",
+    "unit": 1,
+    "sale_price": "1.25",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.336Z",
+    "updated_at": "2026-05-09T15:34:51.336Z",
+    "labels": [
+      5
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 139,
+  "fields": {
+    "item_type": "drink",
+    "name": "Margarita",
+    "slug": "margarita",
+    "sku": "",
+    "category": 8,
+    "description": "Tequila, triple sec en limoensap.",
+    "short_description": "Tequila, triple sec en limoensap.",
+    "unit": 1,
+    "sale_price": "9.50",
+    "purchase_price": null,
+    "vat_rate": "21.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.377Z",
+    "updated_at": "2026-05-09T17:11:24.382Z",
+    "labels": [
+      4,
+      3,
+      14
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 140,
+  "fields": {
+    "item_type": "drink",
+    "name": "Espresso Martini",
+    "slug": "espresso-martini",
+    "sku": "",
+    "category": 8,
+    "description": "Vodka, espresso en koffielikeur.",
+    "short_description": "Vodka, espresso en koffielikeur.",
+    "unit": 1,
+    "sale_price": "9.75",
+    "purchase_price": null,
+    "vat_rate": "21.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.414Z",
+    "updated_at": "2026-05-09T17:10:58.149Z",
+    "labels": [
+      4,
+      3,
+      1
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 141,
+  "fields": {
+    "item_type": "drink",
+    "name": "Pornstar Martini",
+    "slug": "pornstar-martini",
+    "sku": "",
+    "category": 8,
+    "description": "Vanille, passievrucht en vodka.",
+    "short_description": "Vanille, passievrucht en vodka.",
+    "unit": 1,
+    "sale_price": "10.50",
+    "purchase_price": null,
+    "vat_rate": "21.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.492Z",
+    "updated_at": "2026-05-09T15:34:51.492Z",
+    "labels": [
+      4,
+      3,
+      15
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 142,
+  "fields": {
+    "item_type": "drink",
+    "name": "Aperol Spritz",
+    "slug": "aperol-spritz",
+    "sku": "",
+    "category": 8,
+    "description": "Aperol, prosecco en bruiswater.",
+    "short_description": "Aperol, prosecco en bruiswater.",
+    "unit": 1,
+    "sale_price": "8.75",
+    "purchase_price": null,
+    "vat_rate": "21.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.532Z",
+    "updated_at": "2026-05-09T17:10:25.423Z",
+    "labels": [
+      4,
+      3,
+      14
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 143,
+  "fields": {
+    "item_type": "drink",
+    "name": "Negroni",
+    "slug": "negroni",
+    "sku": "",
+    "category": 8,
+    "description": "Gin, Campari en rode vermouth.",
+    "short_description": "Gin, Campari en rode vermouth.",
+    "unit": 1,
+    "sale_price": "9.95",
+    "purchase_price": null,
+    "vat_rate": "21.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.569Z",
+    "updated_at": "2026-05-09T15:34:51.569Z",
+    "labels": [
+      4,
+      3,
+      15
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 144,
+  "fields": {
+    "item_type": "drink",
+    "name": "Whiskey Sour",
+    "slug": "whiskey-sour",
+    "sku": "",
+    "category": 8,
+    "description": "Whiskey, citroen, suikersiroop en schuim.",
+    "short_description": "Whiskey, citroen, suikersiroop en schuim.",
+    "unit": 1,
+    "sale_price": "9.50",
+    "purchase_price": null,
+    "vat_rate": "21.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.608Z",
+    "updated_at": "2026-05-09T15:34:51.609Z",
+    "labels": [
+      4,
+      3
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 145,
+  "fields": {
+    "item_type": "drink",
+    "name": "Paloma",
+    "slug": "paloma",
+    "sku": "",
+    "category": 8,
+    "description": "Tequila, limoen en grapefruit soda.",
+    "short_description": "Tequila, limoen en grapefruit soda.",
+    "unit": 1,
+    "sale_price": "8.95",
+    "purchase_price": null,
+    "vat_rate": "21.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.651Z",
+    "updated_at": "2026-05-09T15:34:51.651Z",
+    "labels": [
+      4,
+      3,
+      14
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 146,
+  "fields": {
+    "item_type": "drink",
+    "name": "Piña Colada",
+    "slug": "pina-colada",
+    "sku": "",
+    "category": 8,
+    "description": "Rum, kokosroom en ananassap.",
+    "short_description": "Rum, kokosroom en ananassap.",
+    "unit": 1,
+    "sale_price": "9.50",
+    "purchase_price": null,
+    "vat_rate": "21.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.692Z",
+    "updated_at": "2026-05-09T15:34:51.692Z",
+    "labels": [
+      4,
+      3,
+      13
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 147,
+  "fields": {
+    "item_type": "drink",
+    "name": "Cuba Libre",
+    "slug": "cuba-libre",
+    "sku": "",
+    "category": 8,
+    "description": "Rum, cola en limoen.",
+    "short_description": "Rum, cola en limoen.",
+    "unit": 1,
+    "sale_price": "8.50",
+    "purchase_price": null,
+    "vat_rate": "21.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.728Z",
+    "updated_at": "2026-05-09T17:10:36.307Z",
+    "labels": [
+      4,
+      3
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 148,
+  "fields": {
+    "item_type": "drink",
+    "name": "Dark and Stormy",
+    "slug": "dark-and-stormy",
+    "sku": "",
+    "category": 8,
+    "description": "Rum, ginger beer en limoen.",
+    "short_description": "Rum, ginger beer en limoen.",
+    "unit": 1,
+    "sale_price": "8.95",
+    "purchase_price": null,
+    "vat_rate": "21.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.763Z",
+    "updated_at": "2026-05-09T17:10:47.811Z",
+    "labels": [
+      4,
+      3
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 149,
+  "fields": {
+    "item_type": "drink",
+    "name": "Virgin Mojito",
+    "slug": "virgin-mojito",
+    "sku": "",
+    "category": 22,
+    "description": "Munt, limoen, suiker en bruiswater zonder alcohol.",
+    "short_description": "Munt, limoen, suiker en bruiswater zonder alcohol.",
+    "unit": 1,
+    "sale_price": "6.50",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.793Z",
+    "updated_at": "2026-05-09T15:34:51.793Z",
+    "labels": [
+      14,
+      11
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 150,
+  "fields": {
+    "item_type": "drink",
+    "name": "Passion Fruit Cooler",
+    "slug": "passion-fruit-cooler",
+    "sku": "",
+    "category": 22,
+    "description": "Passievrucht, limoen en bruiswater.",
+    "short_description": "Passievrucht, limoen en bruiswater.",
+    "unit": 1,
+    "sale_price": "6.75",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.832Z",
+    "updated_at": "2026-05-09T15:34:51.832Z",
+    "labels": [
+      14,
+      11
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 151,
+  "fields": {
+    "item_type": "drink",
+    "name": "Strawberry Milkshake",
+    "slug": "strawberry-milkshake",
+    "sku": "",
+    "category": 23,
+    "description": "Milkshake met aardbeiensiroop en vanille ijs.",
+    "short_description": "Milkshake met aardbeiensiroop en vanille ijs.",
+    "unit": 1,
+    "sale_price": "5.50",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.868Z",
+    "updated_at": "2026-05-09T17:14:56.809Z",
+    "labels": [
+      13
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 152,
+  "fields": {
+    "item_type": "drink",
+    "name": "Chocolate Milkshake",
+    "slug": "chocolate-milkshake",
+    "sku": "",
+    "category": 23,
+    "description": "Milkshake met chocoladesaus en vanille ijs.",
+    "short_description": "Milkshake met chocoladesaus en vanille ijs.",
+    "unit": 1,
+    "sale_price": "5.50",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.907Z",
+    "updated_at": "2026-05-09T17:14:43.953Z",
+    "labels": [
+      13
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "items.item",
+  "pk": 153,
+  "fields": {
+    "item_type": "drink",
+    "name": "Vanilla Milkshake",
+    "slug": "vanilla-milkshake",
+    "sku": "",
+    "category": 23,
+    "description": "Klassieke vanille milkshake.",
+    "short_description": "Klassieke vanille milkshake.",
+    "unit": 1,
+    "sale_price": "5.25",
+    "purchase_price": null,
+    "vat_rate": "9.00",
+    "minimum_stock": null,
+    "is_stock_tracked": false,
+    "show_image": true,
+    "use_default_image_when_missing": true,
+    "is_featured": true,
+    "status": "active",
+    "archived_at": null,
+    "archived_by": null,
+    "created_at": "2026-05-09T15:34:51.954Z",
+    "updated_at": "2026-05-09T17:15:08.195Z",
+    "labels": [
+      13
+    ],
+    "allergens": []
+  }
+},
+{
+  "model": "inventory.unit",
+  "pk": 1,
+  "fields": {
+    "name": "Stuk",
+    "symbol": "stuk",
+    "unit_type": "piece",
+    "base_unit": null,
+    "factor_to_base": "1.000000",
+    "decimal_places": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "inventory.unit",
+  "pk": 2,
+  "fields": {
+    "name": "Gram",
+    "symbol": "g",
+    "unit_type": "weight",
+    "base_unit": null,
+    "factor_to_base": "1.000000",
+    "decimal_places": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "inventory.unit",
+  "pk": 3,
+  "fields": {
+    "name": "Kilogram",
+    "symbol": "kg",
+    "unit_type": "weight",
+    "base_unit": 2,
+    "factor_to_base": "1000.000000",
+    "decimal_places": 3,
+    "is_active": true
+  }
+},
+{
+  "model": "inventory.unit",
+  "pk": 4,
+  "fields": {
+    "name": "Liter",
+    "symbol": "l",
+    "unit_type": "volume",
+    "base_unit": 5,
+    "factor_to_base": "1000.000000",
+    "decimal_places": 3,
+    "is_active": true
+  }
+},
+{
+  "model": "inventory.unit",
+  "pk": 5,
+  "fields": {
+    "name": "Milliliter",
+    "symbol": "ml",
+    "unit_type": "volume",
+    "base_unit": null,
+    "factor_to_base": "1.000000",
+    "decimal_places": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "inventory.unit",
+  "pk": 6,
+  "fields": {
+    "name": "Fles",
+    "symbol": "fles",
+    "unit_type": "package",
+    "base_unit": null,
+    "factor_to_base": "1.000000",
+    "decimal_places": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "inventory.unit",
+  "pk": 7,
+  "fields": {
+    "name": "Krat",
+    "symbol": "krat",
+    "unit_type": "package",
+    "base_unit": null,
+    "factor_to_base": "1.000000",
+    "decimal_places": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "inventory.unit",
+  "pk": 8,
+  "fields": {
+    "name": "Centiliter",
+    "symbol": "cl",
+    "unit_type": "volume",
+    "base_unit": 5,
+    "factor_to_base": "10.000000",
+    "decimal_places": 2,
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 1,
+  "fields": {
+    "output_item": 5,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 2,
+  "fields": {
+    "output_item": 6,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 3,
+  "fields": {
+    "output_item": 7,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 4,
+  "fields": {
+    "output_item": 43,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 5,
+  "fields": {
+    "output_item": 44,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 6,
+  "fields": {
+    "output_item": 45,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 7,
+  "fields": {
+    "output_item": 46,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 8,
+  "fields": {
+    "output_item": 47,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 9,
+  "fields": {
+    "output_item": 48,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 10,
+  "fields": {
+    "output_item": 49,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 11,
+  "fields": {
+    "output_item": 51,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 12,
+  "fields": {
+    "output_item": 53,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 13,
+  "fields": {
+    "output_item": 54,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 14,
+  "fields": {
+    "output_item": 55,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 15,
+  "fields": {
+    "output_item": 56,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 16,
+  "fields": {
+    "output_item": 57,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 17,
+  "fields": {
+    "output_item": 41,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 18,
+  "fields": {
+    "output_item": 121,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 19,
+  "fields": {
+    "output_item": 122,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 20,
+  "fields": {
+    "output_item": 123,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 21,
+  "fields": {
+    "output_item": 124,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 22,
+  "fields": {
+    "output_item": 125,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 23,
+  "fields": {
+    "output_item": 126,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 24,
+  "fields": {
+    "output_item": 127,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 25,
+  "fields": {
+    "output_item": 128,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 26,
+  "fields": {
+    "output_item": 129,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 27,
+  "fields": {
+    "output_item": 130,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 28,
+  "fields": {
+    "output_item": 131,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 29,
+  "fields": {
+    "output_item": 132,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 30,
+  "fields": {
+    "output_item": 133,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 31,
+  "fields": {
+    "output_item": 134,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 32,
+  "fields": {
+    "output_item": 135,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 33,
+  "fields": {
+    "output_item": 136,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 34,
+  "fields": {
+    "output_item": 137,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 35,
+  "fields": {
+    "output_item": 138,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 36,
+  "fields": {
+    "output_item": 139,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 37,
+  "fields": {
+    "output_item": 140,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 38,
+  "fields": {
+    "output_item": 141,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 39,
+  "fields": {
+    "output_item": 142,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 40,
+  "fields": {
+    "output_item": 143,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 41,
+  "fields": {
+    "output_item": 144,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 42,
+  "fields": {
+    "output_item": 145,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 43,
+  "fields": {
+    "output_item": 146,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 44,
+  "fields": {
+    "output_item": 147,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 45,
+  "fields": {
+    "output_item": 148,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 46,
+  "fields": {
+    "output_item": 149,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 47,
+  "fields": {
+    "output_item": 150,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 48,
+  "fields": {
+    "output_item": 151,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 49,
+  "fields": {
+    "output_item": 152,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 50,
+  "fields": {
+    "output_item": 153,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipe",
+  "pk": 51,
+  "fields": {
+    "output_item": 52,
+    "servings": "1.00",
+    "instructions": "",
+    "is_active": true
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 1,
+  "fields": {
+    "recipe": 1,
+    "ingredient": 2,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 2,
+  "fields": {
+    "recipe": 1,
+    "ingredient": 1,
+    "quantity": "35.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 3,
+  "fields": {
+    "recipe": 1,
+    "ingredient": 3,
+    "quantity": "50.000",
+    "waste_percentage": "5.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 4,
+  "fields": {
+    "recipe": 2,
+    "ingredient": 2,
+    "quantity": "2.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 5,
+  "fields": {
+    "recipe": 2,
+    "ingredient": 1,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 6,
+  "fields": {
+    "recipe": 3,
+    "ingredient": 8,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 7,
+  "fields": {
+    "recipe": 3,
+    "ingredient": 9,
+    "quantity": "25.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 8,
+  "fields": {
+    "recipe": 3,
+    "ingredient": 10,
+    "quantity": "15.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 9,
+  "fields": {
+    "recipe": 3,
+    "ingredient": 11,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 10,
+  "fields": {
+    "recipe": 4,
+    "ingredient": 12,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 11,
+  "fields": {
+    "recipe": 4,
+    "ingredient": 13,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 12,
+  "fields": {
+    "recipe": 4,
+    "ingredient": 17,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 13,
+  "fields": {
+    "recipe": 4,
+    "ingredient": 3,
+    "quantity": "30.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 14,
+  "fields": {
+    "recipe": 4,
+    "ingredient": 18,
+    "quantity": "10.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 15,
+  "fields": {
+    "recipe": 4,
+    "ingredient": 27,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 16,
+  "fields": {
+    "recipe": 4,
+    "ingredient": 19,
+    "quantity": "15.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 17,
+  "fields": {
+    "recipe": 5,
+    "ingredient": 12,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 18,
+  "fields": {
+    "recipe": 5,
+    "ingredient": 13,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 19,
+  "fields": {
+    "recipe": 5,
+    "ingredient": 16,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 20,
+  "fields": {
+    "recipe": 5,
+    "ingredient": 17,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 21,
+  "fields": {
+    "recipe": 5,
+    "ingredient": 3,
+    "quantity": "30.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 22,
+  "fields": {
+    "recipe": 5,
+    "ingredient": 18,
+    "quantity": "10.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 23,
+  "fields": {
+    "recipe": 5,
+    "ingredient": 27,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 24,
+  "fields": {
+    "recipe": 6,
+    "ingredient": 12,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 25,
+  "fields": {
+    "recipe": 6,
+    "ingredient": 13,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 26,
+  "fields": {
+    "recipe": 6,
+    "ingredient": 16,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 27,
+  "fields": {
+    "recipe": 6,
+    "ingredient": 20,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 28,
+  "fields": {
+    "recipe": 6,
+    "ingredient": 26,
+    "quantity": "25.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 29,
+  "fields": {
+    "recipe": 6,
+    "ingredient": 17,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 30,
+  "fields": {
+    "recipe": 7,
+    "ingredient": 12,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 31,
+  "fields": {
+    "recipe": 7,
+    "ingredient": 15,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 32,
+  "fields": {
+    "recipe": 7,
+    "ingredient": 24,
+    "quantity": "25.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 33,
+  "fields": {
+    "recipe": 7,
+    "ingredient": 17,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 34,
+  "fields": {
+    "recipe": 7,
+    "ingredient": 3,
+    "quantity": "30.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 35,
+  "fields": {
+    "recipe": 8,
+    "ingredient": 21,
+    "quantity": "250.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 36,
+  "fields": {
+    "recipe": 8,
+    "ingredient": 29,
+    "quantity": "2.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 37,
+  "fields": {
+    "recipe": 9,
+    "ingredient": 21,
+    "quantity": "250.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 38,
+  "fields": {
+    "recipe": 9,
+    "ingredient": 24,
+    "quantity": "30.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 39,
+  "fields": {
+    "recipe": 9,
+    "ingredient": 30,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 40,
+  "fields": {
+    "recipe": 10,
+    "ingredient": 21,
+    "quantity": "300.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 41,
+  "fields": {
+    "recipe": 10,
+    "ingredient": 16,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 42,
+  "fields": {
+    "recipe": 10,
+    "ingredient": 23,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 43,
+  "fields": {
+    "recipe": 10,
+    "ingredient": 26,
+    "quantity": "15.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 44,
+  "fields": {
+    "recipe": 11,
+    "ingredient": 33,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 45,
+  "fields": {
+    "recipe": 11,
+    "ingredient": 27,
+    "quantity": "25.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 46,
+  "fields": {
+    "recipe": 11,
+    "ingredient": 28,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 47,
+  "fields": {
+    "recipe": 11,
+    "ingredient": 18,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 48,
+  "fields": {
+    "recipe": 12,
+    "ingredient": 24,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 49,
+  "fields": {
+    "recipe": 13,
+    "ingredient": 25,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 50,
+  "fields": {
+    "recipe": 14,
+    "ingredient": 37,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 51,
+  "fields": {
+    "recipe": 14,
+    "ingredient": 39,
+    "quantity": "25.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 52,
+  "fields": {
+    "recipe": 14,
+    "ingredient": 42,
+    "quantity": "5.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 53,
+  "fields": {
+    "recipe": 14,
+    "ingredient": 31,
+    "quantity": "10.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 54,
+  "fields": {
+    "recipe": 15,
+    "ingredient": 38,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 55,
+  "fields": {
+    "recipe": 15,
+    "ingredient": 41,
+    "quantity": "150.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 56,
+  "fields": {
+    "recipe": 16,
+    "ingredient": 40,
+    "quantity": "250.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 57,
+  "fields": {
+    "recipe": 17,
+    "ingredient": 41,
+    "quantity": "250.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 58,
+  "fields": {
+    "recipe": 18,
+    "ingredient": 66,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 59,
+  "fields": {
+    "recipe": 18,
+    "ingredient": 59,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 60,
+  "fields": {
+    "recipe": 18,
+    "ingredient": 16,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 61,
+  "fields": {
+    "recipe": 18,
+    "ingredient": 65,
+    "quantity": "30.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 62,
+  "fields": {
+    "recipe": 18,
+    "ingredient": 78,
+    "quantity": "25.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 63,
+  "fields": {
+    "recipe": 18,
+    "ingredient": 17,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 64,
+  "fields": {
+    "recipe": 18,
+    "ingredient": 3,
+    "quantity": "30.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 65,
+  "fields": {
+    "recipe": 18,
+    "ingredient": 19,
+    "quantity": "15.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 66,
+  "fields": {
+    "recipe": 19,
+    "ingredient": 12,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 67,
+  "fields": {
+    "recipe": 19,
+    "ingredient": 60,
+    "quantity": "2.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 68,
+  "fields": {
+    "recipe": 19,
+    "ingredient": 16,
+    "quantity": "2.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 69,
+  "fields": {
+    "recipe": 19,
+    "ingredient": 19,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 70,
+  "fields": {
+    "recipe": 19,
+    "ingredient": 27,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 71,
+  "fields": {
+    "recipe": 19,
+    "ingredient": 28,
+    "quantity": "15.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 72,
+  "fields": {
+    "recipe": 20,
+    "ingredient": 12,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 73,
+  "fields": {
+    "recipe": 20,
+    "ingredient": 62,
+    "quantity": "160.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 74,
+  "fields": {
+    "recipe": 20,
+    "ingredient": 76,
+    "quantity": "30.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 75,
+  "fields": {
+    "recipe": 20,
+    "ingredient": 79,
+    "quantity": "25.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 76,
+  "fields": {
+    "recipe": 20,
+    "ingredient": 17,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 77,
+  "fields": {
+    "recipe": 20,
+    "ingredient": 74,
+    "quantity": "10.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 78,
+  "fields": {
+    "recipe": 21,
+    "ingredient": 12,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 79,
+  "fields": {
+    "recipe": 21,
+    "ingredient": 64,
+    "quantity": "120.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 80,
+  "fields": {
+    "recipe": 21,
+    "ingredient": 69,
+    "quantity": "15.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 81,
+  "fields": {
+    "recipe": 21,
+    "ingredient": 3,
+    "quantity": "30.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 82,
+  "fields": {
+    "recipe": 21,
+    "ingredient": 85,
+    "quantity": "25.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 83,
+  "fields": {
+    "recipe": 22,
+    "ingredient": 67,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 84,
+  "fields": {
+    "recipe": 22,
+    "ingredient": 63,
+    "quantity": "4.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 85,
+  "fields": {
+    "recipe": 22,
+    "ingredient": 70,
+    "quantity": "40.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 86,
+  "fields": {
+    "recipe": 22,
+    "ingredient": 17,
+    "quantity": "25.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 87,
+  "fields": {
+    "recipe": 22,
+    "ingredient": 86,
+    "quantity": "25.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 88,
+  "fields": {
+    "recipe": 23,
+    "ingredient": 67,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 89,
+  "fields": {
+    "recipe": 23,
+    "ingredient": 61,
+    "quantity": "130.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 90,
+  "fields": {
+    "recipe": 23,
+    "ingredient": 77,
+    "quantity": "30.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 91,
+  "fields": {
+    "recipe": 23,
+    "ingredient": 69,
+    "quantity": "15.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 92,
+  "fields": {
+    "recipe": 23,
+    "ingredient": 18,
+    "quantity": "15.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 93,
+  "fields": {
+    "recipe": 24,
+    "ingredient": 21,
+    "quantity": "300.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 94,
+  "fields": {
+    "recipe": 24,
+    "ingredient": 62,
+    "quantity": "120.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 95,
+  "fields": {
+    "recipe": 24,
+    "ingredient": 76,
+    "quantity": "40.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 96,
+  "fields": {
+    "recipe": 24,
+    "ingredient": 79,
+    "quantity": "35.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 97,
+  "fields": {
+    "recipe": 24,
+    "ingredient": 74,
+    "quantity": "15.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 98,
+  "fields": {
+    "recipe": 25,
+    "ingredient": 21,
+    "quantity": "300.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 99,
+  "fields": {
+    "recipe": 25,
+    "ingredient": 24,
+    "quantity": "35.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 100,
+  "fields": {
+    "recipe": 25,
+    "ingredient": 90,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 101,
+  "fields": {
+    "recipe": 25,
+    "ingredient": 69,
+    "quantity": "10.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 102,
+  "fields": {
+    "recipe": 26,
+    "ingredient": 21,
+    "quantity": "300.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 103,
+  "fields": {
+    "recipe": 26,
+    "ingredient": 82,
+    "quantity": "60.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 104,
+  "fields": {
+    "recipe": 26,
+    "ingredient": 74,
+    "quantity": "15.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 105,
+  "fields": {
+    "recipe": 26,
+    "ingredient": 88,
+    "quantity": "2.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 106,
+  "fields": {
+    "recipe": 27,
+    "ingredient": 22,
+    "quantity": "250.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 107,
+  "fields": {
+    "recipe": 27,
+    "ingredient": 85,
+    "quantity": "35.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 108,
+  "fields": {
+    "recipe": 27,
+    "ingredient": 29,
+    "quantity": "2.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 109,
+  "fields": {
+    "recipe": 28,
+    "ingredient": 62,
+    "quantity": "300.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 110,
+  "fields": {
+    "recipe": 28,
+    "ingredient": 77,
+    "quantity": "40.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 111,
+  "fields": {
+    "recipe": 28,
+    "ingredient": 88,
+    "quantity": "3.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 112,
+  "fields": {
+    "recipe": 29,
+    "ingredient": 18,
+    "quantity": "160.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 113,
+  "fields": {
+    "recipe": 29,
+    "ingredient": 85,
+    "quantity": "35.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 114,
+  "fields": {
+    "recipe": 30,
+    "ingredient": 35,
+    "quantity": "6.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 115,
+  "fields": {
+    "recipe": 30,
+    "ingredient": 34,
+    "quantity": "2.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 116,
+  "fields": {
+    "recipe": 30,
+    "ingredient": 32,
+    "quantity": "2.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 117,
+  "fields": {
+    "recipe": 30,
+    "ingredient": 85,
+    "quantity": "25.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 118,
+  "fields": {
+    "recipe": 30,
+    "ingredient": 77,
+    "quantity": "25.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 119,
+  "fields": {
+    "recipe": 31,
+    "ingredient": 79,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 120,
+  "fields": {
+    "recipe": 32,
+    "ingredient": 81,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 121,
+  "fields": {
+    "recipe": 33,
+    "ingredient": 82,
+    "quantity": "60.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 122,
+  "fields": {
+    "recipe": 34,
+    "ingredient": 83,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 123,
+  "fields": {
+    "recipe": 35,
+    "ingredient": 86,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 124,
+  "fields": {
+    "recipe": 36,
+    "ingredient": 96,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 125,
+  "fields": {
+    "recipe": 36,
+    "ingredient": 97,
+    "quantity": "25.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 126,
+  "fields": {
+    "recipe": 36,
+    "ingredient": 39,
+    "quantity": "25.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 127,
+  "fields": {
+    "recipe": 36,
+    "ingredient": 118,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 128,
+  "fields": {
+    "recipe": 37,
+    "ingredient": 36,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 129,
+  "fields": {
+    "recipe": 37,
+    "ingredient": 106,
+    "quantity": "30.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 130,
+  "fields": {
+    "recipe": 37,
+    "ingredient": 105,
+    "quantity": "25.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 131,
+  "fields": {
+    "recipe": 37,
+    "ingredient": 10,
+    "quantity": "10.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 132,
+  "fields": {
+    "recipe": 38,
+    "ingredient": 36,
+    "quantity": "40.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 133,
+  "fields": {
+    "recipe": 38,
+    "ingredient": 114,
+    "quantity": "40.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 134,
+  "fields": {
+    "recipe": 38,
+    "ingredient": 115,
+    "quantity": "15.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 135,
+  "fields": {
+    "recipe": 38,
+    "ingredient": 39,
+    "quantity": "15.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 136,
+  "fields": {
+    "recipe": 38,
+    "ingredient": 101,
+    "quantity": "60.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 137,
+  "fields": {
+    "recipe": 39,
+    "ingredient": 100,
+    "quantity": "60.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 138,
+  "fields": {
+    "recipe": 39,
+    "ingredient": 101,
+    "quantity": "90.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 139,
+  "fields": {
+    "recipe": 39,
+    "ingredient": 113,
+    "quantity": "30.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 140,
+  "fields": {
+    "recipe": 39,
+    "ingredient": 119,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 141,
+  "fields": {
+    "recipe": 40,
+    "ingredient": 38,
+    "quantity": "30.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 142,
+  "fields": {
+    "recipe": 40,
+    "ingredient": 99,
+    "quantity": "30.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 143,
+  "fields": {
+    "recipe": 40,
+    "ingredient": 104,
+    "quantity": "30.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 144,
+  "fields": {
+    "recipe": 40,
+    "ingredient": 119,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 145,
+  "fields": {
+    "recipe": 41,
+    "ingredient": 103,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 146,
+  "fields": {
+    "recipe": 41,
+    "ingredient": 9,
+    "quantity": "25.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 147,
+  "fields": {
+    "recipe": 41,
+    "ingredient": 10,
+    "quantity": "15.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 148,
+  "fields": {
+    "recipe": 41,
+    "ingredient": 117,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 149,
+  "fields": {
+    "recipe": 42,
+    "ingredient": 96,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 150,
+  "fields": {
+    "recipe": 42,
+    "ingredient": 39,
+    "quantity": "15.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 151,
+  "fields": {
+    "recipe": 42,
+    "ingredient": 112,
+    "quantity": "120.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 152,
+  "fields": {
+    "recipe": 42,
+    "ingredient": 118,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 153,
+  "fields": {
+    "recipe": 43,
+    "ingredient": 37,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 154,
+  "fields": {
+    "recipe": 43,
+    "ingredient": 110,
+    "quantity": "40.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 155,
+  "fields": {
+    "recipe": 43,
+    "ingredient": 109,
+    "quantity": "100.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 156,
+  "fields": {
+    "recipe": 44,
+    "ingredient": 37,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 157,
+  "fields": {
+    "recipe": 44,
+    "ingredient": 40,
+    "quantity": "180.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 158,
+  "fields": {
+    "recipe": 44,
+    "ingredient": 118,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 159,
+  "fields": {
+    "recipe": 45,
+    "ingredient": 37,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 160,
+  "fields": {
+    "recipe": 45,
+    "ingredient": 111,
+    "quantity": "150.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 161,
+  "fields": {
+    "recipe": 45,
+    "ingredient": 118,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 162,
+  "fields": {
+    "recipe": 46,
+    "ingredient": 42,
+    "quantity": "5.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 163,
+  "fields": {
+    "recipe": 46,
+    "ingredient": 39,
+    "quantity": "25.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 164,
+  "fields": {
+    "recipe": 46,
+    "ingredient": 31,
+    "quantity": "10.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 165,
+  "fields": {
+    "recipe": 46,
+    "ingredient": 113,
+    "quantity": "150.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 166,
+  "fields": {
+    "recipe": 46,
+    "ingredient": 118,
+    "quantity": "1.000",
+    "waste_percentage": "0.00",
+    "is_optional": true,
+    "note": "Optioneel"
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 167,
+  "fields": {
+    "recipe": 47,
+    "ingredient": 114,
+    "quantity": "50.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 168,
+  "fields": {
+    "recipe": 47,
+    "ingredient": 39,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 169,
+  "fields": {
+    "recipe": 47,
+    "ingredient": 113,
+    "quantity": "150.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 170,
+  "fields": {
+    "recipe": 48,
+    "ingredient": 93,
+    "quantity": "180.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 171,
+  "fields": {
+    "recipe": 48,
+    "ingredient": 92,
+    "quantity": "80.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 172,
+  "fields": {
+    "recipe": 48,
+    "ingredient": 116,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 173,
+  "fields": {
+    "recipe": 49,
+    "ingredient": 93,
+    "quantity": "180.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 174,
+  "fields": {
+    "recipe": 49,
+    "ingredient": 92,
+    "quantity": "80.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 175,
+  "fields": {
+    "recipe": 49,
+    "ingredient": 94,
+    "quantity": "30.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 176,
+  "fields": {
+    "recipe": 50,
+    "ingredient": 93,
+    "quantity": "200.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 177,
+  "fields": {
+    "recipe": 50,
+    "ingredient": 92,
+    "quantity": "80.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+},
+{
+  "model": "recipes.recipeingredient",
+  "pk": 178,
+  "fields": {
+    "recipe": 50,
+    "ingredient": 115,
+    "quantity": "20.000",
+    "waste_percentage": "0.00",
+    "is_optional": false,
+    "note": ""
+  }
+}
+]

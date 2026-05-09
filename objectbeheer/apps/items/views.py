@@ -13,6 +13,7 @@ from apps.recipes.models import RecipeIngredient, get_recipe_availability
 from .forms import ItemCreateForm, ItemUpdateForm
 from .models import Category, Item, ItemImage, Label
 from .services.sorting import horeca_sort_key
+from apps.items.services.pricing import calculate_margin
 
 
 def detect_media_kind(filename):
@@ -100,20 +101,25 @@ def public_item_list(request):
         Item.objects
         .filter(status="active", item_type__in=["menu_item", "drink", "product"])
         .select_related("category", "unit")
-        .prefetch_related("media_files", "labels", "stock_movements")
+        .prefetch_related("media_files", "labels", "allergens", "stock_movements")
     )
 
     rows = filter_items(base_queryset, request, public_only=True)
-    page_obj = paginate_rows(rows, request, per_page=24)
 
     return render(
         request,
         "items/public_item_list.html",
         {
-            "rows": page_obj.object_list,
-            "page_obj": page_obj,
-            "categories": Category.objects.filter(is_active=True).order_by("sort_order", "name"),
-            "labels": Label.objects.order_by("name"),
+            "rows": rows,
+            "categories": Category.objects.filter(
+                is_active=True,
+                items__status="active",
+                items__item_type__in=["menu_item", "drink", "product"],
+            ).distinct().order_by("sort_order", "name"),
+            "labels": Label.objects.filter(
+                items__status="active",
+                items__item_type__in=["menu_item", "drink", "product"],
+            ).distinct().order_by("name"),
             "selected_type": request.GET.get("type", ""),
             "selected_category": request.GET.get("categorie", ""),
             "selected_label": request.GET.get("label", ""),
@@ -124,10 +130,15 @@ def public_item_list(request):
 
 
 def public_item_detail(request, slug):
+    allowed_item_types = ["menu_item", "drink", "product"]
+
+    if request.user.is_authenticated:
+        allowed_item_types = ["menu_item", "drink", "product", "ingredient"]
+
     item = get_object_or_404(
-        Item.objects.filter(status="active", item_type__in=["menu_item", "drink", "product"])
+        Item.objects.filter(status="active", item_type__in=allowed_item_types)
         .select_related("category", "unit")
-        .prefetch_related("media_files", "labels", "stock_movements"),
+        .prefetch_related("media_files", "labels", "allergens", "stock_movements"),
         slug=slug,
     )
 
@@ -144,32 +155,43 @@ def public_item_detail(request, slug):
     recipe_availability = None
     recipe_lines = []
     used_in_recipe_lines = []
-    stock = calculate_stock(item) if item.is_stock_tracked else None
+    stock = None
+    recent_movements = []
+    margin = None
+    inherited_allergens = item.inherited_allergens()
 
     if item.item_type in ["menu_item", "drink"]:
         recipe_availability = get_recipe_availability(item)
+        margin = calculate_margin(item)
 
         if recipe_availability["has_recipe"]:
             recipe_lines = (
                 item.recipe.ingredients
                 .select_related("ingredient", "ingredient__unit", "ingredient__category")
+                .prefetch_related("ingredient__allergens")
                 .order_by("is_optional", "ingredient__name")
             )
 
-    if item.item_type in ["ingredient", "product"]:
-        used_in_recipe_lines = (
-            RecipeIngredient.objects
-            .filter(ingredient=item)
-            .select_related("recipe", "recipe__output_item", "recipe__output_item__category")
-            .order_by("recipe__output_item__name")
+    if request.user.is_authenticated:
+        stock = calculate_stock(item) if item.is_stock_tracked else None
+
+        if item.item_type in ["ingredient", "product"]:
+            used_in_recipe_lines = (
+                RecipeIngredient.objects
+                .filter(ingredient=item)
+                .select_related("recipe", "recipe__output_item", "recipe__output_item__category")
+                .order_by("recipe__output_item__name")
+            )
+
+        recent_movements = (
+            StockMovement.objects
+            .filter(item=item)
+            .select_related("location", "unit", "created_by")
+            .order_by("-created_at")[:10]
         )
 
-    recent_movements = (
-        StockMovement.objects
-        .filter(item=item)
-        .select_related("location", "unit", "created_by")
-        .order_by("-created_at")[:10]
-    )
+        if margin is None and item.item_type in ["menu_item", "drink"]:
+            margin = calculate_margin(item)
 
     return render(
         request,
@@ -181,8 +203,11 @@ def public_item_detail(request, slug):
             "used_in_recipe_lines": used_in_recipe_lines,
             "stock": stock,
             "recent_movements": recent_movements,
+            "margin": margin,
+            "inherited_allergens": inherited_allergens,
         },
     )
+
 
 
 @login_required

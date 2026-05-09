@@ -1,0 +1,307 @@
+{% extends "base/base.html" %}
+{% load inventory_extras %}
+
+{% block content %}
+<p>
+    <a class="button secondary" href="{% url 'items:public_list' %}">Terug naar menu</a>
+
+    {% if request.user.is_authenticated %}
+        <a class="button secondary" href="{% url 'items:update' item.id %}">Item aanpassen</a>
+
+        {% if item.item_type == "menu_item" or item.item_type == "drink" %}
+            <a class="button secondary" href="{% url 'recipes:manage' item.id %}">Recept beheren</a>
+        {% endif %}
+    {% endif %}
+</p>
+
+<div class="detail-layout">
+    {% if item.should_show_image %}
+        <div class="detail-media">
+            {% with media=item.primary_media %}
+                {% if media %}
+                    {% if media.is_video %}
+                        <video class="detail-image" controls muted playsinline>
+                            <source src="{{ media.image.url }}">
+                        </video>
+                    {% else %}
+                        <img class="detail-image" src="{{ media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
+                    {% endif %}
+                {% elif item.use_default_image_when_missing and branding and branding.default_item_image %}
+                    <img class="detail-image" src="{{ branding.default_item_image.url }}" alt="{{ item.name }}">
+                {% else %}
+                    <div class="placeholder-image" style="aspect-ratio: 4 / 3;">{{ item.name }}</div>
+                {% endif %}
+            {% endwith %}
+
+            {% if item.media_files.all|length > 1 %}
+                <div class="media-strip">
+                    {% for media in item.media_files.all %}
+                        {% if media.is_public %}
+                            <div class="media-thumb">
+                                {% if media.is_video %}
+                                    <span>Video</span>
+                                {% else %}
+                                    <img src="{{ media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <article class="card item-detail-card">
+        <div class="card-body">
+            {% if item.category %}
+                <p class="meta">{{ item.category.name }}</p>
+            {% endif %}
+
+            <h1>{{ item.name }}</h1>
+
+            {% if item.description %}
+                <p>{{ item.description }}</p>
+            {% elif item.short_description %}
+                <p>{{ item.short_description }}</p>
+            {% endif %}
+
+            {% if item.sale_price %}
+                <p class="price">€ {{ item.sale_price }}</p>
+            {% endif %}
+
+            {% if item.labels.all %}
+                <div class="badges">
+                    {% for label in item.labels.all %}
+                        <span class="badge">{{ label.name }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if inherited_allergens %}
+                <div class="detail-info-block">
+                    <h2>Allergenen</h2>
+                    <div class="badges">
+                        {% for allergen in inherited_allergens %}
+                            <span class="badge badge-warning">{{ allergen.name }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </article>
+</div>
+
+{% if request.user.is_authenticated %}
+    <div class="section-title">
+        <div>
+            <h2>Medewerkerinformatie</h2>
+            <p>Interne details voor voorraad, recept en beheer.</p>
+        </div>
+    </div>
+
+    <div class="fact-grid">
+        <div>
+            <span class="meta">Status</span>
+            <strong>{{ item.get_status_display }}</strong>
+        </div>
+
+        <div>
+            <span class="meta">Eenheid</span>
+            <strong>{{ item.unit|default:"Geen" }}</strong>
+        </div>
+
+        {% if stock != None %}
+            <div>
+                <span class="meta">Voorraad</span>
+                <strong>{{ stock|smart_quantity }} {{ item.unit }}</strong>
+            </div>
+        {% endif %}
+
+        {% if recipe_availability %}
+            <div>
+                <span class="meta">Beschikbaarheid</span>
+                {% if recipe_availability.has_recipe %}
+                    {% if recipe_availability.is_available %}
+                        <strong>Kan gemaakt worden</strong>
+                    {% else %}
+                        <strong>Niet beschikbaar</strong>
+                    {% endif %}
+                {% else %}
+                    <strong>Geen recept</strong>
+                {% endif %}
+            </div>
+
+            <div>
+                <span class="meta">Maximaal te maken</span>
+                <strong>
+                    {% if recipe_availability.max_outputs == None %}
+                        Niet berekend
+                    {% else %}
+                        {{ recipe_availability.max_outputs|smart_quantity }}
+                    {% endif %}
+                </strong>
+            </div>
+        {% endif %}
+
+        {% if margin %}
+            <div>
+                <span class="meta">Receptkosten</span>
+                <strong>
+                    {% if margin.cost_price %}
+                        € {{ margin.cost_price }}
+                    {% else %}
+                        Onbekend
+                    {% endif %}
+                </strong>
+            </div>
+
+            <div>
+                <span class="meta">Brutomarge</span>
+                <strong>
+                    {% if margin.gross_margin %}
+                        € {{ margin.gross_margin }}
+                    {% else %}
+                        Onbekend
+                    {% endif %}
+                </strong>
+            </div>
+
+            <div>
+                <span class="meta">Margepercentage</span>
+                <strong>
+                    {% if margin.gross_margin_percentage %}
+                        {{ margin.gross_margin_percentage }}%
+                    {% else %}
+                        Onbekend
+                    {% endif %}
+                </strong>
+            </div>
+        {% endif %}
+    </div>
+{% endif %}
+
+{% if request.user.is_authenticated and recipe_lines %}
+    <div class="section-title">
+        <div>
+            <h2>Waar is dit van gemaakt?</h2>
+            <p>Ingrediënten en hoeveelheden per recept.</p>
+        </div>
+    </div>
+
+    <div class="table-wrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Ingrediënt</th>
+                    <th>Hoeveelheid</th>
+                    <th>Type</th>
+                    <th>Notitie</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for line in recipe_lines %}
+                    <tr>
+                        <td>
+                            <a class="table-link" href="{% url 'items:public_detail' line.ingredient.slug %}">
+                                {{ line.ingredient.name }}
+                            </a>
+                        </td>
+                        <td>{{ line.quantity|smart_quantity }} {{ line.ingredient.unit }}</td>
+                        <td>
+                            {% if line.is_optional %}
+                                <span class="badge badge-warning">Optioneel</span>
+                            {% else %}
+                                <span class="badge badge-positive">Verplicht</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ line.note|default:"" }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+
+{% if request.user.is_authenticated and used_in_recipe_lines %}
+    <div class="section-title">
+        <div>
+            <h2>Waar wordt dit in gebruikt?</h2>
+            <p>Alle gerechten en dranken waarin dit item voorkomt.</p>
+        </div>
+    </div>
+
+    <div class="item-browser-grid">
+        {% for line in used_in_recipe_lines %}
+            <article class="browser-card">
+                <div class="browser-card-header">
+                    <div>
+                        <p class="meta">{{ line.recipe.output_item.category|default:"Geen categorie" }}</p>
+                        <h2>{{ line.recipe.output_item.name }}</h2>
+                    </div>
+
+                    {% if line.is_optional %}
+                        <span class="badge badge-warning">Optioneel</span>
+                    {% else %}
+                        <span class="badge badge-positive">Verplicht</span>
+                    {% endif %}
+                </div>
+
+                <p>
+                    Nodig:
+                    <strong>{{ line.quantity|smart_quantity }} {{ item.unit }}</strong>
+                </p>
+
+                {% if line.note %}
+                    <p class="meta">{{ line.note }}</p>
+                {% endif %}
+
+                <div class="row-actions">
+                    <a class="button secondary" href="{% url 'items:public_detail' line.recipe.output_item.slug %}">Item bekijken</a>
+                    <a class="button secondary" href="{% url 'recipes:manage' line.recipe.output_item.id %}">Recept beheren</a>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% if request.user.is_authenticated and recent_movements %}
+    <div class="section-title">
+        <div>
+            <h2>Laatste voorraadmutaties</h2>
+            <p>Recente voorraadbewegingen voor dit item.</p>
+        </div>
+    </div>
+
+    <div class="table-wrap">
+        <table class="table movement-table">
+            <thead>
+                <tr>
+                    <th>Moment</th>
+                    <th>Beweging</th>
+                    <th>Hoeveelheid</th>
+                    <th>Reden</th>
+                    <th>Locatie</th>
+                    <th>Door</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for movement in recent_movements %}
+                    <tr class="movement-row {{ movement.signed_quantity|signed_class }}">
+                        <td>{{ movement.created_at|date:"d-m-Y H:i" }}</td>
+                        <td>{{ movement.get_movement_type_display }}</td>
+                        <td>
+                            <strong>
+                                {{ movement.signed_quantity|signed_prefix }}{{ movement.quantity_in_item_unit|smart_quantity }}
+                            </strong>
+                            {{ movement.item.unit }}
+                        </td>
+                        <td>{{ movement.get_reason_code_display }}</td>
+                        <td>{{ movement.location }}</td>
+                        <td>{{ movement.created_by|default:"Systeem" }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+{% endblock %}

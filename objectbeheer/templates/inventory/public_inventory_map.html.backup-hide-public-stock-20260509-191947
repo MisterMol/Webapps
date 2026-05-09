@@ -1,0 +1,58 @@
+{% extends "base/base.html" %}
+{% load inventory_extras %}
+
+{% block content %}
+<section class="hero">
+    <h1>Beschikbare voorraad</h1>
+    <p>Bekijk wat op dit moment beschikbaar is. Items zonder voorraad worden automatisch verborgen.</p>
+</section>
+
+{% if rows %}
+    <div class="grid">
+        {% for row in rows %}
+            <a class="card interactive" href="{% url 'items:public_detail' row.item.slug %}">
+                {% if row.item.should_show_image %}
+                    <div class="card-image-wrap">
+                        {% with image=row.item.primary_image %}
+                            {% if image %}
+                                <img class="card-image" src="{{ image.image.url }}" alt="{{ image.alt_text|default:row.item.name }}">
+                            {% elif row.item.use_default_image_when_missing and branding and branding.default_item_image %}
+                                <img class="card-image" src="{{ branding.default_item_image.url }}" alt="{{ row.item.name }}">
+                            {% else %}
+                                <div class="placeholder-image">{{ row.item.name }}</div>
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                {% endif %}
+
+                <div class="card-body">
+                    {% if row.item.category %}
+                        <p class="meta">{{ row.item.category.name }}</p>
+                    {% endif %}
+
+                    <h2>{{ row.item.name }}</h2>
+
+                    {% if row.item.display_description %}
+                        <p>{{ row.item.display_description|truncatewords:16 }}</p>
+                    {% endif %}
+
+                    <div class="badges">
+                        <span class="badge badge-positive">Beschikbaar</span>
+                        <span class="badge">{{ row.stock|smart_quantity }} {{ row.item.unit }}</span>
+                    </div>
+
+                    {% if not company_settings or company_settings.show_public_prices %}
+                        {% if row.item.sale_price %}
+                            <p class="price">€ {{ row.item.sale_price }}</p>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="empty-state">
+        Er is op dit moment geen beschikbare voorraad om te tonen.
+    </div>
+{% endif %}
+{% endblock %}

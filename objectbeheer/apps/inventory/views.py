@@ -11,6 +11,7 @@ from .models import StockLocation, StockMovement, calculate_stock, item_is_avail
 from .services import apply_stock_action
 
 
+@login_required
 def public_inventory_map(request):
     items = (
         Item.objects

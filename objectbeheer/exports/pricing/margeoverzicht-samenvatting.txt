@@ -1,0 +1,35 @@
+Margeoverzicht
+================
+
+Database aangepast: nee
+Inkoopprijzen te wijzigen: 105
+Btw correcties te wijzigen: 2
+Verkoopprijzen te wijzigen: 0
+Rapportregels: 54
+
+Items met aandacht:
+Black Angus Deluxe | Let op marge | kostprijs 4.73 | verkoop 13.50 | marge 65.0%
+Broodje gezond | Ruime marge | kostprijs 0.84 | verkoop 6.50 | marge 87.1%
+Friet normaal | Ruime marge | kostprijs 0.50 | verkoop 3.50 | marge 85.7%
+Friet truffel | Ruime marge | kostprijs 0.93 | verkoop 5.50 | marge 83.2%
+Bitterballen 8 stuks | Ruime marge | kostprijs 0.00 | verkoop 7.95 | marge 100.0%
+Chicken Wings 6 stuks | Marge te laag | kostprijs 4.46 | verkoop 7.50 | marge 40.5%
+Onion Rings 8 stuks | Ruime marge | kostprijs 0.68 | verkoop 5.95 | marge 88.6%
+Bakje satésaus | Let op marge | kostprijs 0.60 | verkoop 1.50 | marge 60.0%
+Bakje sriracha mayo | Let op marge | kostprijs 0.45 | verkoop 1.25 | marge 64.0%
+Bakje truffelmayonaise | Marge te laag | kostprijs 0.70 | verkoop 1.25 | marge 44.0%
+Bakje vegan mayo | Let op marge | kostprijs 0.45 | verkoop 1.25 | marge 64.0%
+Loaded Fries Korean Chicken | Let op marge | kostprijs 3.20 | verkoop 8.95 | marge 64.3%
+Loaded Fries Saté | Ruime marge | kostprijs 1.34 | verkoop 7.95 | marge 83.2%
+Amaretto Sour | Ruime marge | kostprijs 1.11 | verkoop 8.50 | marge 87.0%
+Cuba Libre | Ruime marge | kostprijs 1.52 | verkoop 8.50 | marge 82.1%
+Dark and Stormy | Ruime marge | kostprijs 1.58 | verkoop 8.95 | marge 82.3%
+Espresso Martini | Ruime marge | kostprijs 1.46 | verkoop 9.75 | marge 85.1%
+Mojito | Ruime marge | kostprijs 1.11 | verkoop 9.00 | marge 87.7%
+Piña Colada | Ruime marge | kostprijs 1.54 | verkoop 9.50 | marge 83.8%
+Whiskey Sour | Ruime marge | kostprijs 1.43 | verkoop 9.50 | marge 85.0%
+Passion Fruit Cooler | Ruime marge | kostprijs 0.91 | verkoop 6.75 | marge 86.6%
+Virgin Mojito | Ruime marge | kostprijs 0.52 | verkoop 6.50 | marge 92.1%
+Tonic | Let op marge | kostprijs 1.00 | verkoop 2.75 | marge 63.6%
+Koffie | Mist inkoopprijs | kostprijs 0.00 | verkoop 2.50 | marge 100.0%
+Vanilla Milkshake | Let op marge | kostprijs 1.84 | verkoop 5.25 | marge 65.0%

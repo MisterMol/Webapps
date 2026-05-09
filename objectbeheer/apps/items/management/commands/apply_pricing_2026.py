@@ -1,0 +1,538 @@
+from decimal import Decimal, ROUND_HALF_UP
+from pathlib import Path
+import csv
+
+from django.core.management.base import BaseCommand
+from django.db import transaction
+
+from apps.items.models import Item
+from apps.recipes.models import Recipe, RecipeIngredient
+
+
+CENT = Decimal("0.01")
+FOUR_DECIMALS = Decimal("0.0001")
+
+
+def decimal_value(value):
+    return Decimal(str(value))
+
+
+def money(value):
+    return Decimal(value).quantize(CENT, rounding=ROUND_HALF_UP)
+
+
+def four_decimals(value):
+    return Decimal(value).quantize(FOUR_DECIMALS, rounding=ROUND_HALF_UP)
+
+
+PURCHASE_PRICE_BY_NAME = {
+    "Jonge kaas": "0.0090",
+    "Broodje": "0.4500",
+    "Tomaat": "0.0060",
+    "Cola 330 ml": "0.8000",
+    "Amaretto": "0.0140",
+    "Citroensap": "0.0060",
+    "Suikersiroop": "0.0040",
+    "Cocktailkers": "0.0800",
+    "Brioche burger bun": "0.5500",
+    "Runderburger 150g": "1.6500",
+    "Kipburger krokant": "1.8500",
+    "Vega burger": "1.7500",
+    "Cheddar plak": "0.2200",
+    "IJsbergsla": "0.0040",
+    "Rode ui": "0.0030",
+    "Augurk": "0.0040",
+    "Jalapeño": "0.0080",
+    "Friet aardappel": "0.0022",
+    "Zoete aardappel friet": "0.0038",
+    "Loaded fries topping spek": "0.0180",
+    "Truffelmayonaise": "0.0160",
+    "Knoflooksaus": "0.0060",
+    "Sambalsaus": "0.0060",
+    "Mayonaise": "0.0050",
+    "Ketchup": "0.0040",
+    "Zout": "0.0010",
+    "Paprikapoeder": "0.0120",
+    "Suiker": "0.0018",
+    "Kroket": "0.6500",
+    "Frikandel": "0.5200",
+    "Kaassoufflé": "0.5800",
+    "Bitterbal": "0.2200",
+    "Vodka": "0.0120",
+    "Rum": "0.0140",
+    "Gin": "0.0140",
+    "Limoensap": "0.0060",
+    "Cola siroop of fles": "0.0040",
+    "Tonic": "1.0000",
+    "Munt": "0.0400",
+    "Black Angus burger 180g": "2.7500",
+    "Smash burger patty": "0.9500",
+    "Pulled chicken": "0.0170",
+    "Krokante kipstukjes": "0.0090",
+    "Falafel": "0.2200",
+    "Halloumi": "0.0180",
+    "Bacon": "0.0180",
+    "Brioche bol zwart sesam": "0.7500",
+    "Wrap tortilla": "0.3500",
+    "Pitabrood": "0.2800",
+    "Rucola": "0.0200",
+    "Komkommer": "0.0040",
+    "Avocado": "0.9500",
+    "Champignons": "0.0060",
+    "Gebakken ui": "0.0080",
+    "Krokante uitjes": "0.0090",
+    "Nacho crumble": "0.0060",
+    "Kimchi": "0.0120",
+    "BBQ saus": "0.0060",
+    "Burger relish": "0.0080",
+    "Sriracha mayo": "0.0090",
+    "Andalouse saus": "0.0070",
+    "Samurai saus": "0.0080",
+    "Satésaus": "0.0100",
+    "Joppiesaus": "0.0070",
+    "Cheddarsaus": "0.0070",
+    "Aioli": "0.0070",
+    "Vegan mayo": "0.0090",
+    "Knoflook kruidenmix": "0.0120",
+    "Cajun kruiden": "0.0120",
+    "Ras el hanout": "0.0120",
+    "Parmezaan": "0.0250",
+    "Mozzarella": "0.0120",
+    "Slagroom": "0.0045",
+    "Vanille ijs": "0.0055",
+    "Chocoladesaus": "0.0080",
+    "Karamelsaus": "0.0080",
+    "Tequila": "0.0160",
+    "Triple sec": "0.0120",
+    "Cointreau": "0.0200",
+    "Campari": "0.0150",
+    "Aperol": "0.0120",
+    "Prosecco": "0.0090",
+    "Bourbon": "0.0180",
+    "Whiskey": "0.0180",
+    "Rode vermouth": "0.0100",
+    "Koffielikeur": "0.0120",
+    "Espresso": "0.0060",
+    "Cranberrysap": "0.0035",
+    "Sinaasappelsap": "0.0035",
+    "Ananassap": "0.0035",
+    "Kokosroom": "0.0080",
+    "Ginger beer": "0.0045",
+    "Grapefruit soda": "0.0040",
+    "Bruiswater": "0.0015",
+    "Passievrucht puree": "0.0150",
+    "Vanillesiroop": "0.0080",
+    "Grenadine": "0.0060",
+    "Eiwit of aquafaba": "0.0060",
+    "Limoenpartjes": "0.1000",
+    "Sinaasappelschijf": "0.0800",
+    "Citroenschijf": "0.0800",
+
+    "Koffie": "0.2500",
+    "Bitterballen 8 stuks": "1.7600",
+    "Kroket los": "0.6500",
+    "Bakje truffelmayonaise": "0.7000",
+    "Bakje knoflooksaus": "0.3500",
+    "Bakje sriracha mayo": "0.4500",
+    "Bakje samurai saus": "0.4500",
+    "Bakje satésaus": "0.6000",
+    "Bakje joppiesaus": "0.4000",
+    "Bakje vegan mayo": "0.4500",
+}
+
+
+SALE_PRICE_BY_NAME = {
+    "Cola 330 ml": "3.00",
+    "Broodje gezond": "6.95",
+    "Tosti kaas": "5.25",
+    "Amaretto Sour": "9.00",
+    "Classic Burger": "10.50",
+    "Cheese Burger": "11.50",
+    "Spicy Jalapeño Burger": "12.50",
+    "Vega Truffel Burger": "12.00",
+    "Friet normaal": "3.75",
+    "Friet truffel": "5.95",
+    "Loaded fries bacon": "8.50",
+    "Kroket los": "2.95",
+    "Frikandel speciaal": "4.25",
+    "Bitterballen 8 stuks": "8.50",
+    "Bakje truffelmayonaise": "1.75",
+    "Bakje knoflooksaus": "1.25",
+    "Mojito": "9.50",
+    "Gin Tonic": "9.50",
+    "Tonic": "3.00",
+    "Cola": "3.00",
+    "Koffie": "2.75",
+    "Black Angus Deluxe": "14.95",
+    "Double Smash Burger": "13.95",
+    "Korean Chicken Burger": "13.50",
+    "Halloumi Burger": "12.95",
+    "Falafel Wrap": "9.50",
+    "Pulled Chicken Wrap": "10.50",
+    "Loaded Fries Korean Chicken": "9.95",
+    "Loaded Fries Truffle Parmesan": "9.50",
+    "Loaded Fries Saté": "8.50",
+    "Sweet Potato Fries": "5.95",
+    "Chicken Wings 6 stuks": "8.95",
+    "Onion Rings 8 stuks": "6.50",
+    "Snackmix Deluxe": "14.95",
+    "Bakje sriracha mayo": "1.50",
+    "Bakje samurai saus": "1.50",
+    "Bakje satésaus": "1.75",
+    "Bakje joppiesaus": "1.50",
+    "Bakje vegan mayo": "1.50",
+    "Margarita": "10.00",
+    "Espresso Martini": "10.50",
+    "Pornstar Martini": "11.00",
+    "Aperol Spritz": "9.25",
+    "Negroni": "10.50",
+    "Whiskey Sour": "10.00",
+    "Paloma": "9.50",
+    "Piña Colada": "10.00",
+    "Cuba Libre": "9.00",
+    "Dark and Stormy": "9.50",
+    "Virgin Mojito": "7.00",
+    "Passion Fruit Cooler": "7.25",
+    "Strawberry Milkshake": "5.95",
+    "Chocolate Milkshake": "5.95",
+    "Vanilla Milkshake": "5.75",
+}
+
+
+ALCOHOLIC_NAMES = {
+    "Amaretto Sour",
+    "Mojito",
+    "Gin Tonic",
+    "Margarita",
+    "Espresso Martini",
+    "Pornstar Martini",
+    "Aperol Spritz",
+    "Negroni",
+    "Whiskey Sour",
+    "Paloma",
+    "Piña Colada",
+    "Cuba Libre",
+    "Dark and Stormy",
+    "Amaretto",
+    "Vodka",
+    "Rum",
+    "Gin",
+    "Tequila",
+    "Triple sec",
+    "Cointreau",
+    "Campari",
+    "Aperol",
+    "Prosecco",
+    "Bourbon",
+    "Whiskey",
+    "Rode vermouth",
+    "Koffielikeur",
+}
+
+
+NON_ALCOHOLIC_NAMES = {
+    "Cola",
+    "Cola 330 ml",
+    "Tonic",
+    "Koffie",
+    "Virgin Mojito",
+    "Passion Fruit Cooler",
+    "Strawberry Milkshake",
+    "Chocolate Milkshake",
+    "Vanilla Milkshake",
+}
+
+
+MIXER_RECIPE_ML_PRICE_BY_NAME = {
+    "Tonic": Decimal("0.0040"),
+    "Cola": Decimal("0.0040"),
+}
+
+
+def target_vat_for_item(item):
+    if item.name in ALCOHOLIC_NAMES:
+        return Decimal("21.00")
+
+    if item.category and item.category.name in ["Cocktails", "Bier en wijn"]:
+        if item.name not in NON_ALCOHOLIC_NAMES:
+            return Decimal("21.00")
+
+    return Decimal("9.00")
+
+
+def purchase_price_for_item(item):
+    mapped_price = PURCHASE_PRICE_BY_NAME.get(item.name)
+
+    if mapped_price is not None:
+        return Decimal(mapped_price)
+
+    if item.purchase_price is not None:
+        return Decimal(item.purchase_price)
+
+    return Decimal("0.0000")
+
+
+def recipe_line_unit_price(line):
+    ingredient = line.ingredient
+    quantity = Decimal(line.quantity)
+
+    if (
+        ingredient.name in MIXER_RECIPE_ML_PRICE_BY_NAME
+        and ingredient.item_type in ["drink", "product"]
+        and quantity >= Decimal("20")
+    ):
+        return MIXER_RECIPE_ML_PRICE_BY_NAME[ingredient.name]
+
+    return purchase_price_for_item(ingredient)
+
+
+def recipe_cost_for_item(item):
+    try:
+        recipe = Recipe.objects.get(output_item=item, is_active=True)
+    except Recipe.DoesNotExist:
+        return None, "geen actief recept"
+
+    lines = (
+        RecipeIngredient.objects
+        .filter(recipe=recipe)
+        .select_related("ingredient")
+        .order_by("id")
+    )
+
+    if not lines.exists():
+        return None, "recept zonder regels"
+
+    total = Decimal("0.0000")
+
+    for line in lines:
+        ingredient = line.ingredient
+        unit_price = recipe_line_unit_price(line)
+        quantity = Decimal(line.quantity)
+        waste_multiplier = Decimal("1.0000") + (Decimal(line.waste_percentage) / Decimal("100"))
+
+        total += unit_price * quantity * waste_multiplier
+
+    servings = Decimal(recipe.servings or 1)
+
+    if servings <= 0:
+        servings = Decimal("1")
+
+    return total / servings, "recept"
+
+
+def cost_for_sellable_item(item):
+    recipe_cost, source = recipe_cost_for_item(item)
+
+    if recipe_cost is not None:
+        return recipe_cost, source
+
+    direct_cost = PURCHASE_PRICE_BY_NAME.get(item.name)
+
+    if direct_cost is not None:
+        return Decimal(direct_cost), "directe kostprijs"
+
+    if item.purchase_price is not None:
+        return Decimal(item.purchase_price), "bestaande inkoopprijs"
+
+    return Decimal("0.0000"), source
+
+
+def margin_percentage(sale_price, cost_price):
+    if sale_price is None or Decimal(sale_price) <= 0:
+        return None
+
+    sale = Decimal(sale_price)
+    cost = Decimal(cost_price)
+
+    return ((sale - cost) / sale * Decimal("100")).quantize(Decimal("0.1"), rounding=ROUND_HALF_UP)
+
+
+def margin_status(item, margin):
+    if margin is None:
+        return "geen verkoopprijs"
+
+    if item.item_type == "drink" and item.name in ALCOHOLIC_NAMES:
+        if margin < Decimal("72.0"):
+            return "marge te laag"
+        if margin > Decimal("88.0"):
+            return "ruime marge"
+        return "goed"
+
+    if item.item_type == "drink":
+        if margin < Decimal("65.0"):
+            return "marge te laag"
+        if margin > Decimal("88.0"):
+            return "ruime marge"
+        return "goed"
+
+    if item.item_type in ["menu_item", "product"]:
+        if margin < Decimal("62.0"):
+            return "marge te laag"
+        if margin > Decimal("86.0"):
+            return "ruime marge"
+        return "goed"
+
+    return "n.v.t."
+
+
+class Command(BaseCommand):
+    help = "Corrigeert inkoopprijzen, btw en optioneel verkoopprijzen naar een werkbaar 2026 prijsniveau."
+
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "--apply",
+            action="store_true",
+            help="Sla wijzigingen echt op in de database.",
+        )
+        parser.add_argument(
+            "--overwrite-sale-prices",
+            action="store_true",
+            help="Overschrijf verkoopprijzen met de 2026 adviesprijzen.",
+        )
+
+    def handle(self, *args, **options):
+        apply_changes = options["apply"]
+        overwrite_sale_prices = options["overwrite_sale_prices"]
+
+        export_dir = Path("exports") / "pricing"
+        export_dir.mkdir(parents=True, exist_ok=True)
+
+        report_path = export_dir / "margeoverzicht-2026.csv"
+        summary_path = export_dir / "margeoverzicht-2026-samenvatting.txt"
+
+        purchase_updates = 0
+        vat_updates = 0
+        sale_updates = 0
+        report_rows = []
+
+        items = (
+            Item.objects
+            .select_related("category", "unit")
+            .prefetch_related("labels")
+            .order_by("item_type", "category__name", "name")
+        )
+
+        with transaction.atomic():
+            for item in items:
+                changed = False
+
+                wanted_purchase = PURCHASE_PRICE_BY_NAME.get(item.name)
+                if wanted_purchase is not None:
+                    wanted_purchase_decimal = four_decimals(wanted_purchase)
+
+                    if item.purchase_price != wanted_purchase_decimal:
+                        purchase_updates += 1
+                        changed = True
+
+                        if apply_changes:
+                            item.purchase_price = wanted_purchase_decimal
+
+                wanted_vat = target_vat_for_item(item)
+                if item.vat_rate != wanted_vat:
+                    vat_updates += 1
+                    changed = True
+
+                    if apply_changes:
+                        item.vat_rate = wanted_vat
+
+                wanted_sale = SALE_PRICE_BY_NAME.get(item.name)
+                if overwrite_sale_prices and wanted_sale is not None:
+                    wanted_sale_decimal = money(wanted_sale)
+
+                    if item.sale_price != wanted_sale_decimal:
+                        sale_updates += 1
+                        changed = True
+
+                        if apply_changes:
+                            item.sale_price = wanted_sale_decimal
+
+                if changed and apply_changes:
+                    item.save()
+
+            sellable_items = (
+                Item.objects
+                .filter(item_type__in=["menu_item", "product", "drink"], status="active")
+                .select_related("category", "unit")
+                .order_by("category__sort_order", "category__name", "name")
+            )
+
+            for item in sellable_items:
+                cost_price, cost_source = cost_for_sellable_item(item)
+
+                sale_price = item.sale_price
+                if overwrite_sale_prices and item.name in SALE_PRICE_BY_NAME:
+                    sale_price = Decimal(SALE_PRICE_BY_NAME[item.name])
+
+                margin = margin_percentage(sale_price, cost_price)
+
+                report_rows.append(
+                    {
+                        "type": item.get_item_type_display(),
+                        "categorie": item.category.name if item.category else "",
+                        "naam": item.name,
+                        "kostprijs": str(money(cost_price)),
+                        "kostprijs_bron": cost_source,
+                        "verkoopprijs": str(money(sale_price)) if sale_price is not None else "",
+                        "marge_percentage": str(margin) if margin is not None else "",
+                        "marge_status": margin_status(item, margin),
+                        "btw": str(item.vat_rate),
+                        "advies_verkoopprijs_2026": SALE_PRICE_BY_NAME.get(item.name, ""),
+                    }
+                )
+
+            if not apply_changes:
+                transaction.set_rollback(True)
+
+        with report_path.open("w", newline="", encoding="utf-8") as csv_file:
+            fieldnames = [
+                "type",
+                "categorie",
+                "naam",
+                "kostprijs",
+                "kostprijs_bron",
+                "verkoopprijs",
+                "marge_percentage",
+                "marge_status",
+                "btw",
+                "advies_verkoopprijs_2026",
+            ]
+            writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(report_rows)
+
+        attention_rows = [
+            row for row in report_rows
+            if row["marge_status"] in ["marge te laag", "geen verkoopprijs"]
+            or row["kostprijs"] == "0.00"
+        ]
+
+        with summary_path.open("w", encoding="utf-8") as summary_file:
+            summary_file.write("Margeoverzicht 2026\n")
+            summary_file.write("==================\n\n")
+            summary_file.write(f"Database aangepast: {'ja' if apply_changes else 'nee'}\n")
+            summary_file.write(f"Inkoopprijzen te wijzigen: {purchase_updates}\n")
+            summary_file.write(f"Btw correcties te wijzigen: {vat_updates}\n")
+            summary_file.write(f"Verkoopprijzen te wijzigen: {sale_updates}\n")
+            summary_file.write(f"Rapportregels: {len(report_rows)}\n\n")
+
+            summary_file.write("Items met aandacht:\n")
+            if attention_rows:
+                for row in attention_rows:
+                    summary_file.write(
+                        f"{row['naam']} | {row['marge_status']} | kostprijs {row['kostprijs']} | verkoop {row['verkoopprijs']} | marge {row['marge_percentage']}%\n"
+                    )
+            else:
+                summary_file.write("Geen directe aandachtspunten gevonden.\n")
+
+        self.stdout.write("")
+        self.stdout.write(self.style.SUCCESS("Prijscontrole 2026 klaar."))
+        self.stdout.write(f"Database aangepast: {'ja' if apply_changes else 'nee'}")
+        self.stdout.write(f"Inkoopprijzen te wijzigen: {purchase_updates}")
+        self.stdout.write(f"Btw correcties te wijzigen: {vat_updates}")
+        self.stdout.write(f"Verkoopprijzen te wijzigen: {sale_updates}")
+        self.stdout.write(f"CSV rapport: {report_path}")
+        self.stdout.write(f"Samenvatting: {summary_path}")
+
+        if not apply_changes:
+            self.stdout.write("")
+            self.stdout.write("Dit was een droge run. Gebruik --apply als je de prijzen echt wilt opslaan.")

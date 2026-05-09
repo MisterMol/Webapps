@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Category, Item, ItemImage, Label
+from .models import Allergen, Category, Item, ItemImage, Label
 
 
 class ItemImageInline(admin.TabularInline):
@@ -20,6 +20,14 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(Label)
 class LabelAdmin(admin.ModelAdmin):
     list_display = ("name", "description", "color")
+    search_fields = ("name", "description")
+    prepopulated_fields = {"slug": ("name",)}
+
+
+@admin.register(Allergen)
+class AllergenAdmin(admin.ModelAdmin):
+    list_display = ("name", "description", "is_active")
+    list_filter = ("is_active",)
     search_fields = ("name", "description")
     prepopulated_fields = {"slug": ("name",)}
 

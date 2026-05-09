@@ -7,7 +7,6 @@
         <h1>Robuuste gerechten, luxe snacks en cocktails met karakter.</h1>
         <p>
             Bekijk onze actuele kaart. Alles wat je hier ziet is beschikbaar om te bestellen.
-            Geen voorraadstanden, geen interne rommel, gewoon duidelijk.
         </p>
 
         <div class="hero-actions">
@@ -49,7 +48,7 @@
     <article>
         <span>03</span>
         <h2>GraafMol stijl</h2>
-        <p>Donker, strak en professioneel. Zoals een luxe snackbar hoort te voelen.</p>
+        <p>Strak en professioneel.</p>
     </article>
 </section>
 
@@ -75,7 +74,7 @@
                                         <source src="{{ media.image.url }}">
                                     </video>
                                 {% else %}
-                                    <img loading="lazy" decoding="async" class="card-image" src="{{ media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
+                                    <img loading="lazy" decoding="async" class="card-image" src="{{ item.primary_thumbnail_url|default:media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
                                 {% endif %}
                             {% elif item.use_default_image_when_missing and branding and branding.default_item_image %}
                                 <img loading="lazy" decoding="async" class="card-image" src="{{ branding.default_item_image.url }}" alt="{{ item.name }}">
@@ -134,7 +133,7 @@
                                         <source src="{{ media.image.url }}">
                                     </video>
                                 {% else %}
-                                    <img loading="lazy" decoding="async" class="card-image" src="{{ media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
+                                    <img loading="lazy" decoding="async" class="card-image" src="{{ item.primary_thumbnail_url|default:media.image.url }}" alt="{{ media.alt_text|default:item.name }}">
                                 {% endif %}
                             {% elif item.use_default_image_when_missing and branding and branding.default_item_image %}
                                 <img loading="lazy" decoding="async" class="card-image" src="{{ branding.default_item_image.url }}" alt="{{ item.name }}">

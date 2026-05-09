@@ -5,7 +5,7 @@ from django import forms
 
 from apps.inventory.models import StockLocation, Unit
 
-from .models import Category, Item, Label
+from .models import Allergen, Category, Item, Label
 
 
 ALLOWED_MEDIA_EXTENSIONS = {
@@ -88,6 +88,7 @@ class ItemCreateForm(forms.ModelForm):
             "sku",
             "category",
             "labels",
+            "allergens",
             "short_description",
             "description",
             "unit",
@@ -105,6 +106,7 @@ class ItemCreateForm(forms.ModelForm):
             "description": forms.Textarea(attrs={"rows": 4}),
             "short_description": forms.TextInput(),
             "labels": forms.CheckboxSelectMultiple(),
+            "allergens": forms.CheckboxSelectMultiple(),
         }
         help_texts = {
             "item_type": "Kies wat je aanmaakt. Een ingrediënt is iets dat je gebruikt in recepten. Een product of drank kan direct verkocht of getoond worden.",
@@ -112,6 +114,7 @@ class ItemCreateForm(forms.ModelForm):
             "sku": "Optioneel intern artikelnummer. Handig als je later importeert, exporteert of leverancierscodes gebruikt.",
             "category": "Categorie bepaalt waar het item onder valt. Bijvoorbeeld Dranken, Ingrediënten of Gerechten.",
             "labels": "Labels zijn extra kenmerken zoals Populair, Vegetarisch, Pittig of Alcoholvrij. Je kunt meerdere labels kiezen.",
+            "allergens": "Kies allergenen die direct in dit item zitten. Bij gerechten worden allergenen van ingrediënten later ook meegenomen.",
             "short_description": "Korte tekst voor kaarten en overzichten. Houd dit kort en duidelijk.",
             "description": "Langere omschrijving voor de detailpagina.",
             "unit": "De vaste eenheid waarin je voorraad telt. Bijvoorbeeld stuk, gram, kilogram, liter of milliliter.",
@@ -131,6 +134,7 @@ class ItemCreateForm(forms.ModelForm):
 
         self.fields["category"].queryset = Category.objects.filter(is_active=True).order_by("sort_order", "name")
         self.fields["labels"].queryset = Label.objects.order_by("name")
+        self.fields["allergens"].queryset = Allergen.objects.filter(is_active=True).order_by("name")
         self.fields["unit"].queryset = Unit.objects.filter(is_active=True).order_by("unit_type", "name")
         self.fields["initial_stock_location"].queryset = StockLocation.objects.filter(is_active=True).order_by("name")
         self.fields["initial_stock_unit"].queryset = Unit.objects.filter(is_active=True).order_by("unit_type", "name")
@@ -140,6 +144,7 @@ class ItemCreateForm(forms.ModelForm):
         self.fields["sku"].label = "Artikelcode"
         self.fields["category"].label = "Categorie"
         self.fields["labels"].label = "Labels"
+        self.fields["allergens"].label = "Allergenen"
         self.fields["short_description"].label = "Korte omschrijving"
         self.fields["description"].label = "Omschrijving"
         self.fields["unit"].label = "Vaste eenheid"
@@ -170,6 +175,7 @@ class ItemCreateForm(forms.ModelForm):
         self.fields["primary_media_id"].choices = media_choices
 
         self.fields["labels"].required = False
+        self.fields["allergens"].required = False
         self.fields["sku"].required = False
         self.fields["short_description"].required = False
         self.fields["description"].required = False
@@ -252,6 +258,7 @@ class ItemUpdateForm(forms.ModelForm):
             "sku",
             "category",
             "labels",
+            "allergens",
             "short_description",
             "description",
             "unit",
@@ -269,6 +276,7 @@ class ItemUpdateForm(forms.ModelForm):
             "description": forms.Textarea(attrs={"rows": 5}),
             "short_description": forms.TextInput(),
             "labels": forms.CheckboxSelectMultiple(),
+            "allergens": forms.CheckboxSelectMultiple(),
         }
         help_texts = {
             "item_type": "Bepaalt hoe het item zich gedraagt. Gerechten en dranken kunnen een recept hebben. Ingrediënten worden gebruikt in recepten.",
@@ -276,6 +284,7 @@ class ItemUpdateForm(forms.ModelForm):
             "sku": "Optioneel intern artikelnummer of leverancierscode.",
             "category": "Categorie bepaalt waar het item in lijsten en filters staat.",
             "labels": "Labels maken filteren makkelijk. Bijvoorbeeld Populair, Vegetarisch, Pittig of Premium.",
+            "allergens": "Kies allergenen die direct in dit item zitten. Bij gerechten worden allergenen van ingrediënten ook getoond.",
             "short_description": "Korte tekst voor kaarten en overzichten.",
             "description": "Langere tekst voor de detailpagina. Hier kun je sfeer, ingrediënten of uitleg kwijt.",
             "unit": "De vaste eenheid voor voorraad. Bijvoorbeeld stuk, gram, kilogram, liter of milliliter.",
@@ -295,6 +304,7 @@ class ItemUpdateForm(forms.ModelForm):
 
         self.fields["category"].queryset = Category.objects.filter(is_active=True).order_by("sort_order", "name")
         self.fields["labels"].queryset = Label.objects.order_by("name")
+        self.fields["allergens"].queryset = Allergen.objects.filter(is_active=True).order_by("name")
         self.fields["unit"].queryset = Unit.objects.filter(is_active=True).order_by("unit_type", "name")
 
         self.fields["item_type"].label = "Type"
@@ -302,6 +312,7 @@ class ItemUpdateForm(forms.ModelForm):
         self.fields["sku"].label = "Artikelcode"
         self.fields["category"].label = "Categorie"
         self.fields["labels"].label = "Labels"
+        self.fields["allergens"].label = "Allergenen"
         self.fields["short_description"].label = "Korte omschrijving"
         self.fields["description"].label = "Uitgebreide omschrijving"
         self.fields["unit"].label = "Vaste eenheid"
@@ -332,6 +343,7 @@ class ItemUpdateForm(forms.ModelForm):
         self.fields["primary_media_id"].choices = media_choices
 
         self.fields["labels"].required = False
+        self.fields["allergens"].required = False
         self.fields["sku"].required = False
         self.fields["short_description"].required = False
         self.fields["description"].required = False

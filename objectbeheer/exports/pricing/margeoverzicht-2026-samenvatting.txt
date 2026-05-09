@@ -1,0 +1,11 @@
+Margeoverzicht 2026
+==================
+
+Database aangepast: ja
+Inkoopprijzen te wijzigen: 0
+Btw correcties te wijzigen: 0
+Verkoopprijzen te wijzigen: 54
+Rapportregels: 54
+
+Items met aandacht:
+Bakje truffelmayonaise | marge te laag | kostprijs 0.80 | verkoop 1.75 | marge 54.3%
