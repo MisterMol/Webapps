@@ -1,0 +1,67 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<section class="hero">
+    <h1>Beheer</h1>
+    <p>Overzicht van de testomgeving voor Restaurant De Molen.</p>
+</section>
+
+<div class="grid">
+    <div class="card">
+        <div class="card-body">
+            <h2>{{ item_count }}</h2>
+            <p>Items totaal</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h2>{{ active_item_count }}</h2>
+            <p>Actieve items</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h2>{{ recipe_count }}</h2>
+            <p>Recepten</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h2>{{ stock_movement_count }}</h2>
+            <p>Voorraadmutaties</p>
+        </div>
+    </div>
+</div>
+
+<h2>Recente voorraadmutaties</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Locatie</th>
+            <th>Type</th>
+            <th>Hoeveelheid</th>
+            <th>Moment</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for movement in recent_movements %}
+            <tr>
+                <td>{{ movement.item }}</td>
+                <td>{{ movement.location }}</td>
+                <td>{{ movement.get_movement_type_display }}</td>
+                <td>{{ movement.quantity }}</td>
+                <td>{{ movement.created_at }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="5">Nog geen mutaties.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<section class="hero">
+    <h1>Catalogus</h1>
+    <p>Hier staan de actieve items van het restaurant.</p>
+</section>
+
+{% if categories %}
+    <p>
+        <a class="button" href="{% url 'items:public_list' %}">Alles</a>
+        {% for category in categories %}
+            <a class="button" href="?categorie={{ category.slug }}">{{ category.name }}</a>
+        {% endfor %}
+    </p>
+{% endif %}
+
+{% if items %}
+    <div class="grid">
+        {% for item in items %}
+            <a class="card" href="{% url 'items:public_detail' item.slug %}">
+                {% with image=item.primary_image %}
+                    {% if image %}
+                        <img class="card-image" src="{{ image.image.url }}" alt="{{ image.alt_text|default:item.name }}">
+                    {% endif %}
+                {% endwith %}
+                <div class="card-body">
+                    {% if item.category %}
+                        <p class="meta">{{ item.category.name }}</p>
+                    {% endif %}
+                    <h2>{{ item.name }}</h2>
+                    <p>{{ item.description|truncatewords:18 }}</p>
+                    {% if item.sale_price %}
+                        <p class="price">€ {{ item.sale_price }}</p>
+                    {% endif %}
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>Er zijn nog geen items zichtbaar.</p>
+{% endif %}
+{% endblock %}

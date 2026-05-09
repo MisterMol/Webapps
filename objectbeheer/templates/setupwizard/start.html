@@ -1,0 +1,49 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<section class="form-panel">
+    <h1>Restaurant setup</h1>
+    <p>Vul de basisgegevens in. Voor de testfase gebruiken we standaard een restaurantprofiel.</p>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-row">
+            <label for="company_name">Bedrijfsnaam</label>
+            <input id="company_name" name="company_name" value="Restaurant De Molen">
+        </div>
+
+        <div class="form-row">
+            <label for="public_name">Publieke naam</label>
+            <input id="public_name" name="public_name" value="Restaurant De Molen">
+        </div>
+
+        <div class="form-row">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" value="info@restaurantdemolen.test">
+        </div>
+
+        <div class="form-row">
+            <label for="phone">Telefoon</label>
+            <input id="phone" name="phone" value="0123 456 789">
+        </div>
+
+        <div class="form-row">
+            <label for="address">Adres</label>
+            <textarea id="address" name="address">Molenstraat 1, 1234 AB Voorbeeldstad</textarea>
+        </div>
+
+        <div class="form-row">
+            <label for="primary_color">Hoofdkleur</label>
+            <input id="primary_color" name="primary_color" value="#111827">
+        </div>
+
+        <div class="form-row">
+            <label for="accent_color">Accentkleur</label>
+            <input id="accent_color" name="accent_color" value="#f59e0b">
+        </div>
+
+        <button class="button" type="submit">Setup voltooien</button>
+    </form>
+</section>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<section class="hero">
+    <h1>
+        {% if company %}
+            {{ company }}
+        {% else %}
+            Objectbeheer
+        {% endif %}
+    </h1>
+    <p>
+        Bekijk onze items, gerechten en producten. Deze testomgeving gebruikt een restaurantprofiel.
+    </p>
+    <a class="button" href="{% url 'items:public_list' %}">Bekijk catalogus</a>
+</section>
+
+<h2>Uitgelicht</h2>
+
+{% if featured_items %}
+    <div class="grid">
+        {% for item in featured_items %}
+            <a class="card" href="{% url 'items:public_detail' item.slug %}">
+                {% with image=item.primary_image %}
+                    {% if image %}
+                        <img class="card-image" src="{{ image.image.url }}" alt="{{ image.alt_text|default:item.name }}">
+                    {% endif %}
+                {% endwith %}
+                <div class="card-body">
+                    <p class="meta">{{ item.get_item_type_display }}</p>
+                    <h3>{{ item.name }}</h3>
+                    {% if item.sale_price %}
+                        <p class="price">€ {{ item.sale_price }}</p>
+                    {% endif %}
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>Er zijn nog geen uitgelichte items.</p>
+{% endif %}
+{% endblock %}

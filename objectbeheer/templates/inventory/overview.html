@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<h1>Voorraad</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Categorie</th>
+            <th>Voorraad</th>
+            <th>Eenheid</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in rows %}
+            <tr>
+                <td>{{ row.item.name }}</td>
+                <td>{{ row.item.category|default:"" }}</td>
+                <td>{{ row.stock }}</td>
+                <td>{{ row.item.unit|default:"" }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="4">Nog geen voorraaditems.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

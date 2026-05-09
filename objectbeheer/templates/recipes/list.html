@@ -1,0 +1,29 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<h1>Recepten</h1>
+
+{% if recipes %}
+    <div class="grid">
+        {% for recipe in recipes %}
+            <div class="card">
+                <div class="card-body">
+                    <h2>{{ recipe.output_item.name }}</h2>
+                    <p class="meta">Porties: {{ recipe.servings }}</p>
+
+                    <h3>Ingrediënten</h3>
+                    <ul>
+                        {% for line in recipe.ingredients.all %}
+                            <li>{{ line.quantity }} {{ line.ingredient.unit }} {{ line.ingredient.name }}</li>
+                        {% empty %}
+                            <li>Geen ingrediënten ingevuld.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>Er zijn nog geen recepten.</p>
+{% endif %}
+{% endblock %}

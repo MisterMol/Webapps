@@ -1,0 +1,37 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<p><a href="{% url 'items:public_list' %}">Terug naar catalogus</a></p>
+
+<article class="card">
+    {% with image=item.primary_image %}
+        {% if image %}
+            <img class="card-image" style="height: 420px;" src="{{ image.image.url }}" alt="{{ image.alt_text|default:item.name }}">
+        {% endif %}
+    {% endwith %}
+
+    <div class="card-body">
+        {% if item.category %}
+            <p class="meta">{{ item.category.name }}</p>
+        {% endif %}
+
+        <h1>{{ item.name }}</h1>
+
+        {% if item.description %}
+            <p>{{ item.description }}</p>
+        {% endif %}
+
+        {% if item.sale_price %}
+            <p class="price">€ {{ item.sale_price }}</p>
+        {% endif %}
+
+        {% if item.labels.all %}
+            <p class="meta">
+                {% for label in item.labels.all %}
+                    {{ label.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+        {% endif %}
+    </div>
+</article>
+{% endblock %}
